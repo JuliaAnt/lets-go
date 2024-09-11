@@ -1,0 +1,131 @@
+@import '../../styles/variables';
+
+.header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  min-height: 350px;
+
+  background-color: $color-basic-blue;
+  border-bottom-right-radius: 80px;
+  border-bottom-left-radius: 80px;
+}
+
+.headerContainer {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 46px 60px 68px 60px;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 42px;
+}
+
+.nav {
+  display: flex;
+  column-gap: 20px;
+
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    font-size: 20px;
+    line-height: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color-default-white;
+  }
+}
+
+.navListFirst {
+  flex-wrap: wrap;
+  column-gap: 18px;
+  row-gap: 18px;
+
+  a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 1em;
+  }
+
+  a:hover span,
+  a:focus span {
+    transform: translateY(-100%);
+    color: $color-jordy-blue;
+  }
+
+  a:active span {
+    opacity: 0.3;
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    transition: $trans-default;
+  }
+
+  span::before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 101%;
+    content: attr(data-hover);
+    font-weight: 700;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.navListSecond {
+  flex-wrap: wrap;
+  column-gap: 7px;
+  row-gap: 7px;
+  min-width: 107px;
+  max-width: 107px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: $color-jordy-blue;
+  }
+}
+
+.headerLogo {
+  width: 200px;
+  height: 50px;
+}
+
+.headerLine {
+  width: 60px;
+  height: 2px;
+  background-color: $color-default-white;
+}
+
+.headerTitle {
+  margin: 0;
+  margin-top: 124px;
+  margin-left: 64px;
+  text-transform: uppercase;
+
+  color: $color-default-white;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 60px;
+}
