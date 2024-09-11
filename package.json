@@ -21,7 +21,8 @@
     "start": "react-scripts start -p 3003",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "robots": "node create-robots-file.js"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "fs": "0.0.1-security",
     "sass": "^1.78.0"
   }
 }
