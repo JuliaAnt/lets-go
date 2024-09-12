@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import '../../../styles/variables';
 
 .headerMenu {
   display: none;
@@ -92,4 +92,8 @@ button {
   a {
     padding: 11px;
   }
+}
+
+.isOpen {
+  display: block;
 }
