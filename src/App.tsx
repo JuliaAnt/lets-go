@@ -1,7 +1,5 @@
 import './App.scss';
 import {RoutesContent} from './modules/RoutesContent/RoutesContent';
-import {Footer} from './components/Footer/Footer';
-import {Header} from './components/Header/Header';
 
 function App(): JSX.Element {
   return (
@@ -20,11 +18,9 @@ function App(): JSX.Element {
           Learn React
         </a>
       </header> */}
-      <Header />
       <div className='routesContent'>
         <RoutesContent />
       </div>
-      <Footer />
     </div>
   );
 }
