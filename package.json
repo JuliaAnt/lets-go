@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "fs": "0.0.1-security",
+    "gh-pages": "^6.1.1",
     "sass": "^1.78.0"
   }
 }
