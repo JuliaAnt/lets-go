@@ -10,6 +10,30 @@
   background-color: $color-basic-blue;
   border-bottom-right-radius: 80px;
   border-bottom-left-radius: 80px;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 358px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: $color-special-blue;
+    left: 12%;
+    bottom: -3px;
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 214px;
+      height: 5px;
+      left: 8%;
+      bottom: -1%;
+    }
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    min-height: 143px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
 }
 
 .headerContainer {
@@ -17,10 +41,15 @@
   width: 100%;
   margin: 0 auto;
   padding: 46px 60px 68px 60px;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    padding: 20px 25px 12px;
+  }
 }
 
 .headerWrapper {
   display: flex;
+  position: relative;
   align-items: center;
   column-gap: 42px;
 }
@@ -28,6 +57,17 @@
 .headerLogo {
   width: 200px;
   height: 50px;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: none;
+  }
+}
+
+.headerLogoMobile {
+  display: none;
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: block;
+  }
 }
 
 .headerLine {
@@ -50,105 +90,11 @@
   font-weight: 700;
   font-size: 60px;
   line-height: 60px;
-}
 
-// navigate
-.nav {
-  display: flex;
-  column-gap: 20px;
-
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navMobile {
-  @media (max-width: ($vp-1024 - 1px)) {
-    display: none;
-  }
-}
-
-.navList {
-  display: flex;
-
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  a {
-    font-size: 20px;
-    line-height: 20px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: $color-default-white;
-  }
-}
-
-.navListFirst {
-  flex-wrap: wrap;
-  column-gap: 18px;
-  row-gap: 18px;
-
-  a {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    height: 1em;
-  }
-
-  a:hover span,
-  a:focus span {
-    transform: translateY(-100%);
-    color: $color-jordy-blue;
-  }
-
-  a:active span {
-    opacity: 0.3;
-  }
-
-  span {
-    position: relative;
-    display: inline-block;
-    transition: $trans-default;
-  }
-
-  span::before {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 101%;
-    content: attr(data-hover);
-    font-weight: 700;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.navListSecond {
-  flex-wrap: wrap;
-  column-gap: 7px;
-  row-gap: 7px;
-  min-width: 107px;
-  max-width: 107px;
-
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: $color-jordy-blue;
-    transition: $trans-default;
-  }
-
-  a:hover,
-  a:focus {
-    background-color: $color-special-blue;
-  }
-
-  a:active {
-    opacity: 0.3;
+  @media (max-width: ($vp-768 - 1px)) {
+    font-size: 36px;
+    line-height: 36px;
+    margin-left: 0;
   }
 }
 

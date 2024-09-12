@@ -1,8 +1,9 @@
 import styles from './header.module.scss';
-
 import logo from '../../assets/logo_full.svg';
-import iconCall from '../../assets/icons/header/icon-call.svg';
-import iconMail from '../../assets/icons/header/icon-mail.svg';
+import iconMobile from '../../assets/icons/header/icon-mobile.svg';
+
+import Navigation from './Navigation';
+import HeaderMenu from './HeaderMenu';
 
 export const Header = ({title = 'Направления'}) => {
   return (
@@ -12,48 +13,22 @@ export const Header = ({title = 'Направления'}) => {
           <a className={styles.headerLogo} href="#">
             <img src={logo} alt="logo" />
           </a>
+          <a className={styles.headerLogoMobile} href="#">
+            <img src={iconMobile} alt="logo-mobile" />
+          </a>
 
           <div className={styles.headerLine}></div>
 
-          <nav className={`${styles.nav} ${styles.navMobile}`}>
-            <ul className={`${styles.navList} ${styles.navListFirst}`}>
-              <li>
-                <a href="#">
-                  <span data-hover="О СЕРВИСЕ">о сервисе</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span data-hover="НАПРАВЛЕНИЯ">направления</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span data-hover="ПОПУТЧИКИ">попутчики</span>
-                </a>
-              </li>
-            </ul>
+          <Navigation />
 
-            <ul className={`${styles.navList} ${styles.navListSecond}`}>
-              <li>
-                <a href="#">
-                  <img src={iconCall} width="16" height="16" alt="phone_img" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src={iconMail} width="16" height="16" alt="mail_img" />
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <button className={styles.button}>
+          <button className={styles.button} type="button" aria-label="открыть">
             <span className={styles.buttonLineFirst}></span>
             <span className={styles.buttonLineSecond}></span>
           </button>
         </div>
         <p className={styles.headerTitle}>{title}</p>
+
+        <HeaderMenu />
       </div>
     </header>
   );

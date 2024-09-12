@@ -1,0 +1,101 @@
+@import '../../styles/variables';
+
+// navigate
+.nav {
+  display: flex;
+  column-gap: 20px;
+
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navMobile {
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: none;
+  }
+}
+
+.navList {
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    font-size: 20px;
+    line-height: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color-default-white;
+  }
+}
+
+.navListFirst {
+  flex-wrap: wrap;
+  column-gap: 18px;
+  row-gap: 18px;
+
+  a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 1em;
+  }
+
+  a:hover span,
+  a:focus span {
+    transform: translateY(-100%);
+    color: $color-jordy-blue;
+  }
+
+  a:active span {
+    opacity: 0.3;
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    transition: $trans-default;
+  }
+
+  span::before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 101%;
+    content: attr(data-hover);
+    font-weight: 700;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.navListSecond {
+  flex-wrap: wrap;
+  column-gap: 7px;
+  row-gap: 7px;
+  min-width: 107px;
+  max-width: 107px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: $color-jordy-blue;
+    transition: $trans-default;
+  }
+
+  a:hover,
+  a:focus {
+    background-color: $color-special-blue;
+  }
+
+  a:active {
+    opacity: 0.3;
+  }
+}
