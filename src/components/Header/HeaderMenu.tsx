@@ -1,4 +1,5 @@
 import styles from './headerMenu.module.scss';
+import {Link} from 'react-router-dom';
 
 import iconMobile from '../../assets/icons/header/icon-mobile-open.svg';
 import iconClose from '../../assets/icons/header/icon-close.svg';
@@ -13,9 +14,9 @@ export const HeaderMenu = () => {
     <div className={styles.headerMenu}>
       <div className={styles.headerContainer}>
         <nav className={styles.nav}>
-          <a href="#">
+          <Link to="#">
             <img src={iconMobile} alt="logo" />
-          </a>
+          </Link>
 
           <button type="button" aria-label="закрыть">
             <img src={iconClose} alt="icon-close"></img>
@@ -42,19 +43,19 @@ export const HeaderMenu = () => {
         <nav className={styles.footer}>
           <ul>
             <li>
-              <a href="#">
+              <Link to="#">
                 <img src={iconTelegram} width={20} height={18} alt="Telegram" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link to="#">
                 <img src={iconVkontakte} width={30} height={16} alt="VK" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link to="#">
                 <img src={iconYoutube} width={23} height={23} alt="Youtube" />
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

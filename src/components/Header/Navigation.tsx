@@ -1,4 +1,5 @@
 import styles from './navigation.module.scss';
+import {Link} from 'react-router-dom';
 import iconCall from '../../assets/icons/header/icon-call.svg';
 import iconMail from '../../assets/icons/header/icon-mail.svg';
 
@@ -7,32 +8,32 @@ export const Navigation = () => {
     <nav className={`${styles.nav} ${styles.navMobile}`}>
       <ul className={`${styles.navList} ${styles.navListFirst}`}>
         <li>
-          <a href="#">
+          <Link to="#">
             <span data-hover="О СЕРВИСЕ">о сервисе</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link to="#">
             <span data-hover="НАПРАВЛЕНИЯ">направления</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link to="#">
             <span data-hover="ПОПУТЧИКИ">попутчики</span>
-          </a>
+          </Link>
         </li>
       </ul>
 
       <ul className={`${styles.navList} ${styles.navListSecond}`}>
         <li>
-          <a href="#">
+          <Link to="#">
             <img src={iconCall} width={16} height={16} alt="phone_img" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link to="#">
             <img src={iconMail} width={16} height={16} alt="mail_img" />
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

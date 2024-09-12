@@ -1,4 +1,5 @@
 import styles from './header.module.scss';
+import {Link} from 'react-router-dom';
 import logo from '../../assets/logo_full.svg';
 import iconMobile from '../../assets/icons/header/icon-mobile.svg';
 
@@ -10,12 +11,12 @@ export const Header = ({title = 'Направления'}) => {
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <div className={styles.headerWrapper}>
-          <a className={styles.headerLogo} href="#">
+          <Link className={styles.headerLogo} to="#">
             <img src={logo} alt="logo" />
-          </a>
-          <a className={styles.headerLogoMobile} href="#">
+          </Link>
+          <Link className={styles.headerLogoMobile} to="#">
             <img src={iconMobile} alt="logo-mobile" />
-          </a>
+          </Link>
 
           <div className={styles.headerLine}></div>
 
