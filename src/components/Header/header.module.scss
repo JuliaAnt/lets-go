@@ -1,5 +1,6 @@
 @import '../../styles/variables';
 
+// header
 .header {
   position: fixed;
   width: 100%;
@@ -24,6 +25,34 @@
   column-gap: 42px;
 }
 
+.headerLogo {
+  width: 200px;
+  height: 50px;
+}
+
+.headerLine {
+  width: 60px;
+  height: 2px;
+  background-color: $color-default-white;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: none;
+  }
+}
+
+.headerTitle {
+  margin: 0;
+  margin-top: 124px;
+  margin-left: 64px;
+  text-transform: uppercase;
+
+  color: $color-default-white;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 60px;
+}
+
+// navigate
 .nav {
   display: flex;
   column-gap: 20px;
@@ -31,6 +60,12 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+}
+
+.navMobile {
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: none;
+  }
 }
 
 .navList {
@@ -104,28 +139,61 @@
     width: 50px;
     height: 50px;
     background-color: $color-jordy-blue;
+    transition: $trans-default;
+  }
+
+  a:hover,
+  a:focus {
+    background-color: $color-special-blue;
+  }
+
+  a:active {
+    opacity: 0.3;
   }
 }
 
-.headerLogo {
-  width: 200px;
-  height: 50px;
-}
+//button
+.button {
+  display: none;
+  position: relative;
+  width: 25px;
+  height: 11px;
+  margin-left: auto;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 
-.headerLine {
-  width: 60px;
-  height: 2px;
-  background-color: $color-default-white;
-}
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: block;
+  }
 
-.headerTitle {
-  margin: 0;
-  margin-top: 124px;
-  margin-left: 64px;
-  text-transform: uppercase;
+  span {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: $color-default-white;
+    transition: $trans-default;
+    left: 0;
+    border-radius: 1.5px;
+  }
 
-  color: $color-default-white;
-  font-weight: 700;
-  font-size: 60px;
-  line-height: 60px;
+  .buttonLineFirst {
+    top: 0;
+  }
+
+  .buttonLineSecond {
+    bottom: 0;
+  }
+
+  &.active {
+    .buttonLineFirst {
+      transform: rotate(45deg);
+      top: 4px;
+    }
+
+    .buttonLineSecond {
+      transform: rotate(-45deg);
+      bottom: 4px;
+    }
+  }
 }

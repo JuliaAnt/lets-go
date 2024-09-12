@@ -15,7 +15,7 @@ export const Header = ({title = 'Направления'}) => {
 
           <div className={styles.headerLine}></div>
 
-          <nav className={styles.nav}>
+          <nav className={`${styles.nav} ${styles.navMobile}`}>
             <ul className={`${styles.navList} ${styles.navListFirst}`}>
               <li>
                 <a href="#">
@@ -47,6 +47,11 @@ export const Header = ({title = 'Направления'}) => {
               </li>
             </ul>
           </nav>
+
+          <button className={styles.button}>
+            <span className={styles.buttonLineFirst}></span>
+            <span className={styles.buttonLineSecond}></span>
+          </button>
         </div>
         <p className={styles.headerTitle}>{title}</p>
       </div>
