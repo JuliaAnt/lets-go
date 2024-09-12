@@ -13,14 +13,12 @@ $color-transparent: rgba(255, 255, 255, 0);
 $color-basic-blue: #182044;
 $color-basic-blue-light: #edeff6;
 $color-special-blue: #4d99d6;
+$color-jordy-blue: #7ebaeb;
+$color-midnight: #192144;
 
 // Gradient
 
-$black-to-right: linear-gradient(
-  90deg,
-  rgba(0, 0, 0, 0.75) 0%,
-  rgba(0, 0, 0, 0) 75%
-);
+$black-to-right: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
 
 // Typography
 // ---------------------------------
