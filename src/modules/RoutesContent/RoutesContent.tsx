@@ -5,7 +5,7 @@ import {FormPage} from '../../pages/FormPage/FormPage';
 
 export const RoutesContent = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path={AppRoute.Catalog} element={<CatalogPage />} />
         <Route path={AppRoute.Form} element={<FormPage />} />
