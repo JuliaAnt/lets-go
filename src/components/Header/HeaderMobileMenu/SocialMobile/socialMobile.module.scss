@@ -1,0 +1,19 @@
+@import '../../../../styles/variables.scss';
+
+.footer {
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    padding: 11px;
+  }
+}

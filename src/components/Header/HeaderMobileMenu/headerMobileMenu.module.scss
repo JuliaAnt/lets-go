@@ -13,7 +13,7 @@
 }
 
 .headerContainer {
-  max-width: $vp-320;
+  max-width: $vp-1024;
   margin: 0 auto;
   padding: 27px 28px 29px 25px;
 
@@ -74,24 +74,6 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
-}
-
-.footer {
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  a {
-    padding: 11px;
-  }
 }
 
 .isOpen {
