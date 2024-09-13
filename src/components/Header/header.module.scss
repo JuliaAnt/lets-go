@@ -6,6 +6,7 @@
   width: 100%;
   display: flex;
   min-height: 350px;
+  z-index: 1000;
 
   background-color: $color-basic-blue;
   border-bottom-right-radius: 80px;

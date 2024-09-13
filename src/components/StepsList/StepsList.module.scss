@@ -1,0 +1,49 @@
+@import '../../styles/variables.scss';
+
+.stepsList {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  list-style: none;
+
+  @media (max-width: ($vp-1024 - 1)) {
+    display: none;
+  }
+}
+
+.stepsItem {
+  letter-spacing: 0.1em;
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 27px;
+  opacity: 60%;
+  position: relative;
+  text-transform: uppercase;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-catalina-blue;
+    opacity: 30%;
+    left: -45px;
+    top: calc(50% - 4px);
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+li.currentStep {
+  opacity: 100%;
+  letter-spacing: 0.11em;
+
+  &::before {
+    opacity: 100%;
+  }
+}

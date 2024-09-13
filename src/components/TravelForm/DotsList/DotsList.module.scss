@@ -1,0 +1,35 @@
+@import '../../../styles/variables.scss';
+
+.dotsList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: none;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: flex;
+  }
+
+  li {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-catalina-blue;
+    opacity: 0.3;
+    margin-right: 29px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &.current {
+      opacity: 1;
+    }
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      width: 5px;
+      height: 5px;
+      margin-right: 16px;
+    }
+  }
+}
