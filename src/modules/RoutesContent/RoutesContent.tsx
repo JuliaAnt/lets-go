@@ -4,9 +4,12 @@ import {CatalogPage} from '../../pages/CatalogPage/CatalogPage';
 import {FormPage} from '../../pages/FormPage/FormPage';
 import {NotFoundPage} from '../../pages/NotFoundPage/NotFoundPage';
 
+const basename =
+  process.env.NODE_ENV === 'production' ? '/intern-pognali-3-1' : '/';
+
 export const RoutesContent = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path={AppRoute.Catalog} element={<CatalogPage />} />
         <Route path={AppRoute.Form} element={<FormPage />} />
