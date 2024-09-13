@@ -2,6 +2,8 @@
   "name": "intern-pognali-3-1",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://htmlonelove.github.io/intern-pognali-3-1",
+  "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -20,8 +22,11 @@
   "scripts": {
     "start": "react-scripts start -p 3003",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --passWithNoTests",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "robots": "node create-robots-file.js"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +47,8 @@
     ]
   },
   "devDependencies": {
+    "fs": "0.0.1-security",
+    "gh-pages": "^6.1.1",
     "sass": "^1.78.0"
   }
 }

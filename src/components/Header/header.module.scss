@@ -1,0 +1,146 @@
+@import '../../styles/variables';
+
+// header
+.header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  min-height: 350px;
+  z-index: 1000;
+
+  background-color: $color-basic-blue;
+  border-bottom-right-radius: 80px;
+  border-bottom-left-radius: 80px;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 358px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: $color-special-blue;
+    left: 12%;
+    bottom: -3px;
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 214px;
+      height: 5px;
+      left: 8%;
+      bottom: -1%;
+    }
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    min-height: 143px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+}
+
+.headerContainer {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 46px 60px 68px 60px;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    padding: 20px 25px 12px;
+  }
+}
+
+.headerWrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+  column-gap: 42px;
+}
+
+.headerLogo {
+  width: 200px;
+  height: 50px;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: none;
+  }
+}
+
+.headerLogoMobile {
+  display: none;
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: block;
+  }
+}
+
+.headerLine {
+  width: 60px;
+  height: 2px;
+  background-color: $color-default-white;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: none;
+  }
+}
+
+.headerTitle {
+  margin: 0;
+  margin-top: 124px;
+  margin-left: 64px;
+  text-transform: uppercase;
+
+  color: $color-default-white;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 60px;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    font-size: 36px;
+    line-height: 36px;
+    margin-left: 0;
+  }
+}
+
+//button
+.button {
+  display: none;
+  position: relative;
+  width: 25px;
+  height: 11px;
+  margin-left: auto;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: block;
+  }
+
+  span {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: $color-default-white;
+    transition: $trans-default;
+    left: 0;
+    border-radius: 1.5px;
+  }
+
+  .buttonLineFirst {
+    top: 0;
+  }
+
+  .buttonLineSecond {
+    bottom: 0;
+  }
+
+  &.active {
+    .buttonLineFirst {
+      transform: rotate(45deg);
+      top: 4px;
+    }
+
+    .buttonLineSecond {
+      transform: rotate(-45deg);
+      bottom: 4px;
+    }
+  }
+}
