@@ -1,0 +1,232 @@
+@import '../../styles/variables.scss';
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 57px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 27px;
+  border-bottom: 1px solid $color-hawkes-blue;
+  margin-bottom: 18px;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    padding-bottom: 11px;
+    margin-bottom: 22px;
+  }
+}
+
+p.currentMonth {
+  color: $color-catalina-blue;
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 700;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.prevMonth,
+.nextMonth {
+  outline: none;
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+
+  svg {
+    opacity: 0.3;
+    fill: $color-default-black;
+    transition: opacity $trans-default;
+  }
+
+  &:focus,
+  &:hover {
+    svg {
+      opacity: 0.5;
+    }
+  }
+
+  &:active {
+    svg {
+      opacity: 0.1;
+    }
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    padding: 0;
+
+    svg {    
+      width: 15px;
+      height: 21px;
+    }
+  }
+}
+
+.nextMonth {
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.calendarTable {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+
+  @media (max-width: ($vp-768 - 1)) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  th {
+    text-align: left;
+    padding-left: 17px;
+    padding-bottom: 19px;
+    color: $color-charcoal;
+    font-weight: 400;
+    border-collapse: collapse;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      font-size: 15px;
+      padding-bottom: 12px;
+      padding-left: 3px;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      font-size: 14px;
+      line-height: 18px;
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+
+  .dayOff {
+    color: $color-outrageous-orange;
+  }
+
+  td {
+    border: 1px solid $color-solitude;
+    height: 72px;
+    transition: border $trans-default;
+    border-collapse: collapse;
+    display: table-cell;
+    padding: 0;
+    box-sizing: border-box;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      height: 70px;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      height: 32px;
+    }
+  }
+
+  td.checked {
+    border: 1px solid $color-link-water;
+  }
+
+  label {
+    padding: 10px 0 9px 12px;
+    border: 4px solid transparent;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: border $trans-default, color $trans-default, background-color $trans-default;
+    box-sizing: border-box;
+    color: $color-charcoal;
+
+    &:hover,
+    &:focus {
+      border: 4px solid $color-outrageous-orange;
+    }
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      text-align: center;
+      padding: 0;
+      justify-content: center;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      border: 2px solid transparent;
+
+      &:hover,
+      &:focus {
+        border: 2px solid $color-outrageous-orange;
+      }
+    }
+  }
+
+  input[type='checkbox'] {
+    display: none;
+  }
+
+  input[type='checkbox']:disabled ~ label {
+    cursor: default;
+
+    &:hover,
+    &:focus {
+      border: 4px solid transparent;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        @media (max-width: ($vp-768 - 1px)) {
+          border: 2px solid transparent;
+        }
+      }
+    }
+  }
+
+  input[type='checkbox']:checked ~ label {
+    background-color: $color-catalina-blue;
+    color: $color-default-white;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      font-weight: 500;
+    }
+  }
+}
+
+.checkIn,
+.departure {
+  margin-top: 8px;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: none;
+  }
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+td.activeDate {
+  border: 1px solid $color-link-water;
+
+  label {
+    background-color: $color-basic-blue-light;
+  }
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    font-weight: 500;
+    
+    label {
+      color: $color-catalina-blue;
+    }
+  }
+}
+
+.calendarMonth {
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: none;
+  }
+}
