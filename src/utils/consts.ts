@@ -4,7 +4,7 @@ export enum AppRoute {
 }
 
 export const NAVIGATION_MAP = [
-  {text: 'о сервисе', hoverText: 'О СЕРВИСЕ'},
-  {text: 'направления', hoverText: 'НАПРАВЛЕНИЯ'},
-  {text: 'попутчики', hoverText: 'ПОПУТЧИКИ'},
+  {id: 1, text: 'о сервисе', hoverText: 'О СЕРВИСЕ'},
+  {id: 2, text: 'направления', hoverText: 'НАПРАВЛЕНИЯ'},
+  {id: 3, text: 'попутчики', hoverText: 'ПОПУТЧИКИ'},
 ];
