@@ -22,16 +22,20 @@ export const CounterInput = ({ data, amount, className, setAmount }: CounterInpu
   const onIncrementCount = () => {
     if (amount === data.max) {
       setAmount(data.max)
+      setInputValue(data.max.toString())
     } else {
       setAmount(amount + 1)
+      setInputValue((amount + 1).toString())
     }
   }
 
   const onDecrementCount = () => {
     if (amount === data.min) {
       setAmount(data.min)
+      setInputValue(data.min.toString())
     } else {
       setAmount(amount - 1)
+      setInputValue((amount - 1).toString())
     }
   }
 
