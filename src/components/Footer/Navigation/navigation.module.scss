@@ -1,0 +1,52 @@
+@import '../../../styles/variables.scss';
+
+.nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-pale-cornflower-blue-2;
+    border-radius: 50%;
+    transition: $trans-default;
+
+    img {
+      transition: $trans-default;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        width: 23px;
+        height: 23px;
+      }
+    }
+
+    a {
+      padding: 15px;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        padding: 11px;
+      }
+    }
+  }
+
+  li:hover,
+  li:focus {
+    background-color: $color-special-blue;
+  }
+
+  li:active img {
+    opacity: 0.3;
+  }
+}

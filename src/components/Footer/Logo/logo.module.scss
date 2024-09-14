@@ -1,0 +1,13 @@
+@import '../../../styles/variables.scss';
+
+.logo {
+  @media (max-width: ($vp-1024 - 1px)) {
+    width: 166px;
+    height: 42px;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    width: 96px;
+    height: 15px;
+  }
+}
