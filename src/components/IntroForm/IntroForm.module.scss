@@ -1,0 +1,124 @@
+@import '../../styles/variables.scss';
+
+.introForm {
+  display: flex;
+  flex-direction: column;
+
+  background-color: $color-basic-blue-light;  
+}
+
+.top {
+  position: relative;
+  display: flex;
+
+  padding: 217px 124px 63px;
+
+  background-color: $color-basic-blue;
+  border-bottom-right-radius: 56px;
+  border-bottom-left-radius: 56px;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 358px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: $color-special-blue;
+    left: 8.7%;
+    bottom: -5px;
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 214px;
+      height: 5px;
+      left: 8%;
+      bottom: -1%;
+    }
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    min-height: 143px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+
+  h2 {
+    margin: 15px 0 0;
+    // padding: 15px 0 0;
+
+    color: $color-default-white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 52.5px;
+    line-height: 52.5px;
+
+    @media (max-width: ($vp-768 - 1px)) {
+      font-size: 36px;
+      line-height: 36px;
+      margin-left: 0;
+    }
+  }
+}
+
+.photo {
+  position: absolute;
+  bottom: -53px;
+  right: 9.5%;
+
+  // border-radius: 30px;
+
+  img {
+    border-radius: 24px;
+  }
+}
+
+.down {
+  position: relative;
+  display: flex;
+
+  padding: 74px 60px 74px 124px ;
+}
+
+.tags {
+  position: relative;
+  width: 58.3%;
+  margin: 0 11.2% 0 0;
+
+  h3 {
+    position: absolute;
+    left: 3%;
+    bottom: -13px;
+
+    margin: 0;
+    padding: 0 11px 0 17px;
+
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $color-midnight-express;
+    background-color: $color-basic-blue-light;
+  }
+}
+
+.transport {
+  position: relative;
+  width: 30.7%;
+  margin: 0 0 auto 0;
+
+  h3 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -9px;
+
+    margin: 0;
+    padding: 0 11px 0 17px;
+
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $color-midnight-express;
+    background-color: $color-basic-blue-light;
+  }
+}
