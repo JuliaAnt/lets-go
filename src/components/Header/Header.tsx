@@ -1,36 +1,39 @@
-import styles from './header.module.scss';
-import {Link} from 'react-router-dom';
-import logo from '../../assets/logo_full.svg';
-import iconMobile from '../../assets/icons/header/icon-mobile.svg';
+import styles from './header.module.scss'
+import { Link } from 'react-router-dom'
+import logo from '../../assets/logo_full.svg'
+import iconMobile from '../../assets/icons/header/icon-mobile.svg'
 
-import Navigation from './Navigation/Navigation';
-import {HeaderMobileMenu} from './HeaderMobileMenu/HeaderMobileMenu';
-import {useEffect, useState} from 'react';
+import Navigation from './Navigation/Navigation'
+import { HeaderMobileMenu } from './HeaderMobileMenu/HeaderMobileMenu'
+import { useEffect, useState, useRef } from 'react'
 
-export const Header = ({title = 'Направления'}) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-  const [isSticky, setIsSticky] = useState<boolean>(false);
+export const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
+  const [isSticky, setIsSticky] = useState<boolean>(false)
+  const headerRef = useRef<HTMLDivElement | null>(null)
 
   const handleScroll = () => {
-    setIsSticky(window.scrollY >= 200);
-  };
+    if (headerRef.current) {
+      setIsSticky(window.scrollY >= headerRef.current.offsetHeight)
+    }
+  }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  });
+      window.removeEventListener('scroll', handleScroll)
+    }
+  })
 
   return (
-    <header className={`${styles.header} ${isSticky ? styles.sticky : ''}`}>
+    <header ref={headerRef} className={`${styles.header} ${isSticky ? styles.sticky : ''}`}>
       <div className={styles.headerContainer}>
         <div className={styles.headerWrapper}>
-          <Link className={styles.headerLogo} to="#">
-            <img src={logo} alt="logo" />
+          <Link className={styles.headerLogo} to='#'>
+            <img src={logo} alt='logo' />
           </Link>
-          <Link className={styles.headerLogoMobile} to="#">
-            <img src={iconMobile} alt="logo-mobile" />
+          <Link className={styles.headerLogoMobile} to='#'>
+            <img src={iconMobile} alt='logo-mobile' />
           </Link>
 
           <div className={styles.headerLine}></div>
@@ -39,20 +42,19 @@ export const Header = ({title = 'Направления'}) => {
 
           <button
             className={styles.button}
-            type="button"
-            aria-label="открыть"
+            type='button'
+            aria-label='открыть'
             onClick={() => setIsMobileMenuOpen(true)}
           >
             <span className={styles.buttonLineFirst}></span>
             <span className={styles.buttonLineSecond}></span>
           </button>
         </div>
-        <p className={styles.headerTitle}>{title}</p>
 
         <HeaderMobileMenu isOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
