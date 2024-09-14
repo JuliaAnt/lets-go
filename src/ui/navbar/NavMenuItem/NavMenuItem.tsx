@@ -8,7 +8,7 @@ type NavMenuItemProps = {
 export const NavMenuItem = ({hoverText, text}: NavMenuItemProps) => {
   return (
     <li>
-      <Link to='#'>
+      <Link to="#">
         <span data-hover={hoverText}>{text}</span>
       </Link>
     </li>

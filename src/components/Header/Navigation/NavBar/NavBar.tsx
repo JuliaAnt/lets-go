@@ -6,7 +6,7 @@ export const NavBar = () => {
   return (
     <ul className={`${styles.navList} ${styles.navListFirst}`}>
       {NAVIGATION_MAP.map((navItem) => (
-        <NavMenuItem hoverText={navItem.hoverText} text={navItem.text} />
+        <NavMenuItem hoverText={navItem.hoverText} text={navItem.text} key={navItem.id} />
       ))}
     </ul>
   );
