@@ -15,6 +15,11 @@
   border: 1px solid $color-link-water;
   border-radius: 10px;
 
+  @media (max-width: ($vp-768 - 1px)) {
+    margin: 5px 0 0;
+    padding: 15px;
+  }
+
   a {
     display: flex;
     align-items: center;
@@ -25,6 +30,20 @@
     height: 43px;
     background-color: $color-default-white;
     transition: opacity $trans-default;
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  img {
+    object-fit: cover;
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 50%;
+      height: auto;
+    }
   }
 
   a:hover img,

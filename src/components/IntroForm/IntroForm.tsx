@@ -1,4 +1,5 @@
 import styles from './IntroForm.module.scss';
+import {ButtonChange} from './ButtonChange/ButtonChange';
 import {Level} from './Level/Level';
 import {Tags} from './Tags/Tags';
 import {Transport} from './Transport/Transport';
@@ -17,7 +18,7 @@ export const IntroForm = () => {
       </div>
 
       <div className={`${styles.down}`}>
-        {/* <Level/> */}
+        <ButtonChange/>
         <div className={`${styles.tags}`}>
           <h3>ТЭГИ</h3>
           <Tags/>
