@@ -88,10 +88,9 @@ export function CalendarTable() {
               {week.map((day, dayIndex) => (
                 <td
                   key={dayIndex}
-                  className={`
-                    ${!isSameMonth(day, today) ? styles.disabled : ''}
-                    ${isSameMonth(day, today) && isBefore(day, today) ? styles.disabled : ''}
-                  `}
+                  className={`${
+                    isBefore(day, today) && !isSameDay(day, today) ? styles.disabled : ''
+                  }`}
                 >
                   <input
                     type='checkbox'
@@ -102,13 +101,17 @@ export function CalendarTable() {
                       isSelected(day) ||
                       false // Добавляем проверку для диапазона
                     }
-                    disabled={!isSameMonth(day, today) || isBefore(day, today)}
-                    onClick={() => handleDateClick(day)}
+                    disabled={isBefore(day, today) && !isSameDay(day, today)}
                     onChange={() => {}}
                   />
                   <label
                     htmlFor={`day-${day.getDate()}`}
                     className={`${isSelected(day) ? styles.inRange : ''}`}
+                    onClick={() => {
+                      if (!isBefore(day, today) || isSameDay(day, today)) {
+                        handleDateClick(day)
+                      }
+                    }}
                   >
                     {format(day, 'd')}
                   </label>

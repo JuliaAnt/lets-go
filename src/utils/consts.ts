@@ -4,9 +4,9 @@ export enum AppRoute {
 }
 
 export const NAVIGATION_MAP = [
-  { id: 1, text: 'о сервисе', hoverText: 'О СЕРВИСЕ' },
-  { id: 2, text: 'направления', hoverText: 'НАПРАВЛЕНИЯ' },
-  { id: 3, text: 'попутчики', hoverText: 'ПОПУТЧИКИ' },
+  { id: 1, text: 'о сервисе', hoverText: 'О СЕРВИСЕ', url: '#' },
+  { id: 2, text: 'направления', hoverText: 'НАПРАВЛЕНИЯ', url: AppRoute.Form },
+  { id: 3, text: 'попутчики', hoverText: 'ПОПУТЧИКИ', url: AppRoute.Catalog },
 ]
 
 export const COUNTER_INPUT_MAP = {
