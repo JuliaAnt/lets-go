@@ -60,7 +60,7 @@ p.currentMonth {
   @media (max-width: ($vp-768 - 1px)) {
     padding: 0;
 
-    svg {    
+    svg {
       width: 15px;
       height: 21px;
     }
@@ -218,7 +218,7 @@ td.activeDate {
 
   @media (max-width: ($vp-1024 - 1px)) {
     font-weight: 500;
-    
+
     label {
       color: $color-catalina-blue;
     }
@@ -229,4 +229,9 @@ td.activeDate {
   @media (max-width: ($vp-1024 - 1px)) {
     display: none;
   }
+}
+
+.inRange {
+  background-color: $color-catalina-blue;
+  color: $color-default-white;
 }

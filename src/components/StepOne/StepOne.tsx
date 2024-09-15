@@ -1,9 +1,9 @@
 import styles from './StepOne.module.scss'
-import { Calendar } from '../Calendar/Calendar'
 import { StepsList } from '../StepsList/StepsList'
 import { COUNTER_INPUT_MAP } from '../../utils/consts'
 import { CounterInput } from './CounterInput/CounterInput'
 import { Link } from 'react-router-dom'
+import { CalendarTable } from '../Calendar/CalendarTable'
 
 interface StepOneProps {
   companionsAmount: number
@@ -46,7 +46,7 @@ export const StepOne = ({
         </div>
       </div>
 
-      <Calendar />
+      <CalendarTable />
 
       <Link to='#second-step' className={styles.nextStepButton}>
         Следующий шаг
