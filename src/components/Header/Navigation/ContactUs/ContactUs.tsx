@@ -7,13 +7,13 @@ export const ContactUs = () => {
   return (
     <ul className={`${styles.navList} ${styles.navListSecond}`}>
       <li>
-        <Link to='#'>
-          <img src={iconCall} width={16} height={16} alt='phone_img' />
+        <Link to="tel:88005558628">
+          <img src={iconCall} width={16} height={16} alt="phone_img" />
         </Link>
       </li>
       <li>
-        <Link to='#'>
-          <img src={iconMail} width={16} height={16} alt='mail_img' />
+        <Link to="mailto:mail@htmlacademy.ru">
+          <img src={iconMail} width={16} height={16} alt="mail_img" />
         </Link>
       </li>
     </ul>

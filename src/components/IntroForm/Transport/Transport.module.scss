@@ -1,0 +1,57 @@
+@import '../../../styles/variables.scss';
+
+.iconList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+
+  margin: 0;
+  padding: 25px;
+  column-gap: 0;
+  row-gap: 7px;  
+
+  border: 1px solid $color-link-water;
+  border-radius: 10px;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    margin: 5px 0 0;
+    padding: 15px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    background-color: $color-default-white;
+    transition: opacity $trans-default;
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  img {
+    object-fit: cover;
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 50%;
+      height: auto;
+    }
+  }
+
+  a:hover img,
+  a:focus img {
+    opacity: 0.15;
+  }
+
+  a:active img {
+    opacity: 0.7;
+  }
+}

@@ -1,16 +1,20 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 type NavMenuItemProps = {
-  hoverText: string;
-  text: string;
-};
+  data: {
+    id: number
+    hoverText: string
+    text: string
+    url: string
+  }
+}
 
-export const NavMenuItem = ({hoverText, text}: NavMenuItemProps) => {
+export const NavMenuItem = ({ data }: NavMenuItemProps) => {
   return (
     <li>
-      <Link to='#'>
-        <span data-hover={hoverText}>{text}</span>
+      <Link to={data.url}>
+        <span data-hover={data.hoverText}>{data.text}</span>
       </Link>
     </li>
-  );
-};
+  )
+}
