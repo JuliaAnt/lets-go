@@ -7,20 +7,44 @@ import {
   isWithinInterval,
   startOfWeek,
   isSameDay,
+  subMonths,
+  addMonths,
+  differenceInCalendarDays,
 } from 'date-fns'
+import { ru } from 'date-fns/locale'
 import styles from './Calendar.module.scss'
 import { ReactComponent as ArrowBack } from '../../assets/arrow-back.svg'
+import { DAYS_OF_WEEK, MONTHS_LIST } from '../../utils/consts'
 
-const DAYS_OF_WEEK = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+const startEndTravelLabel = (date: number, dateFrom: number, dateTo: number) => {
+  let label = ''
+  if (date === dateFrom) {
+    label = 'Заезд'
+  } else if (date === dateTo) {
+    label = 'Выезд'
+  }
+  return label
+}
+
+const getMonthTitle = (date: Date) => {
+  const monthIndex = date.getMonth()
+  return MONTHS_LIST[monthIndex]
+}
+
+const getDayWithMonthAbbreviation = (date: Date) => {
+  const day = format(date, 'd', { locale: ru })
+  const monthAbbreviation = format(date, 'MMM', { locale: ru }).replace('.', '')
+  return `${day} ${monthAbbreviation}`
+}
 
 export function CalendarTable() {
+  const [currentMonth, setCurrentMonth] = useState(new Date())
   const [range, setRange] = useState<{ from: Date | null; to: Date | null }>({
     from: null,
     to: null,
   })
-
   const today = new Date()
-  const firstDayOfMonth = startOfMonth(today)
+  const firstDayOfMonth = startOfMonth(currentMonth)
   const firstDayOfWeek = startOfWeek(firstDayOfMonth, { weekStartsOn: 1 })
 
   const generateWeeks = () => {
@@ -42,19 +66,23 @@ export function CalendarTable() {
 
   const handleDateClick = (date: Date) => {
     if (!range?.from || (range?.from && range?.to)) {
-      // Если диапазон не выбран или уже выбран полный диапазон, начинаем новый
       setRange({ from: date, to: null })
     } else if (isBefore(date, range.from)) {
-      // Если клик на дату до выбранного "from", устанавливаем её как новое начало диапазона
       setRange({ from: date, to: range.from })
     } else if (isSameDay(date, range.from)) {
-      // Если нажать на ту же дату, сбрасываем выбор
       setRange({ from: date, to: null })
     } else {
-      // Устанавливаем конец диапазона
-      setRange({ from: range.from, to: date })
+      const travelDuration = differenceInCalendarDays(date, range.from)
+
+      if (travelDuration < 1) {
+        setRange({ from: range.from, to: null })
+      } else if (travelDuration >= 1 && travelDuration <= 30) {
+        setRange({ from: range.from, to: date })
+      } else {
+        setRange({ from: date, to: null })
+        console.log('Диапазон должен быть не менее 2 и не более 31 дня.')
+      }
     }
-    console.log(`range.from: ${range.from}, range.to: ${range.to}`)
   }
 
   const isSelected = (day: Date) => {
@@ -62,14 +90,34 @@ export function CalendarTable() {
     return from && to && isWithinInterval(day, { start: from, end: to })
   }
 
+  const handlePreviousMonth = () => {
+    setCurrentMonth(subMonths(currentMonth, 1))
+  }
+
+  const handleNextMonth = () => {
+    setCurrentMonth(addMonths(currentMonth, 1))
+  }
+
   return (
     <div className={styles.calendar}>
       <div className={styles.header}>
-        <button className={styles.prevMonth} type='button' aria-label='Прошлый месяц'>
+        <button
+          className={styles.prevMonth}
+          type='button'
+          aria-label='Прошлый месяц'
+          onClick={handlePreviousMonth}
+        >
           <ArrowBack />
         </button>
-        <p className={styles.currentMonth}>Март 2019</p>
-        <button className={styles.nextMonth} type='button' aria-label='Следующий месяц'>
+        <p className={styles.currentMonth}>
+          {getMonthTitle(currentMonth)} {format(currentMonth, 'yyyy')}
+        </p>
+        <button
+          className={styles.nextMonth}
+          type='button'
+          aria-label='Следующий месяц'
+          onClick={handleNextMonth}
+        >
           <ArrowBack />
         </button>
       </div>
@@ -88,7 +136,9 @@ export function CalendarTable() {
                 <td
                   key={dayIndex}
                   className={`${
-                    isBefore(day, today) && !isSameDay(day, today) ? styles.disabled : ''
+                    isBefore(day, today) && !isSameDay(day, today)
+                      ? styles.disabled
+                      : styles.activeDate
                   }`}
                 >
                   <input
@@ -98,7 +148,7 @@ export function CalendarTable() {
                       (range.from && isSameDay(day, range.from)) ||
                       (range.to && isSameDay(day, range.to)) ||
                       isSelected(day) ||
-                      false // Добавляем проверку для диапазона
+                      false
                     }
                     disabled={isBefore(day, today) && !isSameDay(day, today)}
                     onChange={() => {}}
@@ -112,7 +162,16 @@ export function CalendarTable() {
                       }
                     }}
                   >
-                    {format(day, 'd')}
+                    {day.getDate() === 1 ? getDayWithMonthAbbreviation(day) : format(day, 'd')}
+                    <span className={styles.checkIn}>
+                      {range.from &&
+                        range.to &&
+                        startEndTravelLabel(
+                          day.getDate(),
+                          range.from.getDate(),
+                          range.to.getDate(),
+                        )}
+                    </span>
                   </label>
                 </td>
               ))}
@@ -122,7 +181,7 @@ export function CalendarTable() {
       </table>
       <div>
         {range.from && range.to ? (
-          <p>{`Выбран диапазон: ${format(range.from, 'dd.MM.yyyy')} - ${format(
+          <p>{`Выбран диапазон: ${format(range.from, 'dd.MM.yyyy', { locale: ru })} - ${format(
             range.to,
             'dd.MM.yyyy',
           )}`}</p>
