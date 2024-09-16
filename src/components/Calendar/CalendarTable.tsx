@@ -16,11 +16,11 @@ import styles from './Calendar.module.scss'
 import { ReactComponent as ArrowBack } from '../../assets/arrow-back.svg'
 import { DAYS_OF_WEEK, MONTHS_LIST } from '../../utils/consts'
 
-const startEndTravelLabel = (date: number, dateFrom: number, dateTo: number) => {
+const startEndTravelLabel = (date: Date, dateFrom: Date | null, dateTo: Date | null) => {
   let label = ''
-  if (date === dateFrom) {
+  if (dateFrom && isSameDay(date, dateFrom)) {
     label = 'Заезд'
-  } else if (date === dateTo) {
+  } else if (dateTo && isSameDay(date, dateTo)) {
     label = 'Выезд'
   }
   return label
@@ -164,13 +164,7 @@ export function CalendarTable() {
                   >
                     {day.getDate() === 1 ? getDayWithMonthAbbreviation(day) : format(day, 'd')}
                     <span className={styles.checkIn}>
-                      {range.from &&
-                        range.to &&
-                        startEndTravelLabel(
-                          day.getDate(),
-                          range.from.getDate(),
-                          range.to.getDate(),
-                        )}
+                      {range.from && range.to && startEndTravelLabel(day, range.from, range.to)}
                     </span>
                   </label>
                 </td>
