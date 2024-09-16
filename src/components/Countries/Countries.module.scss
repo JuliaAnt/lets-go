@@ -1,0 +1,73 @@
+@import '../../styles/variables';
+
+.countriesHeader {
+  display: flex;
+  margin-bottom: 75px;
+}
+
+.filterText {
+  color: $color-midnight;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+  margin: 0;
+  margin-right: 5px;
+
+  svg {
+    margin-right: 22px;
+  }
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: none;
+  }
+}
+
+.filterList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.filterItem {
+  margin-right: 25px;
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color-midnight;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 700;
+    opacity: 0.3;
+  }
+}
+
+.activeFilter {
+  a {
+    opacity: 1;
+  }
+}
+
+.toggleButton {
+  width: max-content;
+  height: max-content;
+  margin-left: auto;
+}
+
+.toggleSpan {
+  display: flex;
+  align-items: center;
+  color: $color-midnight;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

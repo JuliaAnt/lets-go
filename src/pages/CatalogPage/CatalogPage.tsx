@@ -5,7 +5,8 @@ export const CatalogPage = () => {
   return (
     <div className='wrapper'>
       <Header />
-      <main className='catalog-page'>Попутчики</main>
+      <main className='catalog-page'>Попутчики
+      </main>
       <Footer />
     </div>
   );
