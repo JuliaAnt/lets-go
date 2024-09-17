@@ -42,3 +42,8 @@ export const MONTHS_LIST = [
   'Ноябрь',
   'Декабрь',
 ]
+
+export enum NameSpace {
+  FormData = 'FORM_DATA',
+  BackendData = 'BACKEND_DATA',
+}
