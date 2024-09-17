@@ -3,8 +3,8 @@
 .headerMenu {
   display: none;
   position: absolute;
-  z-index: 3;
-  top: -46px;
+  z-index: 50;
+  top: 0;
   left: 0;
   width: 100%;
   min-height: 568px;
@@ -78,4 +78,8 @@ button {
 
 .isOpen {
   display: block;
+}
+
+.noScroll {
+  overflow: hidden;
 }
