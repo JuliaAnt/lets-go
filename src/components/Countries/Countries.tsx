@@ -19,10 +19,10 @@ export const Countries = () => {
         <span>Фильтрация по странам:</span>
       </p>
       <ul className={`${styles.filterList} ${isContentVisible ? styles.mobileVisible : ''}`}>
-        <li className={`${styles.filterItem} ${styles.activeFilter}`}><a href="">Европа</a></li>
-        <li className={styles.filterItem}><a href="">Азия</a></li>
-        <li className={styles.filterItem}><a href="">Америка</a></li>
-        <li className={styles.filterItem}><a href="">Острова</a></li>
+        <li className={`${styles.filterItem} ${styles.activeFilter}`}><a href="/europe">Европа</a></li>
+        <li className={styles.filterItem}><a href="/asia">Азия</a></li>
+        <li className={styles.filterItem}><a href="/america">Америка</a></li>
+        <li className={styles.filterItem}><a href="/islands">Острова</a></li>
       </ul>
       <button className={styles.toggleButton} type='button' onClick={toggleContent}>
         {isContentVisible ? (
