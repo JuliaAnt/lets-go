@@ -307,7 +307,7 @@ export const CountriesData : React.FC = () => {
   };
 
   const secondHandleChange = (idx: number) => {
-    setSelectedIndex(idx); // Устанавливаем выбранный индекс
+    setSelectedIndex(idx);
   };
 
   return <div className={styles.countriesWrapper}>
@@ -315,7 +315,6 @@ export const CountriesData : React.FC = () => {
       <div className={styles.inputWrapper}>
         {letters.map((letter, index) => (
           <input
-            key={index}
             className={`lettersInput lettersInput--${index + 1}`}
             type="radio"
             name="letter"
@@ -326,12 +325,11 @@ export const CountriesData : React.FC = () => {
         ))}
       </div>
 
-      {/* Метки для кнопок */}
       <ul className={styles.lettersWrapper}>
         {letters.map((letter, index) => (
-          <li key={index} className={styles.lettersItem}>
+          <li className={styles.lettersItem}>
             <label
-              className={styles.lettersButton}
+              className={`${styles.lettersButton} ${selectedLetter === `letter-${index + 1}` ? styles.selected : ''}`}
               htmlFor={`letter-${index + 1}`}
               onClick={() => secondHandleChange(index)}
             >

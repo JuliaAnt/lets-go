@@ -10,7 +10,7 @@ export const FormPage = () => {
       <Header />
       <main className='form-page'>
         <IntroForm/>
-        <TravelForm/>        
+        <TravelForm/>
       </main>
       <Footer />
     </div>

@@ -13,12 +13,12 @@ export const Countries = () => {
   };
 
   return <section className={styles.countries}>
-    <div className={styles.countriesHeader}>
+    <div className={`${styles.countriesHeader} ${isContentVisible ? styles.filterTextMobile : ''}`}>
       <p className={styles.filterText}>
         <IconFilter />
-        Фильтрация по странам:
+        <span>Фильтрация по странам:</span>
       </p>
-      <ul className={styles.filterList}>
+      <ul className={`${styles.filterList} ${isContentVisible ? styles.mobileVisible : ''}`}>
         <li className={`${styles.filterItem} ${styles.activeFilter}`}><a href="">Европа</a></li>
         <li className={styles.filterItem}><a href="">Азия</a></li>
         <li className={styles.filterItem}><a href="">Америка</a></li>
@@ -27,12 +27,12 @@ export const Countries = () => {
       <button className={styles.toggleButton} type='button' onClick={toggleContent}>
         {isContentVisible ? (
           <span className={`${styles.toggleSpan}`}>
-            <span>Свернуть</span>
+            <span className={styles.hideSpan}>Свернуть</span>
             <IconClose />
           </span>
         ) : (
           <span className={styles.toggleSpan}>
-            <span>Показать все</span>
+            <span className={styles.showSpan}>Показать все</span>
             <IconShow />
           </span>
         )}
