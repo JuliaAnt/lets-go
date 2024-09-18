@@ -5,13 +5,22 @@ import { CounterInput } from './CounterInput/CounterInput'
 import { Link } from 'react-router-dom'
 import { CalendarTable } from '../Calendar/CalendarTable'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
-import { getCompanionsAmount, getTravelDuration } from '../../store/formSlice/formDataSelector'
-import { changeCompanionsAmount, changeTravelDuration } from '../../store/formSlice/formDataSlice'
+import {
+  getChildrenAllowed,
+  getCompanionsAmount,
+  getTravelDuration,
+} from '../../store/formSlice/formDataSelector'
+import {
+  changeCompanionsAmount,
+  changeTravelDuration,
+  toggleChildrenAllowed,
+} from '../../store/formSlice/formDataSlice'
 
 export const StepOne = () => {
   const dispatch = useAppDispatch()
   const companionsAmount = useAppSelector(getCompanionsAmount)
   const travelDuration = useAppSelector(getTravelDuration)
+  const isChildrenAllowed = useAppSelector(getChildrenAllowed)
 
   return (
     <div className={styles.stepOne}>
@@ -33,10 +42,15 @@ export const StepOne = () => {
           data={COUNTER_INPUT_MAP.travelLength}
           amount={travelDuration}
           className={styles.secondInput}
-          setAmount={(amount: number) => dispatch(changeTravelDuration(amount))}
+          setAmount={(duration: number) => dispatch(changeTravelDuration(duration))}
         />
         <div className={styles.checkboxWrapper}>
-          <input type='checkbox' id='acceptChildren' defaultChecked />
+          <input
+            type='checkbox'
+            id='acceptChildren'
+            defaultChecked={isChildrenAllowed}
+            onClick={() => dispatch(toggleChildrenAllowed(!isChildrenAllowed))}
+          />
           <label htmlFor='acceptChildren'> Можно с детьми </label>
         </div>
       </div>
