@@ -1,34 +1,26 @@
-import {Link} from 'react-router-dom';
-import styles from './Transport.module.scss';
-import iconPlane from '../../../assets/icons/intro/icon_plane.svg';
-import iconBus from '../../../assets/icons/intro/icon_bus.svg';
-import iconBicycle from '../../../assets/icons/intro/icon_bicycle.svg';
-import iconRun from '../../../assets/icons/intro/icon_run.svg';
-
+import styles from './Transport.module.scss'
+import { TRANSPORT_TYPES_LIST } from '../../../utils/consts'
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks'
+import { getTransportType } from '../../../store/formSlice/formDataSelector'
+import { changeTransportType } from '../../../store/formSlice/formDataSlice'
 
 export const Transport = () => {
+  const dispatch = useAppDispatch()
+  const transport = useAppSelector(getTransportType)
+
   return (
-      <ul className={`${styles.iconList}`}>
-        <li>
-          <Link to="#">
-            <img src={iconPlane} width={22} height={22} alt="icon_plane" />
-          </Link>
+    <ul className={`${styles.iconList}`}>
+      {TRANSPORT_TYPES_LIST.map((transportType) => (
+        <li
+          key={transportType.type}
+          className={`${transport.includes(transportType.type) ? styles.active : ''}`}
+          onClick={() => dispatch(changeTransportType(transportType.type))}
+        >
+          <button>
+            <img src={transportType.icon} width={22} height={22} alt={transportType.alt} />
+          </button>
         </li>
-        <li>
-          <Link to="#">
-            <img src={iconBus} width={22} height={22} alt="icon_bicycle" />
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <img src={iconBicycle} width={22} height={22} alt="phone_img" />
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <img src={iconRun} width={22} height={22} alt="icon_run" />
-          </Link>
-        </li>
-      </ul>
+      ))}
+    </ul>
   )
-};
+}
