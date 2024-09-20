@@ -1,5 +1,6 @@
 import styles from './TravelForm.module.scss'
 import { StepOne } from '../StepOne/StepOne'
+import { StepTwo } from '../StepTwo/StepTwo'
 import { DotsList } from './DotsList/DotsList'
 import { useState } from 'react'
 import { COUNTER_INPUT_MAP } from '../../utils/consts'
@@ -22,6 +23,8 @@ export const TravelForm = () => {
         setCompanionsAmount={setCompanionsAmount}
         setTravelDuration={setTravelDuration}
       />
+
+      <StepTwo />
     </form>
   )
 }

@@ -1,0 +1,45 @@
+@import '../../../styles/variables.scss';
+
+.countryItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-link-water;
+  transition: $trans-600;
+  height: 70px;
+  min-width: 43px;
+
+  &:hover {
+    border-color: $color-rock-blue;
+  }
+
+  @media (max-width: ($vp-768 - 1)) {
+    height: 41px;
+  }
+
+  button {
+    user-select: none;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $color-catalina-blue;
+    transition: $trans-600;
+
+    @media (max-width: ($vp-768 - 1)) {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &:active {
+      color: $color-default-white;
+      background-color: $color-catalina-blue;
+    }
+  }
+}
