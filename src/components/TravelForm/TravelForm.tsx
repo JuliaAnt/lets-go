@@ -2,15 +2,8 @@ import styles from './TravelForm.module.scss'
 import { StepOne } from '../StepOne/StepOne'
 import { StepTwo } from '../StepTwo/StepTwo'
 import { DotsList } from './DotsList/DotsList'
-import { useState } from 'react'
-import { COUNTER_INPUT_MAP } from '../../utils/consts'
 
 export const TravelForm = () => {
-  const [companionsAmount, setCompanionsAmount] = useState<number>(
-    COUNTER_INPUT_MAP.travelerCounter.min,
-  )
-  const [travelDuration, setTravelDuration] = useState<number>(COUNTER_INPUT_MAP.travelLength.min)
-
   return (
     <form className={styles.travelForm}>
       <div className={styles.header}>
@@ -23,7 +16,6 @@ export const TravelForm = () => {
         setCompanionsAmount={setCompanionsAmount}
         setTravelDuration={setTravelDuration}
       />
-
       <StepTwo />
     </form>
   )

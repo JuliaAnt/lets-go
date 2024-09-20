@@ -1,7 +1,42 @@
+import iconPlane from '../assets/icons/intro/icon_plane.svg'
+import iconBus from '../assets/icons/intro/icon_bus.svg'
+import iconBicycle from '../assets/icons/intro/icon_bicycle.svg'
+import iconRun from '../assets/icons/intro/icon_run.svg'
+
 export enum AppRoute {
   Form = '/',
   Catalog = '/catalog',
 }
+
+export enum TransportType {
+  PLANE = 'plane',
+  BUS = 'bus',
+  BICYCLE = 'bicycle',
+  RUN = 'run',
+}
+
+export const TRANSPORT_TYPES_LIST = [
+  {
+    type: TransportType.PLANE,
+    alt: 'icon_plane',
+    icon: iconPlane,
+  },
+  {
+    type: TransportType.BUS,
+    alt: 'icon_bus',
+    icon: iconBus,
+  },
+  {
+    type: TransportType.BICYCLE,
+    alt: 'bicycle',
+    icon: iconBicycle,
+  },
+  {
+    type: TransportType.RUN,
+    alt: 'icon_run',
+    icon: iconRun,
+  },
+]
 
 export const NAVIGATION_MAP = [
   { id: 1, text: 'о сервисе', hoverText: 'О СЕРВИСЕ', url: '#' },
@@ -70,3 +105,7 @@ export const ALPHABET_LETTERS = [
   'Ю',
   'Я',
 ]
+export enum NameSpace {
+  FormData = 'FORM_DATA',
+  BackendData = 'BACKEND_DATA',
+}
