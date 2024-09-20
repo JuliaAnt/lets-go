@@ -78,6 +78,33 @@ export const MONTHS_LIST = [
   'Декабрь',
 ]
 
+export const ALPHABET_LETTERS = [
+  'А',
+  'Б',
+  'В',
+  'Г',
+  'Д',
+  'Е',
+  'З',
+  'И',
+  'К',
+  'Л',
+  'М',
+  'Н',
+  'О',
+  'П',
+  'Р',
+  'С',
+  'Т',
+  'У',
+  'Ф',
+  'Х',
+  'Ч',
+  'Ш',
+  'Э',
+  'Ю',
+  'Я',
+]
 export enum NameSpace {
   FormData = 'FORM_DATA',
   BackendData = 'BACKEND_DATA',
