@@ -1,6 +1,7 @@
 import styles from './TravelForm.module.scss'
 import { StepOne } from '../StepOne/StepOne'
 import { StepTwo } from '../StepTwo/StepTwo'
+import { StepThree } from '../StepThree/StepThree'
 import { DotsList } from './DotsList/DotsList'
 
 export const TravelForm = () => {
@@ -12,6 +13,7 @@ export const TravelForm = () => {
       </div>
       <StepOne />
       <StepTwo />
+      <StepThree />
     </form>
   )
 }

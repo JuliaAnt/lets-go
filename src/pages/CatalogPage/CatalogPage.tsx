@@ -1,7 +1,9 @@
 import {Header} from '../../components/Header/Header';
 import {Footer} from '../../components/Footer/Footer';
 import {Pagination} from "../../components/Pagination/Pagination";
+import {Filter} from "../../components/Filter/Filter";
 import { Countries } from '../../components/Countries/Countries';
+
 
 export const CatalogPage = () => {
   return (
@@ -9,8 +11,8 @@ export const CatalogPage = () => {
       <Header />
       <main className='catalog-page'>
         <Countries/>
-        <Pagination/>
-        
+        <Filter/>
+        <Pagination/>        
       </main>
       <Footer />
     </div>
