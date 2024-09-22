@@ -10,7 +10,7 @@ export const IntroForm = () => {
   return (
     <section className={`${styles.introForm}`}>
       <div className={`${styles.top}`}>
-        <h2>Направления</h2>
+        <h1>Направления</h1>
         <Level/>
         <div className={`${styles.photo}`}>
           <img src={introPhoto} width={220} height={237} alt="man" />
