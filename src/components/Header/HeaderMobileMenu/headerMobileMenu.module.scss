@@ -3,8 +3,8 @@
 .headerMenu {
   display: none;
   position: absolute;
-  z-index: 3;
-  top: -46px;
+  z-index: 50;
+  top: 0;
   left: 0;
   width: 100%;
   min-height: 568px;
@@ -51,6 +51,16 @@
       text-transform: uppercase;
     }
   }
+
+  p {
+    color: $color-midnight;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 43px;
+    margin: 0;
+    margin-bottom: 171px;
+  }
 }
 
 .nav {
@@ -58,24 +68,18 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 105px;
-}
 
-p {
-  color: $color-midnight;
-  text-transform: uppercase;
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 43px;
-  margin: 0;
-  margin-bottom: 171px;
-}
-
-button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
 }
 
 .isOpen {
   display: block;
+}
+
+.noScroll {
+  overflow: hidden;
 }
