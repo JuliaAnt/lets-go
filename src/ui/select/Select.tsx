@@ -15,7 +15,11 @@ export const Select = () => {
       <div className={`${styles.select} ${isOpen ? styles.isOpen : ''}`}>
         <div className={styles.selectInner} onClick={() => setOpen(!isOpen)}>
           <p>{selectedOption || 'Выберите страну'}</p>
-          <button className={styles.selectButton} type='button'>
+          <button
+            className={styles.selectButton}
+            type='button'
+            onClick={() => setSelectedOption('Аргентина')}
+          >
             {isOpen ? (
               <img src={iconClose} width={22} height={24} alt='Закрыть'></img>
             ) : (
