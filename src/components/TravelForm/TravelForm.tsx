@@ -10,12 +10,7 @@ export const TravelForm = () => {
         <h2>Добавить план:</h2>
         <DotsList />
       </div>
-      <StepOne
-        companionsAmount={companionsAmount}
-        travelDuration={travelDuration}
-        setCompanionsAmount={setCompanionsAmount}
-        setTravelDuration={setTravelDuration}
-      />
+      <StepOne />
       <StepTwo />
     </form>
   )
