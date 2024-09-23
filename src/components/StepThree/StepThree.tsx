@@ -28,48 +28,38 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
   return (
     <section className={styles.StepThree}>
       <div className={styles.header}>
-        <h3>Шаг 3. Развлечения</h3>
-        <p>
-          Наконец, расскажите о&nbsp;своих планах времяпровождения. <br />
-          Можно писать в&nbsp;свободной форме и&nbsp;ставить тэги.
-        </p>
-        <StepsList currentStep={currentStep} />
-      </div>
-
-      <div className={styles.textareaWrapper}>
+      <p>
+        Наконец, расскажите о&nbsp;своих планах времяпровождения. <br />
+        Можно писать в&nbsp;свободной форме и&nbsp;ставить тэги.
+      </p>
+      <StepsList currentStep={currentStep} />
+    </div><div className={styles.textareaWrapper}>
         {selectedCountriesState.map((country, index) => {
           const className = `textarea${index + 1}`
           return (
             <div className={styles[className]}>
               <p>{country.name}</p>
-              <textarea name='top' id='top' placeholder='План действий'></textarea>
+              <textarea name='top' id='top' maxLength={200} placeholder='План действий'></textarea>
             </div>
           )
         })}
         {/* <div className={styles.textareaTop}>
-          <p>Босния</p>
-          {/* <textarea name="top" id="top" maxLength="200" placeholder='План действий'></textarea> */}
-          <textarea name='top' id='top' maxLength={200} placeholder='План действий'></textarea>
-          {/* <Textarea length=200 /> */}
-        </div>
-        <div className={styles.textareaDown}>
-          <p>Чехия</p>
-          <textarea
-            name='down'
-            id='down'
-            maxLength={200}
-            placeholder='План действий'
-            defaultValue={
-              'Пить пиво и лазить по старым замкам, наслаждаться архитектурой и вот это все'
-            }
-          ></textarea>
-        </div> */}
+      <p>Босния</p>
+      <textarea name='top' id='top' placeholder='План действий'></textarea>
+    </div>
+    <div className={styles.textareaDown}>
+      <p>Чехия</p>
+        defaultValue={
+          'Пить пиво и лазить по старым замкам, наслаждаться архитектурой и вот это все'
+        }
+      ></textarea>
+    </div> */}
         <div className={styles.areaFlags}>
           {selectedCountriesState.map((country) => (
             <img src={country.flags} width={70} height={47} alt={country.alt} />
           ))}
           {/* <img src={flagBosniaAndHerzegovina} width={70} height={47} alt='BosniaAndHerzegovina' />
-          <img src={flagCzech} width={70} height={47} alt='flagCzech' /> */}
+    <img src={flagCzech} width={70} height={47} alt='flagCzech' /> */}
           <div className={styles.decorDesktop}>
             <img src={lineCountry} width={14} height={274} alt='decor' />
           </div>
@@ -77,8 +67,7 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
             <img src={lineCountryMobile} width={17} height={287} alt='decor' />
           </div>
         </div>
-      </div>
-      <div className={styles.pageLinks}>
+      </div><div className={styles.pageLinks}>
         <Link className={styles.nextStep} to='#'>
           Отправить
           <span>
