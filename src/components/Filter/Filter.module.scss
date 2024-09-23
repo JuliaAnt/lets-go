@@ -1,12 +1,12 @@
 @import '../../styles/variables.scss';
 
-.filter {
+.wrapperFilter {
   display: flex;
   flex-direction: column;
 
   width: 189px;
   min-height: 600px;
-  margin: 50px 60px 50px auto;
+  margin: 49px 60px 50px auto;
   padding: 47px 48px;
 
   background-color: $color-pattens-blue;  
