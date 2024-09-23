@@ -4,8 +4,8 @@ import iconBicycle from '../assets/icons/intro/icon_bicycle.svg'
 import iconRun from '../assets/icons/intro/icon_run.svg'
 
 export enum AppRoute {
-  Form = '/',
-  Catalog = '/catalog',
+  FORM = '/',
+  CATALOG = '/catalog',
 }
 
 export enum TransportType {
@@ -40,8 +40,8 @@ export const TRANSPORT_TYPES_LIST = [
 
 export const NAVIGATION_MAP = [
   { id: 1, text: 'о сервисе', hoverText: 'О СЕРВИСЕ', url: '#' },
-  { id: 2, text: 'направления', hoverText: 'НАПРАВЛЕНИЯ', url: AppRoute.Form },
-  { id: 3, text: 'попутчики', hoverText: 'ПОПУТЧИКИ', url: AppRoute.Catalog },
+  { id: 2, text: 'направления', hoverText: 'НАПРАВЛЕНИЯ', url: AppRoute.FORM },
+  { id: 3, text: 'попутчики', hoverText: 'ПОПУТЧИКИ', url: AppRoute.CATALOG },
 ]
 
 export const COUNTER_INPUT_MAP = {
@@ -106,6 +106,12 @@ export const ALPHABET_LETTERS = [
   'Я',
 ]
 export enum NameSpace {
-  FormData = 'FORM_DATA',
-  BackendData = 'BACKEND_DATA',
+  FORM_DATA = 'FORM_DATA',
+  BACKEND_DATA = 'BACKEND_DATA',
+}
+
+export enum StepsMap {
+  STEP_ONE = 'stepOne',
+  STEP_TWO = 'stepTwo',
+  STEP_THREE = 'stepThree',
 }

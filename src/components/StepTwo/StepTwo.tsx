@@ -4,8 +4,13 @@ import { StepsList } from '../StepsList/StepsList'
 import { Select } from '../../ui/select/Select'
 import { AddCountry } from './AddCountry/AddCountry'
 import iconArrowButton from '../../assets/icons/stepTwo/icon-arrow-triangular.svg'
+import { StepsMap } from '../../utils/consts'
 
-export const StepTwo = () => {
+type StepTwoProps = {
+  setCurrentStep: (currentStep: StepsMap) => void
+}
+
+export const StepTwo = ({ setCurrentStep }: StepTwoProps) => {
   return (
     <section className={styles.stepTwo}>
       <div className={styles.header}>
@@ -24,15 +29,23 @@ export const StepTwo = () => {
         <AddCountry />
 
         <div className={styles.pageLinks}>
-          <Link className={styles.nextStep} to='#'>
+          <Link
+            className={styles.nextStep}
+            to='#'
+            onClick={() => setCurrentStep(StepsMap.STEP_THREE)}
+          >
             Следующий шаг
             <span>
               <img src={iconArrowButton} width={14} height={14} alt='Следующий шаг' />
             </span>
           </Link>
-          <Link className={styles.backStep} to='#'>
+          <Link
+            className={styles.backStep}
+            to='#'
+            onClick={() => setCurrentStep(StepsMap.STEP_ONE)}
+          >
             <span>
-              <img src={iconArrowButton} width={14} height={14} alt='Следующий шаг' />
+              <img src={iconArrowButton} width={14} height={14} alt='Предыдущий шаг' />
             </span>
             На шаг назад
           </Link>

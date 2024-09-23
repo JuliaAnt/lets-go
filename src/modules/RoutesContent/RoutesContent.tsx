@@ -11,8 +11,8 @@ export const RoutesContent = () => {
   return (
     <BrowserRouter basename={basename}>
       <Routes>
-        <Route path={AppRoute.Catalog} element={<CatalogPage />} />
-        <Route path={AppRoute.Form} element={<FormPage />} />
+        <Route path={AppRoute.CATALOG} element={<CatalogPage />} />
+        <Route path={AppRoute.FORM} element={<FormPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
