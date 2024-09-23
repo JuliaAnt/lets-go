@@ -12,11 +12,11 @@ export const TravelForm = () => {
   const getCurrentStep = () => {
     switch (currentStep) {
       case StepsMap.STEP_ONE:
-        return <StepOne setCurrentStep={setCurrentStep} />
+        return <StepOne currentStep={currentStep} setCurrentStep={setCurrentStep} />
       case StepsMap.STEP_TWO:
-        return <StepTwo setCurrentStep={setCurrentStep} />
+        return <StepTwo currentStep={currentStep} setCurrentStep={setCurrentStep} />
       case StepsMap.STEP_THREE:
-        return <StepThree setCurrentStep={setCurrentStep} />
+        return <StepThree currentStep={currentStep} setCurrentStep={setCurrentStep} />
     }
   }
 

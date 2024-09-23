@@ -1,14 +1,12 @@
 import styles from './StepThree.module.scss'
 import { Link } from 'react-router-dom'
 import { StepsList } from '../StepsList/StepsList'
-// import { Select } from '../../ui/select/Select'
-// import { AddCountry } from './AddCountry/AddCountry'
 import iconArrowButton from '../../assets/icons/stepTwo/icon-arrow-triangular.svg'
 import lineCountry from '../../assets/line_country.svg'
 import lineCountryMobile from '../../assets/line_country_mobile.svg'
-import flagBosniaAndHerzegovina from '../../assets/images/flags/Bosnia-and-Herzegovina.png'
-import flagCzech from '../../assets/images/flags/Czech.png'
 import { StepsMap } from '../../utils/consts'
+import { useAppSelector } from '../../hooks/redux-hooks'
+import { getSelectedCountries } from '../../store/formData/formDataSelector'
 
 // interface StepsTextareaListProps {
 //     length: number;
@@ -20,10 +18,13 @@ import { StepsMap } from '../../utils/consts'
 // };
 
 type StepThreeProps = {
+  currentStep: StepsMap
   setCurrentStep: (currentStep: StepsMap) => void
 }
 
-export const StepThree = ({ setCurrentStep }: StepThreeProps) => {
+export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
+  const selectedCountriesState = useAppSelector(getSelectedCountries)
+
   return (
     <section className={styles.StepThree}>
       <div className={styles.header}>
@@ -32,11 +33,20 @@ export const StepThree = ({ setCurrentStep }: StepThreeProps) => {
           Наконец, расскажите о&nbsp;своих планах времяпровождения. <br />
           Можно писать в&nbsp;свободной форме и&nbsp;ставить тэги.
         </p>
-        <StepsList currentStep='entertainment' />
+        <StepsList currentStep={currentStep} />
       </div>
 
       <div className={styles.textareaWrapper}>
-        <div className={styles.textareaTop}>
+        {selectedCountriesState.map((country, index) => {
+          const className = `textarea${index + 1}`
+          return (
+            <div className={styles[className]}>
+              <p>{country.name}</p>
+              <textarea name='top' id='top' placeholder='План действий'></textarea>
+            </div>
+          )
+        })}
+        {/* <div className={styles.textareaTop}>
           <p>Босния</p>
           {/* <textarea name="top" id="top" maxLength="200" placeholder='План действий'></textarea> */}
           <textarea name='top' id='top' maxLength={200} placeholder='План действий'></textarea>
@@ -52,14 +62,14 @@ export const StepThree = ({ setCurrentStep }: StepThreeProps) => {
             defaultValue={
               'Пить пиво и лазить по старым замкам, наслаждаться архитектурой и вот это все'
             }
-          >
-            {/* Пить пиво и&nbsp;лазить по&nbsp;старым замкам, наслаждаться архитектурой и&nbsp;вот это
-            все. */}
-          </textarea>
-        </div>
+          ></textarea>
+        </div> */}
         <div className={styles.areaFlags}>
-          <img src={flagBosniaAndHerzegovina} width={70} height={47} alt='BosniaAndHerzegovina' />
-          <img src={flagCzech} width={70} height={47} alt='flagCzech' />
+          {selectedCountriesState.map((country) => (
+            <img src={country.flags} width={70} height={47} alt={country.alt} />
+          ))}
+          {/* <img src={flagBosniaAndHerzegovina} width={70} height={47} alt='BosniaAndHerzegovina' />
+          <img src={flagCzech} width={70} height={47} alt='flagCzech' /> */}
           <div className={styles.decorDesktop}>
             <img src={lineCountry} width={14} height={274} alt='decor' />
           </div>
