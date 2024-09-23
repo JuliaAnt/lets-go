@@ -8,6 +8,7 @@ import lineCountry from '../../assets/line_country.svg'
 import lineCountryMobile from '../../assets/line_country_mobile.svg'
 import flagBosniaAndHerzegovina from '../../assets/images/flags/Bosnia-and-Herzegovina.png'
 import flagCzech from '../../assets/images/flags/Czech.png'
+import { StepsMap } from '../../utils/consts'
 
 // interface StepsTextareaListProps {
 //     length: number;
@@ -18,14 +19,18 @@ import flagCzech from '../../assets/images/flags/Czech.png'
 //   return <textarea name="top" id="top" maxLength={`${length}`} placeholder='План действий'>`${text}`</textarea>;
 // };
 
-export const StepThree = () => {
+type StepThreeProps = {
+  setCurrentStep: (currentStep: StepsMap) => void
+}
 
+export const StepThree = ({ setCurrentStep }: StepThreeProps) => {
   return (
     <section className={styles.StepThree}>
       <div className={styles.header}>
         <h3>Шаг 3. Развлечения</h3>
         <p>
-          Наконец, расскажите о&nbsp;своих планах времяпровождения. <br />Можно писать в&nbsp;свободной форме и&nbsp;ставить тэги.
+          Наконец, расскажите о&nbsp;своих планах времяпровождения. <br />
+          Можно писать в&nbsp;свободной форме и&nbsp;ставить тэги.
         </p>
         <StepsList currentStep='entertainment' />
       </div>
@@ -34,12 +39,22 @@ export const StepThree = () => {
         <div className={styles.textareaTop}>
           <p>Босния</p>
           {/* <textarea name="top" id="top" maxLength="200" placeholder='План действий'></textarea> */}
-          <textarea name="top" id="top" placeholder='План действий'></textarea>
+          <textarea name='top' id='top' placeholder='План действий'></textarea>
           {/* <Textarea length=200 /> */}
         </div>
         <div className={styles.textareaDown}>
           <p>Чехия</p>
-          <textarea name="down" id="down" placeholder='План действий'>Пить пиво и&nbsp;лазить по&nbsp;старым замкам, наслаждаться архитектурой и&nbsp;вот это все.</textarea>
+          <textarea
+            name='down'
+            id='down'
+            placeholder='План действий'
+            defaultValue={
+              'Пить пиво и лазить по старым замкам, наслаждаться архитектурой и вот это все'
+            }
+          >
+            {/* Пить пиво и&nbsp;лазить по&nbsp;старым замкам, наслаждаться архитектурой и&nbsp;вот это
+            все. */}
+          </textarea>
         </div>
         <div className={styles.areaFlags}>
           <img src={flagBosniaAndHerzegovina} width={70} height={47} alt='BosniaAndHerzegovina' />
@@ -51,7 +66,6 @@ export const StepThree = () => {
             <img src={lineCountryMobile} width={17} height={287} alt='decor' />
           </div>
         </div>
-
       </div>
       <div className={styles.pageLinks}>
         <Link className={styles.nextStep} to='#'>
@@ -60,9 +74,9 @@ export const StepThree = () => {
             <img src={iconArrowButton} width={14} height={14} alt='Отправить' />
           </span>
         </Link>
-        <Link className={styles.backStep} to='#'>
+        <Link className={styles.backStep} to='#' onClick={() => setCurrentStep(StepsMap.STEP_TWO)}>
           <span>
-            <img src={iconArrowButton} width={14} height={14} alt='Следующий шаг' />
+            <img src={iconArrowButton} width={14} height={14} alt='Предыдущий шаг' />
           </span>
           На шаг назад
         </Link>

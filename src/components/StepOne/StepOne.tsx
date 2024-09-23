@@ -1,6 +1,6 @@
 import styles from './StepOne.module.scss'
 import { StepsList } from '../StepsList/StepsList'
-import { COUNTER_INPUT_MAP } from '../../utils/consts'
+import { COUNTER_INPUT_MAP, StepsMap } from '../../utils/consts'
 import { CounterInput } from './CounterInput/CounterInput'
 import { Link } from 'react-router-dom'
 import { CalendarTable } from '../Calendar/CalendarTable'
@@ -9,14 +9,18 @@ import {
   getChildrenAllowed,
   getCompanionsAmount,
   getTravelDuration,
-} from '../../store/formSlice/formDataSelector'
+} from '../../store/formData/formDataSelector'
 import {
   changeCompanionsAmount,
   changeTravelDuration,
   toggleChildrenAllowed,
-} from '../../store/formSlice/formDataSlice'
+} from '../../store/formData/formDataSlice'
 
-export const StepOne = () => {
+type StepOneProps = {
+  setCurrentStep: (currentStep: StepsMap) => void
+}
+
+export const StepOne = ({ setCurrentStep }: StepOneProps) => {
   const dispatch = useAppDispatch()
   const companionsAmount = useAppSelector(getCompanionsAmount)
   const travelDuration = useAppSelector(getTravelDuration)
@@ -57,7 +61,11 @@ export const StepOne = () => {
 
       <CalendarTable />
 
-      <Link to='#second-step' className={styles.nextStepButton}>
+      <Link
+        to='#second-step'
+        className={styles.nextStepButton}
+        onClick={() => setCurrentStep(StepsMap.STEP_TWO)}
+      >
         Следующий шаг
         <svg
           width='11'

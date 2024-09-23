@@ -124,9 +124,15 @@ export function CalendarTable() {
       <table className={styles.calendarTable}>
         <thead>
           <tr>
-            {DAYS_OF_WEEK.map((day) => (
-              <th key={day}>{day}</th>
-            ))}
+            {DAYS_OF_WEEK.map((day) => {
+              return day === 'Сб' || day === 'Вс' ? (
+                <th key={day} className={styles.dayOff}>
+                  {day}
+                </th>
+              ) : (
+                <th key={day}>{day}</th>
+              )
+            })}
           </tr>
         </thead>
         <tbody>
