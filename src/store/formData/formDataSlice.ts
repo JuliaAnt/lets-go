@@ -2,12 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { TransportType } from '../../utils/consts'
 import { setTransportType } from '../../helpers/setTransportType'
+import { CountryData } from '../../types/countriesData'
 
 export interface FormState {
   companionsAmount: number
   travelDuration: number
   isChildrenAllowed: boolean
   transportType: TransportType[]
+  selectedCountries: CountryData[]
 }
 
 const initialState: FormState = {
@@ -15,6 +17,7 @@ const initialState: FormState = {
   travelDuration: 2,
   isChildrenAllowed: false,
   transportType: [],
+  selectedCountries: [],
 }
 
 export const formData = createSlice({
@@ -37,6 +40,17 @@ export const formData = createSlice({
       state.transportType = setTransportType(state.transportType, action.payload)
       console.log(`transportTypes: ${state.transportType}`)
     },
+    addCountry: (state, action: PayloadAction<CountryData>) => {
+      state.selectedCountries = [...state.selectedCountries, action.payload]
+      console.log(`selectedCountries: ${state.selectedCountries.map((country) => country.name)}`)
+    },
+    removeCountry: (state, action: PayloadAction<CountryData>) => {
+      const updatedCountries = state.selectedCountries.filter(
+        (country) => country.name !== action.payload.name,
+      )
+      state.selectedCountries = updatedCountries
+      console.log(`selectedCountries: ${state.selectedCountries.map((country) => country.name)}`)
+    },
   },
 })
 
@@ -45,5 +59,7 @@ export const {
   changeTravelDuration,
   toggleChildrenAllowed,
   changeTransportType,
+  addCountry,
+  removeCountry,
 } = formData.actions
 export default formData.reducer

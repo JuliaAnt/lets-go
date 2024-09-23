@@ -12,7 +12,7 @@ type CountriesDataProps = {
 export const CountriesData: React.FC<CountriesDataProps> = ({ selectedRegions }) => {
   const [selectedLetter, setSelectedLetter] = useState<string>('letter-1')
   const [selectedIndex, setSelectedIndex] = useState<number | null>(0)
-  const [filteredCountries, setFilteredCountries] = useState<CountriesDataType>(countriesData)
+  const [filteredCountries, setFilteredCountries] = useState<CountriesDataType[]>(countriesData)
 
   useEffect(() => {
     const filteredCountriesData = countriesData

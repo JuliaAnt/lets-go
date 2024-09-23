@@ -17,10 +17,11 @@ import {
 } from '../../store/formData/formDataSlice'
 
 type StepOneProps = {
+  currentStep: StepsMap
   setCurrentStep: (currentStep: StepsMap) => void
 }
 
-export const StepOne = ({ setCurrentStep }: StepOneProps) => {
+export const StepOne = ({ currentStep, setCurrentStep }: StepOneProps) => {
   const dispatch = useAppDispatch()
   const companionsAmount = useAppSelector(getCompanionsAmount)
   const travelDuration = useAppSelector(getTravelDuration)
@@ -31,10 +32,10 @@ export const StepOne = ({ setCurrentStep }: StepOneProps) => {
       <div className={styles.wrapper}>
         <h3>Шаг 1. Даты&nbsp;пребывания</h3>
         <p>
-          Укажите предпочтительное количество попутчиков, которых вы&nbsp;хотели бы позвать в поездку, и
-          ее предполагаемую длительность.
+          Укажите предпочтительное количество попутчиков, которых вы&nbsp;хотели бы позвать в
+          поездку, и ее предполагаемую длительность.
         </p>
-        <StepsList currentStep='dates' />
+        <StepsList currentStep={currentStep} />
       </div>
       <div className={styles.inputWrapper}>
         <CounterInput

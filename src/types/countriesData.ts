@@ -1,4 +1,4 @@
-type CountryData = {
+export type CountryData = {
   flags: string
   alt: string
   name: string
@@ -8,4 +8,4 @@ type CountryData = {
 export type CountriesDataType = {
   letter: string
   countries: CountryData[]
-}[]
+}

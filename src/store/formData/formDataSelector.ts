@@ -1,3 +1,4 @@
+import { CountryData } from '../../types/countriesData'
 import { NameSpace, TransportType } from '../../utils/consts'
 import { RootState } from '../store'
 
@@ -9,3 +10,5 @@ export const getChildrenAllowed = (state: RootState): boolean =>
   state[NameSpace.FORM_DATA].isChildrenAllowed
 export const getTransportType = (state: RootState): TransportType[] =>
   state[NameSpace.FORM_DATA].transportType
+export const getSelectedCountries = (state: RootState): CountryData[] =>
+  state[NameSpace.FORM_DATA].selectedCountries
