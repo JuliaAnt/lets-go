@@ -4,6 +4,8 @@ import { Pagination } from '../../components/Pagination/Pagination'
 import { Filter } from '../../components/Filter/Filter'
 import { Countries } from '../../components/Countries/Countries'
 import { IntroCatalog } from '../../components/IntroForm/IntroCatalog'
+import { TravelerCard } from '../../components/TravelerCard/TravelerCard'
+import { travelCardData, secondTravelCardData } from '../../data/travelCardData'
 
 export const CatalogPage = () => {
   return (
@@ -12,6 +14,8 @@ export const CatalogPage = () => {
       <main className='catalog-page'>
         <IntroCatalog />
         <Countries />
+        <TravelerCard data={travelCardData} />
+        <TravelerCard data={secondTravelCardData} />
         <Filter />
         <Pagination />
       </main>
