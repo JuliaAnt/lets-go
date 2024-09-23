@@ -315,6 +315,7 @@ export const CountriesData : React.FC = () => {
       <div className={styles.inputWrapper}>
         {letters.map((letter, index) => (
           <input
+            key = {`letter-input-${index}`}
             className={`lettersInput lettersInput--${index + 1}`}
             type="radio"
             name="letter"
@@ -327,7 +328,7 @@ export const CountriesData : React.FC = () => {
 
       <ul className={styles.lettersWrapper}>
         {letters.map((letter, index) => (
-          <li className={styles.lettersItem}>
+          <li key={`letter-item-${index}`} className={styles.lettersItem}>
             <label
               className={`${styles.lettersButton} ${selectedLetter === `letter-${index + 1}` ? styles.selected : ''}`}
               htmlFor={`letter-${index + 1}`}
@@ -342,11 +343,11 @@ export const CountriesData : React.FC = () => {
 
     <ul className={styles.countriesData}>
       {Data.map(({ letter, items }, index) => (
-        <li className={styles.wrapperItem}>
+        <li key={`country-wrapper-${index}`} className={styles.wrapperItem}>
           <p className={styles.letter}>{letter}</p>
           <ul className={`${styles.countriesList} ${selectedIndex === index ? styles.visible : styles.hidden}`}>
-            {items.map(({ href, regionType, name }) => (
-              <li className={styles.countriesItem}>
+            {items.map(({ href, regionType, name }, itemIndex) => (
+              <li key={`country-item-${itemIndex}`} className={styles.countriesItem}>
                 <a href={href} className={styles.countriesLink} data-region-type={regionType}>
                   {name}
                 </a>

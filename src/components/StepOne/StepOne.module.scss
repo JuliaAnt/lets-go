@@ -6,12 +6,16 @@
   border-radius: 60px;
 
   h3 {
-    margin: 0 0 33px 0;
+    margin: 0 0 24px 0;
     color: $color-catalina-blue;
     font-size: 36px;
     line-height: 36px;
     grid-column: 1/2;
     grid-row: 1/2;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      margin-bottom: 70px;
+    }
 
     @media (max-width: ($vp-768 - 1)) {
       font-size: 20px;
@@ -22,11 +26,13 @@
 
   p {
     color: $color-charcoal;
+    text-transform: none;
     font-size: 20px;
     line-height: 24px;
     grid-column: 1/2;
     grid-row: 2/-1;
     margin: 0;
+    letter-spacing: -0.01em;
 
     @media (max-width: ($vp-768 - 1)) {
       font-size: 13px;
@@ -37,6 +43,15 @@
   ul {
     grid-column: 2/-1;
     grid-row: 1/-1;
+    margin-right: 13px;
+
+    li {
+      margin-bottom: 24px;
+
+      &::before {
+        left: -53px;
+      }
+    }
   }
 
   @media (max-width: ($vp-1280 - 1)) {
@@ -58,7 +73,7 @@
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 65.9% auto;
-  padding-bottom: 55px;
+  padding-bottom: 50px;
   border-bottom: 1px solid $color-solitude;
   margin-bottom: 30px;
 
@@ -106,6 +121,8 @@
   grid-row: 1/-1;
   display: block;
   left: auto;
+  margin-top: 25px;
+  transform: translateX(27px);
 
   input[type='checkbox'] {
     display: none;
@@ -114,6 +131,8 @@
   input[type='checkbox'] ~ label {
     position: relative;
     color: $color-catalina-blue;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     font-weight: 500;
     font-size: 20px;
     line-height: 20px;
@@ -170,6 +189,7 @@
     padding-bottom: 34px;
     border-bottom: 1px solid $color-solitude;
     margin-bottom: 24px;
+    transform: none;
 
     input[type=checkbox] ~ label {
       margin-left: 58px;
@@ -186,6 +206,8 @@
       font-weight: 400;
       font-size: 15px;
       line-height: 15px;
+      text-transform: none;
+      letter-spacing: 0;
 
       &::before,
       &::after {
@@ -252,8 +274,12 @@
     grid-template-rows: auto auto;
     row-gap: 24px;
     order: 1;
-    margin-bottom: 35px;
-    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+
+    &:last-of-type {
+      margin-bottom: 26px;
+    }
 
     input {
       width: 100%;
@@ -267,6 +293,10 @@
     row-gap: 8px;
     margin-bottom: 20px;
 
+    &:last-of-type {
+      margin-bottom: 0px;
+    }
+
     input {
       height: 41px;
       font-size: 15px;
@@ -276,20 +306,20 @@
 }
 
 .secondInput {
+  .inputInner {
+    margin-left: 20px;
+  }
+
   @media (max-width: ($vp-1024 - 1px)) {
     order: 3;
+
+    .inputInner {
+      margin-left: 0;
+    }
   }
 
   @media (max-width: ($vp-768 - 1px)) {
     order: 2;
-  }
-}
-
-.secondInput span {
-  margin-left: 20px;
-
-  @media (max-width: ($vp-1024 - 1px)) {
-    margin-left: 0;
   }
 }
 
@@ -325,8 +355,18 @@
   }
 }
 
+.minusButton {
+  @media (max-width: ($vp-1024 - 1px)) {
+    transform: translateX(15px);
+  }
+}
+
 .plusButton {
   right: 0;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    transform: translateX(-18px);
+  }
 }
 
 .inputInner {
