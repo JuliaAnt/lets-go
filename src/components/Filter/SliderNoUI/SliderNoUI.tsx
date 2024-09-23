@@ -2,10 +2,6 @@ import styles from './nouislider.module.scss'
 import createUiSlider from '../../../vendor/init-nouislider.js'
 import { useEffect, useRef } from 'react'
 
-// window.addEventListener('load', () => {
-//   createUiSlider();
-// });
-// createUiSlider();
 interface SliderElement extends HTMLDivElement {
   noUiSlider?: any
 }

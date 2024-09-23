@@ -39,7 +39,7 @@ export const StepThree = ({ setCurrentStep }: StepThreeProps) => {
         <div className={styles.textareaTop}>
           <p>Босния</p>
           {/* <textarea name="top" id="top" maxLength="200" placeholder='План действий'></textarea> */}
-          <textarea name='top' id='top' placeholder='План действий'></textarea>
+          <textarea name='top' id='top' maxLength={200} placeholder='План действий'></textarea>
           {/* <Textarea length=200 /> */}
         </div>
         <div className={styles.textareaDown}>
@@ -47,6 +47,7 @@ export const StepThree = ({ setCurrentStep }: StepThreeProps) => {
           <textarea
             name='down'
             id='down'
+            maxLength={200}
             placeholder='План действий'
             defaultValue={
               'Пить пиво и лазить по старым замкам, наслаждаться архитектурой и вот это все'
