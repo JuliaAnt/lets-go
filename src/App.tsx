@@ -1,5 +1,6 @@
-import './App.scss';
-import {RoutesContent} from './modules/RoutesContent/RoutesContent';
+import './App.scss'
+import './components/Filter/SliderNoUI/nouislider.scss'
+import { RoutesContent } from './modules/RoutesContent/RoutesContent'
 
 function App(): JSX.Element {
   return (
@@ -22,7 +23,7 @@ function App(): JSX.Element {
         <RoutesContent />
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

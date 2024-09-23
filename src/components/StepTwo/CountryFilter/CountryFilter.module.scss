@@ -1,0 +1,59 @@
+@import '../../../styles/variables.scss';
+
+.countryFilter {
+  display: none;
+  position: absolute;
+  top: 103%;
+  left: 0;
+  width: 100%;
+  background-color: $color-default-white;
+  z-index: 3;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0px 8px 16px rgba(54, 80, 148, 0.18);
+  min-height: 476px;
+
+  @media (max-width: ($vp-1024 - 1)) {
+    width: calc(100vw - 194px);
+  }
+
+  @media (max-width: ($vp-768 - 1)) {
+    width: calc(100vw - 102px);
+    top: 105%;
+  }
+}
+
+.countryFilterWrapper {
+  display: grid;
+  grid-template-columns: 55% 35%;
+  justify-content: space-between;
+
+  @media (max-width: ($vp-768 - 1)) {
+    grid-template-columns: 100%;
+  }
+}
+
+.countryFilterList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: auto;
+  column-gap: 15px;
+  row-gap: 14px;
+  padding: 32px 0 36px 26px;
+
+  @media (max-width: ($vp-1440 - 1)) {
+    gap: 0;
+  }
+
+  @media (max-width: ($vp-768 - 1)) {
+    padding: 0;
+  }
+}
+
+.countryFilter.isOpen {
+  display: block;
+}

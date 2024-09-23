@@ -6,7 +6,7 @@
 
   width: 61.55%;
   margin: 170px 60px 78px;
-  padding: 31px 31px 27px 32px;
+  padding: 29px 31px 27px 32px;
   background-color: $color-default-white;
   border-radius: 20px;
 
@@ -17,8 +17,8 @@
 
   @media (max-width: ($vp-768 - 1px)) {
     width: calc(100% - 111px);
-    margin: 18px 24px 45px;
-    padding: 17px 31px 11px 31px;    
+    margin: 18px 24px 47px;
+    padding: 16px 31px 14px 31px;    
   }
 }
 
@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: flex-start;
 
-  margin: 0 30px 0 0;
+  margin: 2px 30px 0 0;
   padding: 0;
   column-gap: 7px;
   row-gap: 7px;  
@@ -70,7 +70,7 @@
     content: "";
     position: absolute;
     // z-index: 0;
-    top: 50%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50px;
@@ -110,6 +110,11 @@
     }
   }
 
+  button {
+    display: flex;
+    align-items: center;
+  }
+
   img {
     width: 10px;
     height: 17px;
@@ -133,9 +138,9 @@
 }
 
 .arrowRight {
-  transform: rotate(180deg) translateY(3px);
+  transform: rotate(180deg);
 
   @media (max-width: ($vp-768 - 1px)) {
-    transform: rotate(180deg) translateY(4px);    
+    transform: rotate(180deg);    
   }
 }

@@ -1,0 +1,38 @@
+@import '../../styles/variables.scss';
+
+.filter {
+  display: flex;
+  flex-direction: column;
+
+  width: 189px;
+  min-height: 600px;
+  margin: 50px 60px 50px auto;
+  padding: 47px 48px;
+
+  background-color: $color-pattens-blue;  
+  border-radius: 20px;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    padding: 37px 35px;
+  }
+}
+
+.sliderFilter {
+  width: 100%;
+}
+
+
+h2 {
+  color: $color-catalina-blue;
+  font-size: 30px;
+  line-height: 30px;
+  margin: 0;
+
+  // @media (max-width: ($vp-1024 - 1px)) {
+  // }
+
+  // @media (max-width: ($vp-768 - 1px)) {
+
+  // }
+}
+

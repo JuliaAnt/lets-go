@@ -4,20 +4,24 @@ import { COUNTER_INPUT_MAP } from '../../utils/consts'
 import { CounterInput } from './CounterInput/CounterInput'
 import { Link } from 'react-router-dom'
 import { CalendarTable } from '../Calendar/CalendarTable'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
+import {
+  getChildrenAllowed,
+  getCompanionsAmount,
+  getTravelDuration,
+} from '../../store/formSlice/formDataSelector'
+import {
+  changeCompanionsAmount,
+  changeTravelDuration,
+  toggleChildrenAllowed,
+} from '../../store/formSlice/formDataSlice'
 
-interface StepOneProps {
-  companionsAmount: number
-  travelDuration: number
-  setCompanionsAmount: (companionsAmount: number) => void
-  setTravelDuration: (travelDuration: number) => void
-}
+export const StepOne = () => {
+  const dispatch = useAppDispatch()
+  const companionsAmount = useAppSelector(getCompanionsAmount)
+  const travelDuration = useAppSelector(getTravelDuration)
+  const isChildrenAllowed = useAppSelector(getChildrenAllowed)
 
-export const StepOne = ({
-  companionsAmount,
-  travelDuration,
-  setCompanionsAmount,
-  setTravelDuration,
-}: StepOneProps) => {
   return (
     <div className={styles.stepOne}>
       <div className={styles.wrapper}>
@@ -32,16 +36,21 @@ export const StepOne = ({
         <CounterInput
           data={COUNTER_INPUT_MAP.travelerCounter}
           amount={companionsAmount}
-          setAmount={setCompanionsAmount}
+          setAmount={(amount: number) => dispatch(changeCompanionsAmount(amount))}
         />
         <CounterInput
           data={COUNTER_INPUT_MAP.travelLength}
           amount={travelDuration}
           className={styles.secondInput}
-          setAmount={setTravelDuration}
+          setAmount={(duration: number) => dispatch(changeTravelDuration(duration))}
         />
         <div className={styles.checkboxWrapper}>
-          <input type='checkbox' id='acceptChildren' defaultChecked />
+          <input
+            type='checkbox'
+            id='acceptChildren'
+            defaultChecked={isChildrenAllowed}
+            onClick={() => dispatch(toggleChildrenAllowed(!isChildrenAllowed))}
+          />
           <label htmlFor='acceptChildren'> Можно с детьми </label>
         </div>
       </div>

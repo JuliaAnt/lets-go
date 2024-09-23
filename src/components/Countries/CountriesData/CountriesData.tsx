@@ -1,6 +1,5 @@
-
-import styles from './CountriesData.module.scss';
-import React, { useState } from 'react';
+import styles from './CountriesData.module.scss'
+import React, { useState } from 'react'
 const Data = [
   {
     letter: 'А',
@@ -80,9 +79,7 @@ const Data = [
   },
   {
     letter: 'Е',
-    items: [
-      { href: '/asia/egypt.html', regionType: 'asia', name: 'Египет' },
-    ],
+    items: [{ href: '/asia/egypt.html', regionType: 'asia', name: 'Египет' }],
   },
   {
     letter: 'З',
@@ -245,9 +242,7 @@ const Data = [
   },
   {
     letter: 'Х',
-    items: [
-      { href: '/croatia.html', regionType: 'europe', name: 'Хорватия' },
-    ],
+    items: [{ href: '/croatia.html', regionType: 'europe', name: 'Хорватия' }],
   },
   {
     letter: 'Ч',
@@ -290,72 +285,102 @@ const Data = [
       { href: '/japan.html', regionType: 'asia', name: 'Япония' },
     ],
   },
-];
+]
 
 const letters = [
-  'А', 'Б', 'В', 'Г', 'Д', 'Е', 'З', 'И', 'К', 'Л',
-  'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х',
-  'Ч', 'Ш', 'Э', 'Ю', 'Я'
-];
+  'А',
+  'Б',
+  'В',
+  'Г',
+  'Д',
+  'Е',
+  'З',
+  'И',
+  'К',
+  'Л',
+  'М',
+  'Н',
+  'О',
+  'П',
+  'Р',
+  'С',
+  'Т',
+  'У',
+  'Ф',
+  'Х',
+  'Ч',
+  'Ш',
+  'Э',
+  'Ю',
+  'Я',
+]
 
-export const CountriesData : React.FC = () => {
-  const [selectedLetter, setSelectedLetter] = useState<string>('letter-1');
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
+export const CountriesData: React.FC = () => {
+  const [selectedLetter, setSelectedLetter] = useState<string>('letter-1')
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(0)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedLetter(event.target.id);
-  };
+    setSelectedLetter(event.target.id)
+  }
 
   const secondHandleChange = (idx: number) => {
-    setSelectedIndex(idx);
-  };
+    setSelectedIndex(idx)
+  }
 
-  return <div className={styles.countriesWrapper}>
-    <div className={styles.lettersList}>
-      <div className={styles.inputWrapper}>
-        {letters.map((letter, index) => (
-          <input
-            key = {`letter-input-${index}`}
-            className={`lettersInput lettersInput--${index + 1}`}
-            type="radio"
-            name="letter"
-            id={`letter-${index + 1}`}
-            checked={selectedLetter === `letter-${index + 1}`}
-            onChange={handleChange}
-          />
-        ))}
+  return (
+    <div className={styles.countriesWrapper}>
+      <div className={styles.lettersList}>
+        <div className={styles.inputWrapper}>
+          {letters.map((letter, index) => (
+            <input
+              key={letter}
+              className={`lettersInput lettersInput--${index + 1}`}
+              type='radio'
+              name='letter'
+              id={`letter-${index + 1}`}
+              checked={selectedLetter === `letter-${index + 1}`}
+              onChange={handleChange}
+            />
+          ))}
+        </div>
+
+        <ul className={styles.lettersWrapper}>
+          {letters.map((letter, index) => (
+            <li key={index} className={styles.lettersItem}>
+              <label
+                className={`${styles.lettersButton} ${
+                  selectedLetter === `letter-${index + 1}` ? styles.selected : ''
+                }`}
+                htmlFor={`letter-${index + 1}`}
+                onClick={() => secondHandleChange(index)}
+              >
+                {letter}
+              </label>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <ul className={styles.lettersWrapper}>
-        {letters.map((letter, index) => (
-          <li key={`letter-item-${index}`} className={styles.lettersItem}>
-            <label
-              className={`${styles.lettersButton} ${selectedLetter === `letter-${index + 1}` ? styles.selected : ''}`}
-              htmlFor={`letter-${index + 1}`}
-              onClick={() => secondHandleChange(index)}
+      <ul className={styles.countriesData}>
+        {Data.map(({ letter, items }, index) => (
+          <li key={index} className={styles.wrapperItem}>
+            <p className={styles.letter}>{letter}</p>
+            <ul
+              className={`${styles.countriesList} ${
+                selectedIndex === index ? styles.visible : styles.hidden
+              }`}
             >
-              {letter}
-            </label>
+              {items.map(({ href, regionType, name }) => (
+                <li key={name} className={styles.countriesItem}>
+                  <a href={href} className={styles.countriesLink} data-region-type={regionType}>
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>
     </div>
-
-    <ul className={styles.countriesData}>
-      {Data.map(({ letter, items }, index) => (
-        <li key={`country-wrapper-${index}`} className={styles.wrapperItem}>
-          <p className={styles.letter}>{letter}</p>
-          <ul className={`${styles.countriesList} ${selectedIndex === index ? styles.visible : styles.hidden}`}>
-            {items.map(({ href, regionType, name }, itemIndex) => (
-              <li key={`country-item-${itemIndex}`} className={styles.countriesItem}>
-                <a href={href} className={styles.countriesLink} data-region-type={regionType}>
-                  {name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
-  </div>
-};
+  )
+}
