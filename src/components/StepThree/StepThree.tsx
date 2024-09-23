@@ -28,12 +28,14 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
   return (
     <section className={styles.StepThree}>
       <div className={styles.header}>
-      <p>
-        Наконец, расскажите о&nbsp;своих планах времяпровождения. <br />
-        Можно писать в&nbsp;свободной форме и&nbsp;ставить тэги.
-      </p>
-      <StepsList currentStep={currentStep} />
-    </div><div className={styles.textareaWrapper}>
+        <h3>Шаг 3. Развлечения</h3>
+        <p>
+          Наконец, расскажите о&nbsp;своих планах времяпровождения. <br />
+          Можно писать в&nbsp;свободной форме и&nbsp;ставить тэги.
+        </p>
+        <StepsList currentStep={currentStep} />
+      </div>
+      <div className={styles.textareaWrapper}>
         {selectedCountriesState.map((country, index) => {
           const className = `textarea${index + 1}`
           return (
@@ -67,7 +69,8 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
             <img src={lineCountryMobile} width={17} height={287} alt='decor' />
           </div>
         </div>
-      </div><div className={styles.pageLinks}>
+      </div>
+      <div className={styles.pageLinks}>
         <Link className={styles.nextStep} to='#'>
           Отправить
           <span>
