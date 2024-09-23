@@ -99,8 +99,7 @@
     opacity: 0.3;
     transition: opacity $trans-default;
 
-    &:hover,
-    &:focus {
+    &:hover {
       opacity: 0.6;
     }
 

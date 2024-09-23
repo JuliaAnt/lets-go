@@ -1,8 +1,8 @@
 import styles from './Transport.module.scss'
 import { TRANSPORT_TYPES_LIST } from '../../../utils/consts'
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks'
-import { getTransportType } from '../../../store/formSlice/formDataSelector'
-import { changeTransportType } from '../../../store/formSlice/formDataSlice'
+import { getTransportType } from '../../../store/formData/formDataSelector'
+import { changeTransportType } from '../../../store/formData/formDataSlice'
 
 export const Transport = () => {
   const dispatch = useAppDispatch()

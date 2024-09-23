@@ -107,7 +107,7 @@ export const ALPHABET_LETTERS = [
 ]
 export enum NameSpace {
   FORM_DATA = 'FORM_DATA',
-  BACKEND_DATA = 'BACKEND_DATA',
+  CATALOG_DATA = 'CATALOG_DATA',
 }
 
 export enum StepsMap {
@@ -115,3 +115,34 @@ export enum StepsMap {
   STEP_TWO = 'stepTwo',
   STEP_THREE = 'stepThree',
 }
+
+// export enum Regions {
+//   EUROPE = 'Европа',
+//   ASIA = 'Азия',
+//   ISLANDS = 'Острова',
+//   AMERICA = 'Америка',
+//   AFRICA = 'Африка',
+// }
+
+export const REGIONS_MAP = [
+  {
+    regionTitle: 'Европа',
+    regionName: 'europe',
+  },
+  {
+    regionTitle: 'Азия',
+    regionName: 'asia',
+  },
+  {
+    regionTitle: 'Острова',
+    regionName: 'islands',
+  },
+  {
+    regionTitle: 'Америка',
+    regionName: 'america',
+  },
+  {
+    regionTitle: 'Африка',
+    regionName: 'africa',
+  },
+]

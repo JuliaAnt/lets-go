@@ -9,12 +9,12 @@ import {
   getChildrenAllowed,
   getCompanionsAmount,
   getTravelDuration,
-} from '../../store/formSlice/formDataSelector'
+} from '../../store/formData/formDataSelector'
 import {
   changeCompanionsAmount,
   changeTravelDuration,
   toggleChildrenAllowed,
-} from '../../store/formSlice/formDataSlice'
+} from '../../store/formData/formDataSlice'
 
 type StepOneProps = {
   setCurrentStep: (currentStep: StepsMap) => void
