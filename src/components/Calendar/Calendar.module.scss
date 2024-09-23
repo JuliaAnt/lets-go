@@ -4,17 +4,25 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 57px;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    margin-bottom: 10px;
+  }
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 27px;
+  padding-bottom: 19px;
   border-bottom: 1px solid $color-hawkes-blue;
   margin-bottom: 18px;
 
+  @media (max-width: ($vp-1024 - 1px)) {
+    margin-bottom: 36px;
+  }
+
   @media (max-width: ($vp-768 - 1px)) {
-    padding-bottom: 11px;
+    padding-bottom: 2px;
     margin-bottom: 22px;
   }
 }
@@ -38,6 +46,8 @@ p.currentMonth {
   background-color: transparent;
   border: transparent;
   cursor: pointer;
+  padding: 0;
+  margin-top: -5px;
 
   svg {
     opacity: 0.3;
@@ -62,15 +72,36 @@ p.currentMonth {
     padding: 0;
 
     svg {
-      width: 15px;
-      height: 21px;
+      width: 21px;
     }
   }
 }
 
+.prevMonth {
+  transform: translateX(-8px);
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    transform: translateX(10px);
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    transform: translateX(-4px);
+  }
+}
+
 .nextMonth {
+  transform: translateX(8px);
+
   svg {
     transform: rotate(180deg);
+  }
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    transform: translateX(-10px);
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    transform: translateX(4px);
   }
 }
 
@@ -105,6 +136,7 @@ p.currentMonth {
       font-size: 14px;
       line-height: 18px;
       padding-left: 0;
+      padding-bottom: 6px;
       text-align: center;
     }
   }
@@ -115,7 +147,7 @@ p.currentMonth {
 
   td {
     border: 1px solid $color-solitude;
-    height: 72px;
+    height: 71px;
     transition: border $trans-default;
     border-collapse: collapse;
     display: table-cell;
@@ -123,7 +155,7 @@ p.currentMonth {
     box-sizing: border-box;
 
     @media (max-width: ($vp-1024 - 1px)) {
-      height: 70px;
+      height: 69px;
     }
 
     @media (max-width: ($vp-768 - 1px)) {
