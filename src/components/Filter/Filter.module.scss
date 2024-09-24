@@ -4,10 +4,10 @@
   display: flex;
   flex-direction: column;
 
-  width: 189px;
+  width: 191px;
   min-height: 600px;
   margin: 49px 60px 50px auto;
-  padding: 47px 48px;
+  padding: 47px 46px 47px 48px;
 
   background-color: $color-pattens-blue;  
   border-radius: 20px;
@@ -26,7 +26,7 @@ h2 {
   color: $color-catalina-blue;
   font-size: 30px;
   line-height: 30px;
-  margin: 0;
+  margin: 0 2px;
 
   // @media (max-width: ($vp-1024 - 1px)) {
   // }
@@ -35,4 +35,106 @@ h2 {
 
   // }
 }
+
+.accordionFilter {
+  margin: 4px 0 0 0;
+}
+
+.elementFilter {
+  margin: 32px 0 0;
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+
+    border: none;
+  }
+}
+
+.accordionButtonFilter {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 0;
+
+  color: $color-catalina-blue;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  text-transform: uppercase;
+  // letter-spacing: -0.05em;
+  img {
+    width: 10px;
+    height: 6px;
+    margin: 5px 0 0 0;
+  }
+}
+
+.accordionContentFilter {
+  font-size: 20px;
+  line-height: 20px;
+
+  .accordionWrapperFilter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0 0;
+
+    label {
+      display: flex;
+      align-items: center;
+    }
+
+    input[type=checkbox] {
+        display: none;
+    }
+
+    span {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin: 0 13px 0 0;
+      background-color: $color-default-white;
+      border: none;
+      border-radius: 4px;
+    }
+  }
+}
+
+.transportFilter {
+  .accordionWrapperFilter {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    padding: 16px 0 0;
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    input[type=checkbox] {
+        display: none;
+    }
+
+    span {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 43px;
+      height: 43px;
+      margin: 0;
+      background-color: $color-default-white;
+      border: none;
+      border-radius: 50%;
+    }
+  }
+}
+
 
