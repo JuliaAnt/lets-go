@@ -1,4 +1,5 @@
 import { CountryData } from '../../types/countriesData'
+import { TravelDates } from '../../types/travelDates'
 import { NameSpace, TransportType } from '../../utils/consts'
 import { RootState } from '../store'
 
@@ -12,3 +13,6 @@ export const getTransportType = (state: RootState): TransportType[] =>
   state[NameSpace.FORM_DATA].transportType
 export const getSelectedCountries = (state: RootState): CountryData[] =>
   state[NameSpace.FORM_DATA].selectedCountries
+export const getTags = (state: RootState): string[] => state[NameSpace.FORM_DATA].tags
+export const getTravelDates = (state: RootState): TravelDates =>
+  state[NameSpace.FORM_DATA].travelDates

@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { TransportType } from '../../utils/consts'
+import { COUNTER_INPUT_MAP, TransportType } from '../../utils/consts'
 import { setTransportType } from '../../helpers/setTransportType'
 import { CountryData } from '../../types/countriesData'
+import { TravelDates } from '../../types/travelDates'
 
 export interface FormState {
   companionsAmount: number
@@ -11,15 +12,20 @@ export interface FormState {
   transportType: TransportType[]
   selectedCountries: CountryData[]
   tags: string[]
+  travelDates: TravelDates
 }
 
 const initialState: FormState = {
-  companionsAmount: 1,
-  travelDuration: 2,
+  companionsAmount: COUNTER_INPUT_MAP.travelerCounter.min,
+  travelDuration: COUNTER_INPUT_MAP.travelLength.min,
   isChildrenAllowed: false,
   transportType: [],
   selectedCountries: [],
   tags: [],
+  travelDates: {
+    startDate: '',
+    endDate: '',
+  },
 }
 
 export const formData = createSlice({
@@ -57,6 +63,14 @@ export const formData = createSlice({
       state.tags = action.payload
       console.log(`tags: ${state.tags}`)
     },
+    changeStartTravelDate: (state, action: PayloadAction<string>) => {
+      state.travelDates.startDate = action.payload
+      console.log(`startDate: ${state.travelDates.startDate}`)
+    },
+    changeEndTravelDate: (state, action: PayloadAction<string>) => {
+      state.travelDates.endDate = action.payload
+      console.log(`endDate: ${state.travelDates.endDate}`)
+    },
   },
 })
 
@@ -68,5 +82,7 @@ export const {
   addCountry,
   removeCountry,
   changeTags,
+  changeStartTravelDate,
+  changeEndTravelDate,
 } = formData.actions
 export default formData.reducer
