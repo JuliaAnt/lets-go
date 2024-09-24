@@ -10,6 +10,7 @@ export interface FormState {
   isChildrenAllowed: boolean
   transportType: TransportType[]
   selectedCountries: CountryData[]
+  tags: string[]
 }
 
 const initialState: FormState = {
@@ -18,6 +19,7 @@ const initialState: FormState = {
   isChildrenAllowed: false,
   transportType: [],
   selectedCountries: [],
+  tags: [],
 }
 
 export const formData = createSlice({
@@ -51,6 +53,10 @@ export const formData = createSlice({
       state.selectedCountries = updatedCountries
       console.log(`selectedCountries: ${state.selectedCountries.map((country) => country.name)}`)
     },
+    changeTags: (state, action: PayloadAction<string[]>) => {
+      state.tags = action.payload
+      console.log(`tags: ${state.tags}`)
+    },
   },
 })
 
@@ -61,5 +67,6 @@ export const {
   changeTransportType,
   addCountry,
   removeCountry,
+  changeTags,
 } = formData.actions
 export default formData.reducer
