@@ -346,34 +346,4 @@
       background-color: $color-energy-yellow;
     }
   }
-
-  .backStep {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 24px;
-    line-height: 22px;
-    font-weight: 700;
-    color: $color-catalina-blue;
-    max-width: 187px;
-    box-sizing: border-box;
-    column-gap: 19px;
-
-    img {
-      transform: rotate(-180deg);
-    }
-
-    @media (max-width: ($vp-768 - 1)) {
-      text-transform: uppercase;
-      max-width: 130px;
-      column-gap: 0;
-      font-size: 17px;
-      line-height: 30px;
-
-      img {
-        display: none;
-      }
-    }
-  }
 }

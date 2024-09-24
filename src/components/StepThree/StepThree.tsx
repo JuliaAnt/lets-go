@@ -1,5 +1,4 @@
 import styles from './StepThree.module.scss'
-import { Link } from 'react-router-dom'
 import { StepsList } from '../StepsList/StepsList'
 import iconArrowButton from '../../assets/icons/stepTwo/icon-arrow-triangular.svg'
 import lineCountry from '../../assets/line_country.svg'
@@ -7,6 +6,7 @@ import lineCountryMobile from '../../assets/line_country_mobile.svg'
 import { StepsMap } from '../../utils/consts'
 import { useAppSelector } from '../../hooks/redux-hooks'
 import { getSelectedCountries } from '../../store/formData/formDataSelector'
+import { PrevStepButton } from '../../ui/buttons/PrevStepButton/PrevStepButton'
 
 // interface StepsTextareaListProps {
 //     length: number;
@@ -71,18 +71,13 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
         </div>
       </div>
       <div className={styles.pageLinks}>
-        <Link className={styles.nextStep} to='#'>
+        <button className={styles.nextStep}>
           Отправить
           <span>
             <img src={iconArrowButton} width={14} height={14} alt='Отправить' />
           </span>
-        </Link>
-        <Link className={styles.backStep} to='#' onClick={() => setCurrentStep(StepsMap.STEP_TWO)}>
-          <span>
-            <img src={iconArrowButton} width={14} height={14} alt='Предыдущий шаг' />
-          </span>
-          На шаг назад
-        </Link>
+        </button>
+        <PrevStepButton onClick={() => setCurrentStep(StepsMap.STEP_TWO)} />
       </div>
     </section>
   )

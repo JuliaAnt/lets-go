@@ -144,7 +144,7 @@
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: -59px;
       width: 34px;
@@ -156,7 +156,7 @@
 
     &::after {
       opacity: 0;
-      background-image: url("../../assets/icon_check-mark.svg");
+      background-image: url('../../assets/icon_check-mark.svg');
       background-position: center center;
       background-repeat: no-repeat;
     }
@@ -191,7 +191,7 @@
     margin-bottom: 24px;
     transform: none;
 
-    input[type=checkbox] ~ label {
+    input[type='checkbox'] ~ label {
       margin-left: 58px;
     }
   }
@@ -201,7 +201,7 @@
     margin-bottom: 0;
     border: none;
 
-    input[type=checkbox] ~ label {
+    input[type='checkbox'] ~ label {
       margin-left: 39px;
       font-weight: 400;
       font-size: 15px;
@@ -380,62 +380,14 @@
   }
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
-}
-
-.nextStepButton {
-  display: inline-block;
-  padding: 29px 37px 27px 34px;
-  background-color: $color-pale-cornflower-blue-2;
-  font-size: 24px;
-  line-height: 24px;
-  color: $color-catalina-blue;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: background-color $trans-default, opacity $trans-default;
-
-  svg {
-    margin-left: 14px;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: $color-special-blue;
-  }
-
-  &:active {
-    background-color: $color-special-blue;
-    opacity: 0.3;
-  }
-
-  @media (max-width: ($vp-1024 - 1px)) {
-    svg {
-      margin-left: 12px;
-    }
-  }
-
-  @media (max-width: ($vp-768 - 1px)) {
-    font-size: 17px;
-    line-height: 30px;
-    text-transform: uppercase;
-    padding: 7px 0;
-    max-width: 100%;
-    border-radius: 20px;
-    width: 100%;
-    text-align: center;
-
-    svg {
-      display: none;
-    }
-  }
 }
 
 .labelData {
