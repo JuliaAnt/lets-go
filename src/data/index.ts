@@ -374,6 +374,17 @@ export const countriesData = [
     ],
   },
   {
+    letter: 'Е',
+    countries: [
+      {
+        flags: 'https://flagcdn.com/w320/eg.png',
+        alt: 'Египет',
+        name: 'Египет',
+        region: 'Африка',
+      },
+    ],
+  },
+  {
     letter: 'З',
     countries: [
       {
