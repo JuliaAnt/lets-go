@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   format,
   startOfMonth,
@@ -9,12 +9,15 @@ import {
   isSameDay,
   subMonths,
   addMonths,
-  differenceInCalendarDays,
+  parse,
 } from 'date-fns'
 import { ru } from 'date-fns/locale'
 import styles from './Calendar.module.scss'
 import { ReactComponent as ArrowBack } from '../../assets/arrow-back.svg'
 import { DAYS_OF_WEEK, MONTHS_LIST } from '../../utils/consts'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
+import { getTravelDates, getTravelDuration } from '../../store/formData/formDataSelector'
+import { changeEndTravelDate, changeStartTravelDate } from '../../store/formData/formDataSlice'
 
 const startEndTravelLabel = (date: Date, dateFrom: Date | null, dateTo: Date | null) => {
   let label = ''
@@ -38,6 +41,9 @@ const getDayWithMonthAbbreviation = (date: Date) => {
 }
 
 export function CalendarTable() {
+  const dispatch = useAppDispatch()
+  const travelDatesState = useAppSelector(getTravelDates)
+
   const [currentMonth, setCurrentMonth] = useState(new Date())
   const [range, setRange] = useState<{ from: Date | null; to: Date | null }>({
     from: null,
@@ -46,6 +52,7 @@ export function CalendarTable() {
   const today = new Date()
   const firstDayOfMonth = startOfMonth(currentMonth)
   const firstDayOfWeek = startOfWeek(firstDayOfMonth, { weekStartsOn: 1 })
+  const travelDurationState = useAppSelector(getTravelDuration)
 
   const generateWeeks = () => {
     const weeks = []
@@ -66,22 +73,15 @@ export function CalendarTable() {
 
   const handleDateClick = (date: Date) => {
     if (!range?.from || (range?.from && range?.to)) {
-      setRange({ from: date, to: null })
+      const endDate = addDays(date, travelDurationState - 1)
+      setRange({ from: date, to: endDate })
     } else if (isBefore(date, range.from)) {
       setRange({ from: date, to: range.from })
     } else if (isSameDay(date, range.from)) {
       setRange({ from: date, to: null })
     } else {
-      const travelDuration = differenceInCalendarDays(date, range.from)
-
-      if (travelDuration < 1) {
-        setRange({ from: range.from, to: null })
-      } else if (travelDuration >= 1 && travelDuration <= 30) {
-        setRange({ from: range.from, to: date })
-      } else {
-        setRange({ from: date, to: null })
-        console.log('Диапазон должен быть не менее 2 и не более 31 дня.')
-      }
+      const travelDuration = addDays(range.from, travelDurationState - 1)
+      setRange({ from: range.from, to: travelDuration })
     }
   }
 
@@ -97,6 +97,20 @@ export function CalendarTable() {
   const handleNextMonth = () => {
     setCurrentMonth(addMonths(currentMonth, 1))
   }
+
+  useEffect(() => {
+    if (range.from) dispatch(changeStartTravelDate(format(range.from, 'dd.MM.yyyy')))
+    if (range.to) dispatch(changeEndTravelDate(format(range.to, 'dd.MM.yyyy')))
+  }, [range, dispatch])
+
+  useEffect(() => {
+    if (travelDatesState.startDate && travelDatesState.endDate) {
+      setRange({
+        from: parse(travelDatesState.startDate, 'dd.MM.yyyy', new Date()),
+        to: parse(travelDatesState.endDate, 'dd.MM.yyyy', new Date()),
+      })
+    }
+  }, [travelDatesState])
 
   return (
     <div className={styles.calendar}>
@@ -179,16 +193,6 @@ export function CalendarTable() {
           ))}
         </tbody>
       </table>
-      <div>
-        {range.from && range.to ? (
-          <p>{`Выбран диапазон: ${format(range.from, 'dd.MM.yyyy', { locale: ru })} - ${format(
-            range.to,
-            'dd.MM.yyyy',
-          )}`}</p>
-        ) : (
-          <p>Выберите диапазон дат</p>
-        )}
-      </div>
     </div>
   )
 }

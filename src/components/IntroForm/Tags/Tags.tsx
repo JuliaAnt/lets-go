@@ -1,11 +1,19 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import styles from './Tags.module.scss'
-import { useAppDispatch } from '../../../hooks/redux-hooks'
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks'
 import { changeTags } from '../../../store/formData/formDataSlice'
+import { getTags } from '../../../store/formData/formDataSelector'
 
 export const Tags = () => {
   const dispatch = useAppDispatch()
+  const tagsState = useAppSelector(getTags)
   const [inputValue, setInputValue] = useState('')
+
+  useEffect(() => {
+    if (tagsState.length > 0) {
+      setInputValue(tagsState.join(' '))
+    }
+  }, [tagsState])
 
   const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value

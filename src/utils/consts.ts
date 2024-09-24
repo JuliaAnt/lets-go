@@ -116,14 +116,6 @@ export enum StepsMap {
   STEP_THREE = 'stepThree',
 }
 
-// export enum Regions {
-//   EUROPE = 'Европа',
-//   ASIA = 'Азия',
-//   ISLANDS = 'Острова',
-//   AMERICA = 'Америка',
-//   AFRICA = 'Африка',
-// }
-
 export const REGIONS_MAP = [
   {
     regionTitle: 'Европа',

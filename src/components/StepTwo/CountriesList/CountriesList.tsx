@@ -27,13 +27,12 @@ export const CountriesList: React.FC<CountriesListProps> = ({
     }
 
     if (selectedCountry) {
-      dispatch(removeCountry(selectedCountry)) // Удаляем старую выбранную страну
+      dispatch(removeCountry(selectedCountry))
     }
 
     if (!selectedCountriesState.find((country) => country.name === newCountry.name)) {
-      dispatch(addCountry(newCountry)) // Добавляем новую страну
+      dispatch(addCountry(newCountry))
     }
-    // setSelectedOption(newCountry);
     setOpen(false)
   }
 

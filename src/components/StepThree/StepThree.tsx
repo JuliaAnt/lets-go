@@ -39,7 +39,7 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
         {selectedCountriesState.map((country, index) => {
           const className = `textarea${index + 1}`
           return (
-            <div className={styles[className]}>
+            <div key={country.name} className={styles[className]}>
               <p>{country.name}</p>
               <textarea name='top' id='top' maxLength={200} placeholder='План действий'></textarea>
             </div>
@@ -58,7 +58,7 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
     </div> */}
         <div className={styles.areaFlags}>
           {selectedCountriesState.map((country) => (
-            <img src={country.flags} width={70} height={47} alt={country.alt} />
+            <img key={country.name} src={country.flags} width={70} height={47} alt={country.alt} />
           ))}
           {/* <img src={flagBosniaAndHerzegovina} width={70} height={47} alt='BosniaAndHerzegovina' />
     <img src={flagCzech} width={70} height={47} alt='flagCzech' /> */}
