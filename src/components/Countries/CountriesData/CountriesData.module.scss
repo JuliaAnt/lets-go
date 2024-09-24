@@ -25,12 +25,12 @@
       cursor: pointer;
       opacity: 0.3;
       transition: opacity $trans-default;
-    
+
       &:hover,
       &:focus-within {
         opacity: 0.6;
       }
-    
+
       &:active {
         opacity: 1;
       }
@@ -41,7 +41,7 @@
     column-gap: 0;
     row-gap: 0;
     max-width: 220px;
-    margin: 0 0 15px 26px;
+    margin: 0 0 10px 26px;
     font-size: 14px;
     line-height: 14px;
 

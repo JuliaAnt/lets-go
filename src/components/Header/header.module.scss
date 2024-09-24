@@ -15,6 +15,10 @@
   @media (max-width: ($vp-1024 - 1px)) {
     padding-top: 40px;
   }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    padding-top: 0;
+  }
 }
 
 .headerContainer {
