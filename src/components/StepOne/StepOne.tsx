@@ -2,7 +2,6 @@ import styles from './StepOne.module.scss'
 import { StepsList } from '../StepsList/StepsList'
 import { COUNTER_INPUT_MAP, StepsMap } from '../../utils/consts'
 import { CounterInput } from './CounterInput/CounterInput'
-import { Link } from 'react-router-dom'
 import { CalendarTable } from '../Calendar/CalendarTable'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
 import {
@@ -15,6 +14,7 @@ import {
   changeTravelDuration,
   toggleChildrenAllowed,
 } from '../../store/formData/formDataSlice'
+import { NextStepButton } from '../../ui/buttons/NextStepButton/NextStepButton'
 
 type StepOneProps = {
   currentStep: StepsMap
@@ -62,22 +62,7 @@ export const StepOne = ({ currentStep, setCurrentStep }: StepOneProps) => {
 
       <CalendarTable />
 
-      <Link
-        to='#second-step'
-        className={styles.nextStepButton}
-        onClick={() => setCurrentStep(StepsMap.STEP_TWO)}
-      >
-        Следующий шаг
-        <svg
-          width='11'
-          height='14'
-          viewBox='0 0 11 14'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path d='M11 7L0.5 13.0622V0.937822L11 7Z' fill='#1D2E5B' />
-        </svg>
-      </Link>
+      <NextStepButton onClick={() => setCurrentStep(StepsMap.STEP_TWO)} />
     </div>
   )
 }
