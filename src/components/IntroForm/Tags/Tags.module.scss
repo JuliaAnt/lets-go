@@ -19,13 +19,17 @@
     padding: 26px 24px;
   }
 
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .inputField {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    resize: none;
+    max-height: 22px;
+    padding: 0;
 
     color: $color-charcoal;
-    
+
+    font-family: inherit;
     opacity: 0.6;
     font-size: 20px;
     line-height: 20px;
@@ -39,13 +43,14 @@
       letter-spacing: normal;
     }
   }
-  
-  a:hover,
-  a:focus {
-    opacity: 0.15;
+
+  .inputField:hover {
+    opacity: 0.7;
   }
 
-  a:active {
-    opacity: 0.7;
+  .inputField:active,
+  .inputField:focus {
+    opacity: 1;
+    outline: none;
   }
 }
