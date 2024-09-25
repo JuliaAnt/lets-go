@@ -114,13 +114,13 @@ export const Filter = () => {
               </div>
             </fieldset>
           </div>
-          <div className={`${styles.elementFilter}`}>
+          <div className={`${styles.elementFilter} ${styles.transportFilter}`}>
             <fieldset>
               <button className={`${styles.accordionButtonFilter}`} type="button" data-accordion="button">
                 <span>транспорт</span>
                 <img className={styles.arrow} src={arrowDown} width={10} height={6} alt="arrow" />
               </button>
-              <div className={`${styles.accordionContentFilter} ${styles.transportFilter}`} data-accordion="content">
+              <div className={`${styles.accordionContentFilter}`} data-accordion="content">
                 <div className={`${styles.accordionWrapperFilter}`}>
                   <label htmlFor="plane"> 
                     <input type="checkbox" id="plane" name="plane"></input>                    
@@ -153,7 +153,7 @@ export const Filter = () => {
         </form>
       </div>
       <div className={`${styles.sliderFilter}`}>
-        <p>ЛЕВЕЛ:</p>
+        <p>ЛЕВЕЛ:</p>        
         <SliderNoUI/>
       </div>
       <ButtonShow/>
