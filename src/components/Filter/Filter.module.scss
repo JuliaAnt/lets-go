@@ -13,11 +13,17 @@
   border-radius: 20px;
 
   @media (max-width: ($vp-1024 - 1px)) {
+    order: 0;
     width: unset;
     min-height: unset;
     margin: 49px 40px 50px;
     padding: 37px 32px;
   }
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    margin: 20px 25px;
+    padding: 27px 20px 22px;
+  }        
 }
 
 h2 {
@@ -26,19 +32,30 @@ h2 {
   line-height: 30px;
   margin: 0 2px;
 
-  // @media (max-width: ($vp-768 - 1px)) {
+  @media (max-width: ($vp-768 - 1px)) {
+    width: 90%;
+    margin: 0 5px;
 
-  // }
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+  }
 }
 
 .accordionFilter {
   margin: 4px 0 0 0;
 
   @media (max-width: ($vp-1024 - 1px)) {
-    margin: 38px 0 0 0;
-    padding: 8px 0 0 2px;
+    margin: 46px 0 0 0;
+    padding: 0 0 0 2px;
 
     border-top: 1px solid $color-energy-yellow-2;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    border-top: none;
+    margin: 12px 0 0 0;
+    padding: 0 5px;
   }
 }
 
@@ -47,6 +64,13 @@ h2 {
 
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 29px 0 0 0;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    margin: 10px 0 0 0;
+    padding: 12px 0 7px;
+
+    border-top: 1px solid $color-energy-yellow-2;
   }
 
   fieldset {
@@ -58,6 +82,11 @@ h2 {
     @media (max-width: ($vp-1024 - 1px)) {
       display: flex;
       align-items: center;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      flex-direction: column;
+      align-items: start;
     }
   }
 }
@@ -79,6 +108,14 @@ h2 {
     width: 20.4%;
   }
 
+  @media (max-width: ($vp-768 - 1px)) {
+    // justify-content: space-between;
+    width: 100%;
+
+    font-size: 16px;
+    line-height: 18px;
+  }
+
   img {
     width: 10px;
     height: 6px;
@@ -87,12 +124,21 @@ h2 {
     @media (max-width: ($vp-1024 - 1px)) {
       display: none;
     }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      display: block;
+    }
   }
 }
 
 .accordionContentFilter {
   font-size: 20px;
   line-height: 20px;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    font-size: 15px;
+    line-height: 20px;
+  }
 
   .accordionWrapperFilter {
     display: flex;
@@ -105,6 +151,12 @@ h2 {
       gap: 26px;
       margin: -2px 0 0;
       padding: 0;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px 0 0;
     }
 
     label {
@@ -131,6 +183,17 @@ h2 {
       background-color: $color-default-white;
       border: none;
       border-radius: 4px;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        width: 18px;
+        height: 18px;
+        margin: 0 9px 0 0;
+
+        img {
+          width: 8px;
+          height: 8px;
+        }
+      }
     }
   }
 }
@@ -138,6 +201,10 @@ h2 {
 .transportFilter {
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 17px 0 0;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    margin: 3px 0 0;
   }
 
   .accordionButtonFilter {
@@ -155,6 +222,11 @@ h2 {
     @media (max-width: ($vp-1024 - 1px)) {
       gap: 2px;
       padding: 6px 0 0;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      gap: 2px;
+      padding: 18px 0 0;
     }
 
     label {
@@ -178,6 +250,16 @@ h2 {
       background-color: $color-default-white;
       border: none;
       border-radius: 50%;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        width: 31px;
+        height: 31px;
+
+        img {
+          width: 50%;
+          height: auto;
+        }
+      }
     }
   }
 }
@@ -192,11 +274,26 @@ h2 {
     margin: 29px 0 0 2px;
   }
 
+  @media (max-width: ($vp-768 - 1px)) {
+    flex-direction: column;
+    width: 95%;
+    margin: 13px 5px 0 5px;
+    padding: 11px 0 0 0;
+
+    border-top: 1px solid $color-energy-yellow-2;
+  }
+
   p {
     margin: 0;
 
     @media (max-width: ($vp-1024 - 1px)) {
       width: 20%;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 100%;
+      font-size: 16px;
+      height: 18px;
     }
   }
 }

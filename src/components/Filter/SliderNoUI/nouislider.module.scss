@@ -10,6 +10,11 @@
     width: 70%;
     margin: 5px 0 0;
   }
+
+  @media (max-width: (767px)) {
+    width: 100%;
+    margin: 71px 0 0;
+  }
 } 
 
 
