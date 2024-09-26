@@ -1,10 +1,12 @@
 @import '../../../../styles/variables.scss';
 
 .footer {
-  ul {
+  .linksList {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 0;
+    flex-wrap: wrap;
   }
 
   li {
@@ -15,5 +17,10 @@
 
   a {
     padding: 11px;
+
+    img {
+      width: 23px;
+      height: 23px;
+    }
   }
 }

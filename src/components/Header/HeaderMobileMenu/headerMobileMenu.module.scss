@@ -15,14 +15,14 @@
 .headerContainer {
   max-width: $vp-1024;
   margin: 0 auto;
-  padding: 27px 28px 29px 25px;
+  padding: 22px 21px 29px 25px;
 
   ul {
     display: flex;
     flex-direction: column;
     row-gap: 6px;
-
     margin: 0;
+    margin-bottom: 22px;
     list-style: none;
     padding: 0;
 
@@ -59,7 +59,7 @@
     font-weight: 600;
     line-height: 43px;
     margin: 0;
-    margin-bottom: 171px;
+    margin-bottom: 142px;
   }
 }
 
@@ -67,7 +67,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 105px;
+  margin-bottom: 57px;
 
   button {
     border: none;
