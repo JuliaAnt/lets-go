@@ -4,6 +4,7 @@ import { COUNTER_INPUT_MAP, TransportType } from '../../utils/consts'
 import { setTransportType } from '../../helpers/setTransportType'
 import { CountryData } from '../../types/countriesData'
 import { TravelDates } from '../../types/travelDates'
+import { Entertainment } from '../../types/entertainments'
 
 export interface FormState {
   companionsAmount: number
@@ -13,6 +14,7 @@ export interface FormState {
   selectedCountries: CountryData[]
   tags: string[]
   travelDates: TravelDates
+  entertainments: Entertainment[]
 }
 
 const initialState: FormState = {
@@ -26,6 +28,7 @@ const initialState: FormState = {
     startDate: '',
     endDate: '',
   },
+  entertainments: [],
 }
 
 export const formData = createSlice({
@@ -56,8 +59,18 @@ export const formData = createSlice({
       const updatedCountries = state.selectedCountries.filter(
         (country) => country.name !== action.payload.name,
       )
+      const updatedEntertainments = state.entertainments.filter(
+        (entertainment) => entertainment.country !== action.payload.name,
+      )
       state.selectedCountries = updatedCountries
+      state.entertainments = updatedEntertainments
       console.log(`selectedCountries: ${state.selectedCountries.map((country) => country.name)}`)
+      console.log(
+        state.entertainments.map(
+          (entertainment) =>
+            `country: ${entertainment.country}, description: ${entertainment.description}`,
+        ),
+      )
     },
     changeTags: (state, action: PayloadAction<string[]>) => {
       state.tags = action.payload
@@ -70,6 +83,15 @@ export const formData = createSlice({
     changeEndTravelDate: (state, action: PayloadAction<string>) => {
       state.travelDates.endDate = action.payload
       console.log(`endDate: ${state.travelDates.endDate}`)
+    },
+    addEntertainment: (state, action: PayloadAction<Entertainment>) => {
+      state.entertainments = [...state.entertainments, action.payload]
+      console.log(
+        state.entertainments.map(
+          (entertainment) =>
+            `country: ${entertainment.country}, description: ${entertainment.description}`,
+        ),
+      )
     },
   },
 })
@@ -84,5 +106,6 @@ export const {
   changeTags,
   changeStartTravelDate,
   changeEndTravelDate,
+  addEntertainment,
 } = formData.actions
 export default formData.reducer
