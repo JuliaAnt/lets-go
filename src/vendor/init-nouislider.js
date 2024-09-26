@@ -16,7 +16,7 @@ export default function createUiSlider(slider) {
   function mergeTooltips(slider, threshold, separator) {
     // let textIsRtl = getComputedStyle(slider).direction === 'rtl'
     // let isRtl = slider.noUiSlider.options.direction === 'rtl'
-    let isVertical = slider.noUiSlider.options.orientation === 'vertical'
+    // let isVertical = slider.noUiSlider.options.orientation === 'vertical'
     let tooltips = slider.noUiSlider.getTooltips()
     let origins = slider.noUiSlider.getOrigins()
 

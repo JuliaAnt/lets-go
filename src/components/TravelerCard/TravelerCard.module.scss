@@ -22,6 +22,7 @@
   }
 
   @media (max-width: ($vp-1024 - 1px)) {
+    order: 1;
     row-gap: 30px;
     margin: 0 auto;
     max-width: calc(100% - 80px);
