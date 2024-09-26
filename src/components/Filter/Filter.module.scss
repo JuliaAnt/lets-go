@@ -4,35 +4,298 @@
   display: flex;
   flex-direction: column;
 
-  width: 189px;
+  width: 191px;
   min-height: 600px;
   margin: 49px 60px 50px auto;
-  padding: 47px 48px;
+  padding: 47px 46px 49px 48px;
 
   background-color: $color-pattens-blue;  
   border-radius: 20px;
 
   @media (max-width: ($vp-1024 - 1px)) {
-    padding: 37px 35px;
+    order: 0;
+    width: unset;
+    min-height: unset;
+    margin: 49px 40px 50px;
+    padding: 37px 32px;
   }
-}
 
-.sliderFilter {
-  width: 100%;
+  @media (max-width: ($vp-1024 - 1px)) {
+    margin: 20px 25px;
+    padding: 27px 20px 22px;
+  }        
 }
-
 
 h2 {
   color: $color-catalina-blue;
   font-size: 30px;
   line-height: 30px;
-  margin: 0;
+  margin: 0 2px;
 
-  // @media (max-width: ($vp-1024 - 1px)) {
-  // }
+  @media (max-width: ($vp-768 - 1px)) {
+    width: 90%;
+    margin: 0 5px;
 
-  // @media (max-width: ($vp-768 - 1px)) {
-
-  // }
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+  }
 }
+
+.accordionFilter {
+  margin: 4px 0 0 0;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    margin: 46px 0 0 0;
+    padding: 0 0 0 2px;
+
+    border-top: 1px solid $color-energy-yellow-2;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    border-top: none;
+    margin: 12px 0 0 0;
+    padding: 0 5px;
+  }
+}
+
+.elementFilter {
+  margin: 32px 0 0;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    margin: 29px 0 0 0;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    margin: 10px 0 0 0;
+    padding: 12px 0 7px;
+
+    border-top: 1px solid $color-energy-yellow-2;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+
+    border: none;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+}
+
+.accordionButtonFilter {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 0;
+
+  color: $color-catalina-blue;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  text-transform: uppercase;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    width: 20.4%;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    // justify-content: space-between;
+    width: 100%;
+
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  img {
+    width: 10px;
+    height: 6px;
+    margin: 5px 0 0 0;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      display: none;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      display: block;
+    }
+  }
+}
+
+.accordionContentFilter {
+  font-size: 20px;
+  line-height: 20px;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .accordionWrapperFilter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0 0;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      flex-direction: row;
+      gap: 26px;
+      margin: -2px 0 0;
+      padding: 0;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px 0 0;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+
+      // @media (max-width: ($vp-1024 - 1px)) {
+      //   padding: 0;
+      // }
+    }
+
+    input[type=checkbox] {
+        display: none;
+    }
+
+    span {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin: 0 13px 0 0;
+      background-color: $color-default-white;
+      border: none;
+      border-radius: 4px;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        width: 18px;
+        height: 18px;
+        margin: 0 9px 0 0;
+
+        img {
+          width: 8px;
+          height: 8px;
+        }
+      }
+    }
+  }
+}
+
+.transportFilter {
+  @media (max-width: ($vp-1024 - 1px)) {
+    margin: 17px 0 0;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    margin: 3px 0 0;
+  }
+
+  .accordionButtonFilter {
+    @media (max-width: ($vp-1024 - 1px)) {
+      margin: 13px 0 0;
+    }
+  }
+
+  .accordionWrapperFilter {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    padding: 16px 0 0;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      gap: 2px;
+      padding: 6px 0 0;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      gap: 2px;
+      padding: 18px 0 0;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    input[type=checkbox] {
+        display: none;
+    }
+
+    span {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 43px;
+      height: 43px;
+      margin: 0;
+      background-color: $color-default-white;
+      border: none;
+      border-radius: 50%;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        width: 31px;
+        height: 31px;
+
+        img {
+          width: 50%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+
+.sliderFilter {
+  width: 100%;
+  margin: 35px 0 0;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    display: flex;
+    margin: 29px 0 0 2px;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    flex-direction: column;
+    width: 95%;
+    margin: 13px 5px 0 5px;
+    padding: 11px 0 0 0;
+
+    border-top: 1px solid $color-energy-yellow-2;
+  }
+
+  p {
+    margin: 0;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      width: 20%;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 100%;
+      font-size: 16px;
+      height: 18px;
+    }
+  }
+}
+
 
