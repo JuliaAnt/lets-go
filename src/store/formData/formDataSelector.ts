@@ -22,4 +22,5 @@ export const getTravelDates = (state: RootState): TravelDates =>
 export const getEntertainments = (state: RootState): Entertainment[] =>
   state[NameSpace.FORM_DATA].entertainments
 export const getErrors = (state: RootState): Error[] => state[NameSpace.FORM_DATA].errors
+export const getUuid = (state: RootState): string => state[NameSpace.FORM_DATA].uuid
 export const getFormDataState = (state: RootState): FormState => state[NameSpace.FORM_DATA]
