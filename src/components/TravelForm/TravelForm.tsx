@@ -3,11 +3,18 @@ import { StepOne } from '../StepOne/StepOne'
 import { StepTwo } from '../StepTwo/StepTwo'
 import { StepThree } from '../StepThree/StepThree'
 import { DotsList } from './DotsList/DotsList'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { StepsMap } from '../../utils/consts'
+import { useAppDispatch } from '../../hooks/redux-hooks'
+import { changeErrors } from '../../store/formData/formDataSlice'
 
 export const TravelForm = () => {
+  const dispatch = useAppDispatch()
   const [currentStep, setCurrentStep] = useState<StepsMap>(StepsMap.STEP_ONE)
+
+  useEffect(() => {
+    dispatch(changeErrors())
+  }, [dispatch])
 
   const getCurrentStep = () => {
     switch (currentStep) {

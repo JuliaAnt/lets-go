@@ -2,6 +2,7 @@ import iconPlane from '../assets/icons/intro/icon_plane.svg'
 import iconBus from '../assets/icons/intro/icon_bus.svg'
 import iconBicycle from '../assets/icons/intro/icon_bicycle.svg'
 import iconRun from '../assets/icons/intro/icon_run.svg'
+import { Error } from '../types/error'
 
 export enum AppRoute {
   FORM = '/',
@@ -136,5 +137,28 @@ export const REGIONS_MAP = [
   {
     regionTitle: 'Африка',
     regionName: 'africa',
+  },
+]
+
+export const ERROR_MAP: Error[] = [
+  {
+    errorName: 'transportTypeError',
+    errorText: 'Выберите хотя бы один вид транспорта',
+  },
+  {
+    errorName: 'selectedCountriesError',
+    errorText: 'Выберите хотя бы одну страну, которую Вы хотели бы посетить',
+  },
+  {
+    errorName: 'tagsError',
+    errorText: 'Введите хотя бы один тэг',
+  },
+  {
+    errorName: 'travelDatesError',
+    errorText: 'Выберите даты поездки',
+  },
+  {
+    errorName: 'entertainmentsError',
+    errorText: 'Опишите, чем Вы планируете заниматься в каждой из стран',
   },
 ]
