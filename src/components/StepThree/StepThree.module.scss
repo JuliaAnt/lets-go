@@ -351,9 +351,14 @@
       }
     }
 
-    &:hover,
+    &:hover:enabled,
     &:focus {
-      background-color: $color-energy-yellow;
+      background-color: $color-special-blue;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
     }
   }
 }

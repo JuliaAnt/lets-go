@@ -1,12 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { COUNTER_INPUT_MAP, TransportType } from '../../utils/consts'
+import { COUNTER_INPUT_MAP, ERROR_MAP, TransportType } from '../../utils/consts'
 import { setTransportType } from '../../helpers/setTransportType'
 import { CountryData } from '../../types/countriesData'
 import { TravelDates } from '../../types/travelDates'
 import { Entertainment } from '../../types/entertainments'
+import avatar from '../../assets/avatars/2.png'
+import { Error } from '../../types/error'
+import { setError } from '../../helpers/setError'
 
 export interface FormState {
+  uuid: string
+  firstName: string
+  lastName: string
+  photoUrl: string
   companionsAmount: number
   travelDuration: number
   isChildrenAllowed: boolean
@@ -15,9 +22,14 @@ export interface FormState {
   tags: string[]
   travelDates: TravelDates
   entertainments: Entertainment[]
+  errors: Error[]
 }
 
 const initialState: FormState = {
+  uuid: '',
+  firstName: 'Петя',
+  lastName: 'Демин',
+  photoUrl: avatar,
   companionsAmount: COUNTER_INPUT_MAP.travelerCounter.min,
   travelDuration: COUNTER_INPUT_MAP.travelLength.min,
   isChildrenAllowed: false,
@@ -29,6 +41,7 @@ const initialState: FormState = {
     endDate: '',
   },
   entertainments: [],
+  errors: ERROR_MAP,
 }
 
 export const formData = createSlice({
@@ -49,10 +62,16 @@ export const formData = createSlice({
     },
     changeTransportType: (state, action: PayloadAction<TransportType>) => {
       state.transportType = setTransportType(state.transportType, action.payload)
+      state.errors = setError(state)
+
       console.log(`transportTypes: ${state.transportType}`)
+      console.log(state.errors)
     },
     addCountry: (state, action: PayloadAction<CountryData>) => {
       state.selectedCountries = [...state.selectedCountries, action.payload]
+      state.errors = setError(state)
+
+      console.log(state.errors)
       console.log(`selectedCountries: ${state.selectedCountries.map((country) => country.name)}`)
     },
     removeCountry: (state, action: PayloadAction<CountryData>) => {
@@ -64,6 +83,9 @@ export const formData = createSlice({
       )
       state.selectedCountries = updatedCountries
       state.entertainments = updatedEntertainments
+      state.errors = setError(state)
+
+      console.log(state.errors)
       console.log(`selectedCountries: ${state.selectedCountries.map((country) => country.name)}`)
       console.log(
         state.entertainments.map(
@@ -74,24 +96,40 @@ export const formData = createSlice({
     },
     changeTags: (state, action: PayloadAction<string[]>) => {
       state.tags = action.payload
+      state.errors = setError(state)
+
       console.log(`tags: ${state.tags}`)
+      console.log(state.errors)
     },
     changeStartTravelDate: (state, action: PayloadAction<string>) => {
       state.travelDates.startDate = action.payload
+      state.errors = setError(state)
+
+      console.log(state.errors)
       console.log(`startDate: ${state.travelDates.startDate}`)
     },
     changeEndTravelDate: (state, action: PayloadAction<string>) => {
       state.travelDates.endDate = action.payload
+      state.errors = setError(state)
+
+      console.log(state.errors)
       console.log(`endDate: ${state.travelDates.endDate}`)
     },
     addEntertainment: (state, action: PayloadAction<Entertainment>) => {
       state.entertainments = [...state.entertainments, action.payload]
+      state.errors = setError(state)
+
+      console.log(state.errors)
       console.log(
         state.entertainments.map(
           (entertainment) =>
             `country: ${entertainment.country}, description: ${entertainment.description}`,
         ),
       )
+    },
+    changeErrors: (state) => {
+      state.errors = setError(state)
+      console.log(state.errors)
     },
   },
 })
@@ -107,5 +145,6 @@ export const {
   changeStartTravelDate,
   changeEndTravelDate,
   addEntertainment,
+  changeErrors,
 } = formData.actions
 export default formData.reducer
