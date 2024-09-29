@@ -1,28 +1,30 @@
 @import '../../styles/variables.scss';
 
 .wrapperFilter {
+  align-self: start;
   display: flex;
   flex-direction: column;
 
   width: 191px;
   min-height: 600px;
-  margin: 49px 0 50px auto;
+  margin: 0 0 0 auto;
   padding: 47px 46px 49px 48px;
 
   background-color: $color-pattens-blue;
   border-radius: 20px;
 
   @media (max-width: ($vp-1024 - 1px)) {
-    order: 0;
-    width: unset;
+    order: -1;
+    width: 90.7%;
     min-height: unset;
-    margin: 4px 40px 0;
+    margin: 4px auto 0;
     padding: 37px 32px;
     background-color: $color-pale-cornflower-blue-2;
   }
 
   @media (max-width: ($vp-768 - 1px)) {
-    margin: -1px 25px 0;
+    width: 85%;
+    margin: -1px auto 0;
     padding: 27px 20px 22px;
   }
 }
@@ -184,6 +186,13 @@ h2 {
       border: none;
       border-radius: 4px;
 
+      img {
+        width: 11px;
+        height: 11px;
+
+        opacity: 0;
+      }
+
       @media (max-width: ($vp-768 - 1px)) {
         width: 18px;
         height: 18px;
@@ -192,8 +201,6 @@ h2 {
         img {
           width: 8px;
           height: 8px;
-
-          opacity: 0;
         }
       }
     }
@@ -257,16 +264,16 @@ h2 {
       border: none;
       border-radius: 50%;
 
-      @media (max-width: ($vp-768 - 1px)) {
-        width: 31px;
-        height: 31px;
-
         img {
           width: 50%;
           height: auto;
 
           opacity: 0.15;
         }
+
+      @media (max-width: ($vp-768 - 1px)) {
+        width: 31px;
+        height: 31px;
       }
     }
   }
