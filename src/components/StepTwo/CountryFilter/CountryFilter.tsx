@@ -23,11 +23,11 @@ export const CountryFilter: React.FC<CountryFilterProps> = ({
   const [filtredCountries, setFiltredCountries] = useState<CountryData[]>([])
 
   useEffect(() => {
-    const filtredCountriesData =
+    const filteredCountriesData =
       countriesData.find((countriesList) => countriesList.letter === selectedLetter)?.countries ||
       []
 
-    setFiltredCountries(filtredCountriesData)
+    setFiltredCountries(filteredCountriesData)
   }, [selectedLetter])
 
   return (

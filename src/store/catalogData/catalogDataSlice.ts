@@ -3,14 +3,18 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { setRegions } from '../../helpers/setRegions'
 import { fetchCatalogData, sendFormData } from '../api-actions'
 import { Card } from '../../types/card'
+import { CountryData } from '../../types/countriesData'
+import { setCountry } from '../../helpers/setCountry'
 
 export interface CatalogState {
   regions: string[]
+  countries: CountryData[]
   cards: Card[]
 }
 
 const initialState: CatalogState = {
   regions: [],
+  countries: [],
   cards: [],
 }
 
@@ -20,7 +24,9 @@ export const catalogData = createSlice({
   reducers: {
     changeRegions: (state, action: PayloadAction<string>) => {
       state.regions = setRegions(state.regions, action.payload)
-      console.log(`regions: ${state.regions}`)
+    },
+    changeCountries: (state, action: PayloadAction<CountryData>) => {
+      state.countries = setCountry(state.countries, action.payload)
     },
   },
   extraReducers: (builder) => {
@@ -34,5 +40,5 @@ export const catalogData = createSlice({
   },
 })
 
-export const { changeRegions } = catalogData.actions
+export const { changeRegions, changeCountries } = catalogData.actions
 export default catalogData.reducer
