@@ -7,6 +7,7 @@ import iconBicycle from '../../assets/icons/intro/icon_bicycle.svg'
 import iconRun from '../../assets/icons/intro/icon_run.svg'
 import arrowDown from '../../assets/triangle-2.svg'
 import iconCheck from '../../assets/icon_check.svg'
+// import initAccordions from '../../vendor/init-accordions.js'
 
 
 export const Filter = () => {
