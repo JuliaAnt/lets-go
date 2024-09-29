@@ -3,13 +3,19 @@ import { countriesData } from '../../../data'
 import { ALPHABET_LETTERS } from '../../../utils/consts'
 import styles from './CountriesData.module.scss'
 import React, { useEffect, useState } from 'react'
-import { CountriesDataType } from '../../../types/countriesData'
+import { CountriesDataType, CountryData } from '../../../types/countriesData'
 
 type CountriesDataProps = {
   selectedRegions: string[]
+  selectedCountries: CountryData[]
+  handleCountrySelect: (country: CountryData) => void
 }
 
-export const CountriesData: React.FC<CountriesDataProps> = ({ selectedRegions }) => {
+export const CountriesData: React.FC<CountriesDataProps> = ({
+  selectedRegions,
+  selectedCountries,
+  handleCountrySelect,
+}) => {
   const [selectedLetter, setSelectedLetter] = useState<string>('letter-1')
   const [selectedIndex, setSelectedIndex] = useState<number | null>(0)
   const [filteredCountries, setFilteredCountries] = useState<CountriesDataType[]>(countriesData)
@@ -82,10 +88,16 @@ export const CountriesData: React.FC<CountriesDataProps> = ({ selectedRegions })
                 selectedIndex === index ? styles.visible : styles.hidden
               }`}
             >
-              {countries.map(({ region, name }) => (
-                <li key={name} className={styles.countriesItem}>
-                  <Link to='#' className={styles.countriesLink} data-region-type={region}>
-                    {name}
+              {countries.map((country) => (
+                <li
+                  key={country.name}
+                  className={`${styles.countriesItem} ${
+                    selectedCountries.includes(country) ? styles.countriesItemDown : ''
+                  }`}
+                  onClick={() => handleCountrySelect(country)}
+                >
+                  <Link to='#' className={styles.countriesLink} data-region-type={country.region}>
+                    {country.name}
                   </Link>
                 </li>
               ))}

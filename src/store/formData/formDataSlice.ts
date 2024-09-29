@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { COUNTER_INPUT_MAP, ERROR_MAP, TransportType } from '../../utils/consts'
 import { setTransportType } from '../../helpers/setTransportType'
-import { CountryData } from '../../types/countriesData'
+import { ChangedCountryType, CountryData } from '../../types/countriesData'
 import { TravelDates } from '../../types/travelDates'
 import { Entertainment } from '../../types/entertainments'
 import avatar from '../../assets/avatars/2.png'
@@ -67,7 +67,7 @@ export const formData = createSlice({
       state.selectedCountries = [...state.selectedCountries, action.payload]
       state.errors = setError(state)
 
-      console.log(state.errors)
+      console.log(state.selectedCountries.map((country) => country.name))
     },
     removeCountry: (state, action: PayloadAction<CountryData>) => {
       const updatedCountries = state.selectedCountries.filter(
@@ -80,7 +80,18 @@ export const formData = createSlice({
       state.entertainments = updatedEntertainments
       state.errors = setError(state)
 
-      console.log(state.errors)
+      console.log(state.selectedCountries.map((country) => country.name))
+    },
+    changeCountry: (state, action: PayloadAction<ChangedCountryType>) => {
+      const changedCountries = [...state.selectedCountries]
+      const selectedCountryIndex = state.selectedCountries.findIndex(
+        (country) => country.name === action.payload.selectedValue.name,
+      )
+      changedCountries.splice(selectedCountryIndex, 1, action.payload.newValue)
+      state.selectedCountries = [...changedCountries]
+      state.errors = setError(state)
+
+      console.log(state.selectedCountries.map((country) => country.name))
     },
     changeTags: (state, action: PayloadAction<string[]>) => {
       state.tags = action.payload
@@ -120,6 +131,7 @@ export const {
   changeTransportType,
   addCountry,
   removeCountry,
+  changeCountry,
   changeTags,
   changeStartTravelDate,
   changeEndTravelDate,

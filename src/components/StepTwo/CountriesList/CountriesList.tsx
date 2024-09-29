@@ -1,6 +1,9 @@
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks'
 import { getSelectedCountries } from '../../../store/formData/formDataSelector'
-import { addCountry, removeCountry } from '../../../store/formData/formDataSlice'
+import {
+  addCountry,
+  changeCountry as changeCountryState,
+} from '../../../store/formData/formDataSlice'
 import { CountryData } from '../../../types/countriesData'
 import styles from './CountriesList.module.scss'
 import React from 'react'
@@ -16,7 +19,6 @@ export const CountriesList: React.FC<CountriesListProps> = ({
   countries,
   selectedOption,
   setOpen,
-  setSelectedOption,
 }) => {
   const dispatch = useAppDispatch()
   const selectedCountriesState = useAppSelector(getSelectedCountries)
@@ -27,10 +29,13 @@ export const CountriesList: React.FC<CountriesListProps> = ({
     }
 
     if (selectedCountry) {
-      dispatch(removeCountry(selectedCountry))
+      dispatch(changeCountryState({ selectedValue: selectedCountry, newValue: newCountry }))
     }
 
-    if (!selectedCountriesState.find((country) => country.name === newCountry.name)) {
+    if (
+      !selectedCountry &&
+      !selectedCountriesState.find((country) => country.name === newCountry.name)
+    ) {
       dispatch(addCountry(newCountry))
     }
     setOpen(false)
@@ -42,6 +47,9 @@ export const CountriesList: React.FC<CountriesListProps> = ({
         <button
           key={index + 1}
           type='button'
+          disabled={Boolean(
+            selectedCountriesState.find((selectedCountry) => country.name === selectedCountry.name),
+          )}
           onClick={() => changeCountry(selectedOption, country)}
         >
           {country.name}

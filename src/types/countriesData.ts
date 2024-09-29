@@ -9,3 +9,8 @@ export type CountriesDataType = {
   letter: string
   countries: CountryData[]
 }
+
+export type ChangedCountryType = {
+  selectedValue: CountryData
+  newValue: CountryData
+}
