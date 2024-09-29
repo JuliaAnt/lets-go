@@ -1,4 +1,13 @@
 .cardsFields {
   display: flex;
   margin: auto 60px;
+
+  @media (max-width: (1023px)) {
+    flex-direction: column;
+    margin: auto 40px;
+  }
+
+  @media (max-width: (768px)) {
+    margin: auto 25px;
+  }
 }
