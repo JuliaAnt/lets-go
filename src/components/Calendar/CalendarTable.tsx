@@ -59,7 +59,7 @@ export function CalendarTable() {
       const endDate = addDays(range.from, travelDurationState - 1)
       setRange({ from: range.from, to: endDate })
     }
-  }, [travelDurationState, range])
+  }, [travelDurationState])
 
   const generateWeeks = () => {
     const weeks = []

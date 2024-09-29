@@ -7,16 +7,15 @@ import styles from './TravelerCard.module.scss'
 import { Card } from '../../../types/card'
 import { TransportType } from '../../../utils/consts'
 import LevelIcon from '../LevelIcon/LevelIcon'
-import { useAppSelector } from '../../../hooks/redux-hooks'
-import { getUuid } from '../../../store/formData/formDataSelector'
 
 type TravelerCardProps = {
   card: Card
+  uuidState: string
 }
 
-export const TravelerCard = ({ card }: TravelerCardProps) => {
+export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
   const { uuid, firstName, lastName, photoUrl, tags, countries, transport, likes, level } = card
-  const uuidState = useAppSelector(getUuid)
+
   const offlineStatus: boolean = Boolean(uuid !== uuidState)
   const follow: boolean = Boolean(uuid !== uuidState)
   const tagsString = tags.slice(0, 3).join(' ')
