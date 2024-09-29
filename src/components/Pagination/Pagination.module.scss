@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
-.wpapper {
+.wrapper {
+  order: 2;
   display: flex;
   justify-content: space-between;
 
@@ -57,8 +58,6 @@
     color: $color-catalina-blue;
 
     transition: background-color $trans-default;
-
-
 
     @media (max-width: ($vp-768 - 1px)) {
       width: 32px;

@@ -7,16 +7,22 @@ import { ReactComponent as IconShow } from '../../assets/icon-show.svg'
 import { REGIONS_MAP } from '../../utils/consts'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
-import { getRegions } from '../../store/catalogData/catalogDataSelector'
-import { changeRegions } from '../../store/catalogData/catalogDataSlice'
+import { getCountries, getRegions } from '../../store/catalogData/catalogDataSelector'
+import { changeCountries, changeRegions } from '../../store/catalogData/catalogDataSlice'
+import { CountryData } from '../../types/countriesData'
 
 export const Countries = () => {
   const [isContentVisible, setContentVisible] = useState(false)
   const dispatch = useAppDispatch()
-  const selectedRegions = useAppSelector(getRegions)
+  const selectedRegionsState = useAppSelector(getRegions)
+  const selectedCountriesState = useAppSelector(getCountries)
 
   const toggleContent = () => {
     setContentVisible(!isContentVisible)
+  }
+
+  const handleCountrySelect = (country: CountryData) => {
+    dispatch(changeCountries(country))
   }
 
   return (
@@ -33,7 +39,7 @@ export const Countries = () => {
             <li
               key={region.regionName}
               className={`${styles.filterItem} ${
-                selectedRegions.includes(region.regionTitle) ? styles.activeFilter : ''
+                selectedRegionsState.includes(region.regionTitle) ? styles.activeFilter : ''
               }`}
               onClick={() => dispatch(changeRegions(region.regionTitle))}
             >
@@ -58,7 +64,11 @@ export const Countries = () => {
       <div
         className={`${styles.contentWrapper} ${isContentVisible ? styles.visible : styles.hidden}`}
       >
-        <CountriesData selectedRegions={selectedRegions} />
+        <CountriesData
+          selectedRegions={selectedRegionsState}
+          selectedCountries={selectedCountriesState}
+          handleCountrySelect={handleCountrySelect}
+        />
         <button className={styles.hideButton} type='button' onClick={toggleContent}>
           <IconClose />
           Свернуть

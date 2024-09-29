@@ -7,6 +7,7 @@ import iconBicycle from '../../assets/icons/intro/icon_bicycle.svg'
 import iconRun from '../../assets/icons/intro/icon_run.svg'
 import arrowDown from '../../assets/triangle-2.svg'
 import iconCheck from '../../assets/icon_check.svg'
+// import initAccordions from '../../vendor/init-accordions.js'
 
 
 export const Filter = () => {
@@ -153,7 +154,15 @@ export const Filter = () => {
         </form>
       </div>
       <div className={`${styles.sliderFilter}`}>
-        <p>ЛЕВЕЛ:</p>        
+        <p>ЛЕВЕЛ</p>  
+        <div className={`${styles.sliderValueFilter}`}>
+          <div id="lower-value">
+          </div>
+          <div className={`${styles.sliderDashFilter}`}>
+          </div>
+          <div id="upper-value">
+          </div>
+        </div>      
         <SliderNoUI/>
       </div>
       <ButtonShow/>

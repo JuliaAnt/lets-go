@@ -1,22 +1,31 @@
 @import '../../styles/variables.scss';
 
 .wrapperFilter {
+  align-self: start;
   display: flex;
   flex-direction: column;
 
   width: 191px;
   min-height: 600px;
-  margin: 49px 60px 50px auto;
+  margin: 0 0 0 auto;
   padding: 47px 46px 49px 48px;
 
-  background-color: $color-pattens-blue;  
+  background-color: $color-pattens-blue;
   border-radius: 20px;
 
   @media (max-width: ($vp-1024 - 1px)) {
-    width: unset;
+    order: -1;
+    width: 90.7%;
     min-height: unset;
-    margin: 49px 40px 50px;
+    margin: 4px auto 0;
     padding: 37px 32px;
+    background-color: $color-pale-cornflower-blue-2;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    width: 85%;
+    margin: -1px auto 0;
+    padding: 27px 20px 22px;
   }
 }
 
@@ -26,19 +35,30 @@ h2 {
   line-height: 30px;
   margin: 0 2px;
 
-  // @media (max-width: ($vp-768 - 1px)) {
+  @media (max-width: ($vp-768 - 1px)) {
+    width: 90%;
+    margin: 0 5px;
 
-  // }
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+  }
 }
 
 .accordionFilter {
   margin: 4px 0 0 0;
 
   @media (max-width: ($vp-1024 - 1px)) {
-    margin: 38px 0 0 0;
-    padding: 8px 0 0 2px;
+    margin: 37px 0 0 0;
+    padding: 9px 0 0 2px;
 
     border-top: 1px solid $color-energy-yellow-2;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    border-top: none;
+    margin: 12px 0 0 0;
+    padding: 0 5px;
   }
 }
 
@@ -47,6 +67,13 @@ h2 {
 
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 29px 0 0 0;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    margin: 10px 0 0 0;
+    padding: 12px 0 7px;
+
+    border-top: 1px solid $color-energy-yellow-2;
   }
 
   fieldset {
@@ -58,6 +85,11 @@ h2 {
     @media (max-width: ($vp-1024 - 1px)) {
       display: flex;
       align-items: center;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      flex-direction: column;
+      align-items: start;
     }
   }
 }
@@ -79,6 +111,13 @@ h2 {
     width: 20.4%;
   }
 
+  @media (max-width: ($vp-768 - 1px)) {
+    width: 100%;
+
+    font-size: 16px;
+    line-height: 18px;
+  }
+
   img {
     width: 10px;
     height: 6px;
@@ -87,12 +126,21 @@ h2 {
     @media (max-width: ($vp-1024 - 1px)) {
       display: none;
     }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      display: block;
+    }
   }
 }
 
 .accordionContentFilter {
   font-size: 20px;
   line-height: 20px;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    font-size: 15px;
+    line-height: 20px;
+  }
 
   .accordionWrapperFilter {
     display: flex;
@@ -107,17 +155,23 @@ h2 {
       padding: 0;
     }
 
+    @media (max-width: ($vp-768 - 1px)) {
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px 0 0;
+    }
+
     label {
       display: flex;
       align-items: center;
-
-      // @media (max-width: ($vp-1024 - 1px)) {
-      //   padding: 0;
-      // }
     }
 
-    input[type=checkbox] {
-        display: none;
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    input[type=checkbox]:checked~span img {
+      opacity: 1;
     }
 
     span {
@@ -131,6 +185,24 @@ h2 {
       background-color: $color-default-white;
       border: none;
       border-radius: 4px;
+
+      img {
+        width: 11px;
+        height: 11px;
+
+        opacity: 0;
+      }
+
+      @media (max-width: ($vp-768 - 1px)) {
+        width: 18px;
+        height: 18px;
+        margin: 0 9px 0 0;
+
+        img {
+          width: 8px;
+          height: 8px;
+        }
+      }
     }
   }
 }
@@ -138,6 +210,10 @@ h2 {
 .transportFilter {
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 17px 0 0;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    margin: 3px 0 0;
   }
 
   .accordionButtonFilter {
@@ -154,7 +230,12 @@ h2 {
 
     @media (max-width: ($vp-1024 - 1px)) {
       gap: 2px;
-      padding: 6px 0 0;
+      padding: 4px 0 0 1px;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      gap: 2px;
+      padding: 18px 0 0;
     }
 
     label {
@@ -163,8 +244,12 @@ h2 {
       justify-content: center;
     }
 
-    input[type=checkbox] {
-        display: none;
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    input[type=checkbox]:checked~span img {
+      opacity: 1;
     }
 
     span {
@@ -178,10 +263,21 @@ h2 {
       background-color: $color-default-white;
       border: none;
       border-radius: 50%;
+
+        img {
+          width: 50%;
+          height: auto;
+
+          opacity: 0.15;
+        }
+
+      @media (max-width: ($vp-768 - 1px)) {
+        width: 31px;
+        height: 31px;
+      }
     }
   }
 }
-
 
 .sliderFilter {
   width: 100%;
@@ -189,7 +285,16 @@ h2 {
 
   @media (max-width: ($vp-1024 - 1px)) {
     display: flex;
-    margin: 29px 0 0 2px;
+    margin: 31px 0 0 2px;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    flex-direction: column;
+    width: 95%;
+    margin: 13px 5px 0 5px;
+    padding: 11px 0 0 0;
+
+    border-top: 1px solid $color-energy-yellow-2;
   }
 
   p {
@@ -198,7 +303,88 @@ h2 {
     @media (max-width: ($vp-1024 - 1px)) {
       width: 20%;
     }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      width: 100%;
+      font-size: 16px;
+      height: 18px;
+    }
+  }
+
+  .sliderValueFilter {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 122px;
+    margin: 19px auto 0;
+    padding: 14px 30px 10px 38px;
+
+    color: $color-catalina-blue;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+
+    background-color: $color-default-white;
+    border: 1px solid $color-very-light-grey-2;
+    border-radius: 4px;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      order: 2;
+      width: 104px;
+      margin: -16px 0 0 73px;
+      padding: 15px 16px 10px 26px;
+    }
+
+    @media (max-width: ($vp-768 - 1px)) {
+      order: unset;
+
+      width: 60%;
+      margin: 12px auto 0;
+      padding: 9px 41px 11px 47px;
+
+      font-size: 14px;
+      height: 13px;
+      letter-spacing: 0.06em;
+    }
+    
+    &::after,
+    &::before {
+      position: absolute;
+      content: '';
+      left: 50%;
+
+      width: 1px;
+      height: 16px;
+      transform: translateX(-50%);
+
+      background-color: $color-very-light-grey-2;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        height: 12px;
+      }
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    .sliderDashFilter {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 20px;
+      height: 1px;
+      transform: translate(-50%, -50%);
+
+      background-color: $color-very-light-grey-2;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        width: 16px;
+      }
+    }
   }
 }
-
-

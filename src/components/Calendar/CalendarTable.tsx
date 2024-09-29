@@ -54,6 +54,13 @@ export function CalendarTable() {
   const firstDayOfWeek = startOfWeek(firstDayOfMonth, { weekStartsOn: 1 })
   const travelDurationState = useAppSelector(getTravelDuration)
 
+  useEffect(() => {
+    if (range.from) {
+      const endDate = addDays(range.from, travelDurationState - 1)
+      setRange({ from: range.from, to: endDate })
+    }
+  }, [travelDurationState, range])
+
   const generateWeeks = () => {
     const weeks = []
     let currentDay = firstDayOfWeek

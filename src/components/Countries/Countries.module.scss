@@ -18,6 +18,7 @@
   }
 
   @media (max-width: ($vp-768 - 1px)) {
+    order: -2;
     padding: 35px 24px 15px;
     width: calc(100% - 48px);
     top: 70px;
@@ -285,5 +286,11 @@
     span {
       max-width: 70%;
     }
+  }
+}
+
+.contentWrapper {
+  @media (min-width: ($vp-1024)) {
+    margin-bottom: 102px;
   }
 }

@@ -28,3 +28,8 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+
+.catalog-page {
+  display: flex;
+  flex-direction: column;
+}

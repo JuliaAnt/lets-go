@@ -80,7 +80,7 @@ label.selected {
     opacity: 1;
   }
 
-  @media (max-width: ($vp-768 - 1px)){
+  @media (max-width: ($vp-768 - 1px)) {
     color: $color-default-white;
     background-color: $color-midnight;
   }
@@ -182,4 +182,8 @@ label.selected {
     margin-top: 0;
     margin-bottom: 6px;
   }
+}
+
+.countriesItemDown {
+  opacity: 0.3;
 }

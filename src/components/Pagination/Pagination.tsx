@@ -5,7 +5,7 @@ import pageArrow from '../../assets/icons/pagination/page-arrow.svg';
 
 export const Pagination = () => {
   return (
-    <section className={`${styles.wpapper}`}>
+    <section className={`${styles.wrapper}`}>
       <ul className={`${styles.pageList}`}>
         <li className={`${styles.activePage}`}>
           <Link to="#">

@@ -3,10 +3,17 @@ import { StepsList } from '../StepsList/StepsList'
 import iconArrowButton from '../../assets/icons/stepTwo/icon-arrow-triangular.svg'
 import lineCountry from '../../assets/line_country.svg'
 import lineCountryMobile from '../../assets/line_country_mobile.svg'
-import { StepsMap } from '../../utils/consts'
-import { useAppSelector } from '../../hooks/redux-hooks'
-import { getSelectedCountries } from '../../store/formData/formDataSelector'
+import { AppRoute, StepsMap } from '../../utils/consts'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
+import { getFormDataState } from '../../store/formData/formDataSelector'
 import { PrevStepButton } from '../../ui/buttons/PrevStepButton/PrevStepButton'
+import { addEntertainment } from '../../store/formData/formDataSlice'
+import { EntertainmentComponent } from './EntertainmentComponent/EntertainmentComponent'
+import { sendFormData } from '../../store/api-actions'
+import { FormData } from '../../types/formData'
+import { AxiosError } from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { getCards } from '../../store/catalogData/catalogDataSelector'
 
 // interface StepsTextareaListProps {
 //     length: number;
@@ -16,14 +23,59 @@ import { PrevStepButton } from '../../ui/buttons/PrevStepButton/PrevStepButton'
 // export const Textarea = ({length, text}: StepsTextareaListProps) => {
 //   return <textarea name="top" id="top" maxLength={`${length}`} placeholder='План действий'>`${text}`</textarea>;
 // };
-
 type StepThreeProps = {
   currentStep: StepsMap
   setCurrentStep: (currentStep: StepsMap) => void
 }
 
 export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
-  const selectedCountriesState = useAppSelector(getSelectedCountries)
+  const dispatch = useAppDispatch()
+  const formDataState = useAppSelector(getFormDataState)
+  const selectedCountriesState = formDataState.selectedCountries
+  const entertainmentsState = formDataState.entertainments
+  const cardsState = useAppSelector(getCards)
+  const errors = formDataState.errors
+
+  const navigate = useNavigate()
+
+  const handleBlur = (inputValue: string, country: string) => {
+    dispatch(
+      addEntertainment({
+        country: country,
+        description: inputValue,
+      }),
+    )
+  }
+
+  const handleSubmit = () => {
+    const formData: FormData = {
+      uuid: formDataState.uuid,
+      firstName: formDataState.firstName,
+      lastName: formDataState.lastName,
+      photoUrl: formDataState.photoUrl,
+      companionsAmount: formDataState.companionsAmount,
+      travelDuration: formDataState.travelDuration,
+      isChildrenAllowed: formDataState.isChildrenAllowed,
+      transportType: formDataState.transportType,
+      selectedCountries: formDataState.selectedCountries,
+      tags: formDataState.tags,
+      travelDates: formDataState.travelDates,
+      entertainments: formDataState.entertainments,
+    }
+
+    dispatch(
+      sendFormData({
+        formData,
+        onSuccess: () => {
+          console.log(cardsState)
+          navigate(AppRoute.CATALOG)
+        },
+        onError: (error: AxiosError) => {
+          console.error(error)
+        },
+      }),
+    )
+  }
 
   return (
     <section className={styles.StepThree}>
@@ -37,41 +89,37 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
       </div>
       <div className={styles.textareaWrapper}>
         {selectedCountriesState.map((country, index) => {
-          const className = `textarea${index + 1}`
+          const entertainmentState = entertainmentsState.find(
+            (entertainment) => entertainment.country === country.name,
+          )
           return (
-            <div key={country.name} className={styles[className]}>
-              <p>{country.name}</p>
-              <textarea name='top' id='top' maxLength={200} placeholder='План действий'></textarea>
+            <div key={country.name} className={styles.entertainmentItem}>
+              <EntertainmentComponent
+                entertainmentState={entertainmentState}
+                country={country}
+                className={styles.entertainmentComponent}
+                handleBlur={handleBlur}
+              />
+              <div className={styles.areaFlags}>
+                <img src={country.flags} width={70} height={47} alt={country.alt} />
+                <div className={styles.decorDesktop}>
+                  <img src={lineCountry} width={14} height={274} alt='decor' />
+                </div>
+                <div className={styles.decorMobile}>
+                  <img src={lineCountryMobile} width={17} height={287} alt='decor' />
+                </div>
+              </div>
             </div>
           )
         })}
-        {/* <div className={styles.textareaTop}>
-      <p>Босния</p>
-      <textarea name='top' id='top' placeholder='План действий'></textarea>
-    </div>
-    <div className={styles.textareaDown}>
-      <p>Чехия</p>
-        defaultValue={
-          'Пить пиво и лазить по старым замкам, наслаждаться архитектурой и вот это все'
-        }
-      ></textarea>
-    </div> */}
-        <div className={styles.areaFlags}>
-          {selectedCountriesState.map((country) => (
-            <img key={country.name} src={country.flags} width={70} height={47} alt={country.alt} />
-          ))}
-          {/* <img src={flagBosniaAndHerzegovina} width={70} height={47} alt='BosniaAndHerzegovina' />
-    <img src={flagCzech} width={70} height={47} alt='flagCzech' /> */}
-          <div className={styles.decorDesktop}>
-            <img src={lineCountry} width={14} height={274} alt='decor' />
-          </div>
-          <div className={styles.decorMobile}>
-            <img src={lineCountryMobile} width={17} height={287} alt='decor' />
-          </div>
-        </div>
       </div>
       <div className={styles.pageLinks}>
-        <button className={styles.nextStep}>
+        <button
+          type='button'
+          className={styles.nextStep}
+          onClick={handleSubmit}
+          disabled={Boolean(errors.length !== 0)}
+        >
           Отправить
           <span>
             <img src={iconArrowButton} width={14} height={14} alt='Отправить' />
