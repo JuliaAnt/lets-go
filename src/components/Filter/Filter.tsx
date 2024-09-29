@@ -153,7 +153,15 @@ export const Filter = () => {
         </form>
       </div>
       <div className={`${styles.sliderFilter}`}>
-        <p>ЛЕВЕЛ:</p>        
+        <p>ЛЕВЕЛ</p>  
+        <div className={`${styles.sliderValueFilter}`}>
+          <div id="lower-value">
+          </div>
+          <div className={`${styles.sliderDashFilter}`}>
+          </div>
+          <div id="upper-value">
+          </div>
+        </div>      
         <SliderNoUI/>
       </div>
       <ButtonShow/>
