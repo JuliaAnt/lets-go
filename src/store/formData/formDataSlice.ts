@@ -26,7 +26,7 @@ export interface FormState {
 }
 
 const initialState: FormState = {
-  uuid: '',
+  uuid: 'some-uuid',
   firstName: 'Петя',
   lastName: 'Демин',
   photoUrl: avatar,
@@ -50,21 +50,17 @@ export const formData = createSlice({
   reducers: {
     changeCompanionsAmount: (state, action: PayloadAction<number>) => {
       state.companionsAmount = action.payload
-      console.log(`companionsAmount: ${state.companionsAmount}`)
     },
     changeTravelDuration: (state, action: PayloadAction<number>) => {
       state.travelDuration = action.payload
-      console.log(`travelDuration: ${state.travelDuration}`)
     },
     toggleChildrenAllowed: (state, action: PayloadAction<boolean>) => {
       state.isChildrenAllowed = action.payload
-      console.log(`isChildrenAllowed: ${state.isChildrenAllowed}`)
     },
     changeTransportType: (state, action: PayloadAction<TransportType>) => {
       state.transportType = setTransportType(state.transportType, action.payload)
       state.errors = setError(state)
 
-      console.log(`transportTypes: ${state.transportType}`)
       console.log(state.errors)
     },
     addCountry: (state, action: PayloadAction<CountryData>) => {
@@ -72,7 +68,6 @@ export const formData = createSlice({
       state.errors = setError(state)
 
       console.log(state.errors)
-      console.log(`selectedCountries: ${state.selectedCountries.map((country) => country.name)}`)
     },
     removeCountry: (state, action: PayloadAction<CountryData>) => {
       const updatedCountries = state.selectedCountries.filter(
@@ -86,19 +81,11 @@ export const formData = createSlice({
       state.errors = setError(state)
 
       console.log(state.errors)
-      console.log(`selectedCountries: ${state.selectedCountries.map((country) => country.name)}`)
-      console.log(
-        state.entertainments.map(
-          (entertainment) =>
-            `country: ${entertainment.country}, description: ${entertainment.description}`,
-        ),
-      )
     },
     changeTags: (state, action: PayloadAction<string[]>) => {
       state.tags = action.payload
       state.errors = setError(state)
 
-      console.log(`tags: ${state.tags}`)
       console.log(state.errors)
     },
     changeStartTravelDate: (state, action: PayloadAction<string>) => {
@@ -106,26 +93,18 @@ export const formData = createSlice({
       state.errors = setError(state)
 
       console.log(state.errors)
-      console.log(`startDate: ${state.travelDates.startDate}`)
     },
     changeEndTravelDate: (state, action: PayloadAction<string>) => {
       state.travelDates.endDate = action.payload
       state.errors = setError(state)
 
       console.log(state.errors)
-      console.log(`endDate: ${state.travelDates.endDate}`)
     },
     addEntertainment: (state, action: PayloadAction<Entertainment>) => {
       state.entertainments = [...state.entertainments, action.payload]
       state.errors = setError(state)
 
       console.log(state.errors)
-      console.log(
-        state.entertainments.map(
-          (entertainment) =>
-            `country: ${entertainment.country}, description: ${entertainment.description}`,
-        ),
-      )
     },
     changeErrors: (state) => {
       state.errors = setError(state)

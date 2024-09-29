@@ -288,3 +288,9 @@
     }
   }
 }
+
+.contentWrapper {
+  @media (min-width: ($vp-1024)) {
+    margin-bottom: 102px;
+  }
+}

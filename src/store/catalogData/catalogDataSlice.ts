@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { setRegions } from '../../helpers/setRegions'
-import { sendFormData } from '../api-actions'
+import { fetchCatalogData, sendFormData } from '../api-actions'
 import { Card } from '../../types/card'
 
 export interface CatalogState {
@@ -25,13 +25,12 @@ export const catalogData = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    .addCase(sendFormData.fulfilled, (state, action) => {
-      state.cards = action.payload
-    })
-    // .addCase(sendFormData.rejected, (state, action) => {
-    //   state.status = 'failed'
-    //   state.error = action.payload as string
-    // })
+      .addCase(sendFormData.fulfilled, (state, action) => {
+        state.cards = action.payload
+      })
+      .addCase(fetchCatalogData.fulfilled, (state, action) => {
+        state.cards = action.payload
+      })
   },
 })
 

@@ -6,10 +6,10 @@
 
   width: 191px;
   min-height: 600px;
-  margin: 49px 60px 50px auto;
+  margin: 49px 0 50px auto;
   padding: 47px 46px 49px 48px;
 
-  background-color: $color-pattens-blue;  
+  background-color: $color-pattens-blue;
   border-radius: 20px;
 
   @media (max-width: ($vp-1024 - 1px)) {
@@ -24,7 +24,7 @@
   @media (max-width: ($vp-768 - 1px)) {
     margin: -1px 25px 0;
     padding: 27px 20px 22px;
-  }        
+  }
 }
 
 h2 {
@@ -164,8 +164,8 @@ h2 {
       align-items: center;
     }
 
-    input[type=checkbox] {
-        display: none;
+    input[type='checkbox'] {
+      display: none;
     }
 
     span {
@@ -231,8 +231,8 @@ h2 {
       justify-content: center;
     }
 
-    input[type=checkbox] {
-        display: none;
+    input[type='checkbox'] {
+      display: none;
     }
 
     span {

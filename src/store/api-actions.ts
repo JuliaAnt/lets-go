@@ -22,3 +22,11 @@ export const sendFormData = createAsyncThunk<Card[], SendFormDataProps>(
     }
   },
 )
+
+export const fetchCatalogData = createAsyncThunk<Card[], undefined>(
+  'catalog/fetchData',
+  async (_arg) => {
+    const { data } = await axios.get<Card[]>('https://mabori.ru/api/travels/')
+    return data
+  },
+)
