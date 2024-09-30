@@ -151,7 +151,6 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
                         />
                       </svg>
                     )}
-                    {/* <img src={lineCountryMobile} width={17} height={287} alt='decor' /> */}
                   </div>
                 </div>
               </div>
