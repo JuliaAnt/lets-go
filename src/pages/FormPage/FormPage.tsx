@@ -11,7 +11,7 @@ export const FormPage = () => {
 
   useEffect(() => {
     dispatch(addUuid())
-  }, [])
+  }, [dispatch])
 
   return (
     <div className='wrapper'>
