@@ -7,12 +7,13 @@ type NavMenuItemProps = {
     text: string
     url: string
   }
+  onNavItemClick: (url: string) => void
 }
 
-export const NavMenuItem = ({ data }: NavMenuItemProps) => {
+export const NavMenuItem = ({ data, onNavItemClick }: NavMenuItemProps) => {
   return (
     <li>
-      <Link to={data.url}>
+      <Link to={data.url} onClick={() => onNavItemClick(data.url)}>
         <span data-hover={data.hoverText}>{data.text}</span>
       </Link>
     </li>
