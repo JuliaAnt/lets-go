@@ -147,7 +147,7 @@ export const ERROR_MAP: Error[] = [
   },
   {
     errorName: 'selectedCountriesError',
-    errorText: 'Выберите хотя бы одну страну, которую Вы хотели бы посетить',
+    errorText: '',
   },
   {
     errorName: 'tagsError',
