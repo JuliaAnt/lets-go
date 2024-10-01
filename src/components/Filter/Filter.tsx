@@ -115,7 +115,7 @@ export const Filter = () => {
               </div>
             </fieldset>
           </div>
-          <div className={`${styles.elementFilter} ${styles.transportFilter}`}>
+          <div className={`${styles.elementFilter} ${styles.transportFilter}`} data-accordion="element">
             <fieldset>
               <button className={`${styles.accordionButtonFilter}`} type="button" data-accordion="button">
                 <span>транспорт</span>
@@ -153,7 +153,7 @@ export const Filter = () => {
           </div>
         </form>
       </div>
-      <div className={`${styles.sliderFilter}`}>
+      <div className={`${styles.sliderFilter}`} data-accordion="element">
         <p>ЛЕВЕЛ</p>  
         <div className={`${styles.sliderValueFilter}`}>
           <div id="lower-value">
