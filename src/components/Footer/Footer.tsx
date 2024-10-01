@@ -5,11 +5,13 @@ import { Navigation } from './Navigation/Navigation'
 
 export const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footerWrapper}>
-        <Logo />
-        <Navigation />
-      </div>
-    </footer>
+    <div className={styles.footerBg}>
+      <footer className={styles.footer}>
+        <div className={styles.footerWrapper}>
+          <Logo />
+          <Navigation />
+        </div>
+      </footer>
+    </div>
   )
 }
