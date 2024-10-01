@@ -172,7 +172,7 @@ h2 {
       display: none;
     }
 
-    input[type=checkbox]:checked~span img {
+    input[type='checkbox']:checked ~ span img {
       opacity: 1;
     }
 
@@ -252,7 +252,7 @@ h2 {
       display: none;
     }
 
-    input[type=checkbox]:checked~span img {
+    input[type='checkbox']:checked ~ span img {
       opacity: 1;
     }
 
@@ -268,12 +268,12 @@ h2 {
       border: none;
       border-radius: 50%;
 
-        img {
-          width: 50%;
-          height: auto;
+      img {
+        width: 50%;
+        height: auto;
 
-          opacity: 0.15;
-        }
+        opacity: 0.15;
+      }
 
       @media (max-width: ($vp-768 - 1px)) {
         width: 31px;
@@ -351,7 +351,7 @@ h2 {
       height: 13px;
       letter-spacing: 0.06em;
     }
-    
+
     &::after,
     &::before {
       position: absolute;
@@ -392,4 +392,13 @@ h2 {
       }
     }
   }
+}
+
+.activeSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.hideSection {
+  display: none;
 }
