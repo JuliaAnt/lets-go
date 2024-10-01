@@ -15,9 +15,9 @@ type OpenSectionsState = Record<Section, boolean>
 export const FilterCopy = () => {
   const [openSections, setOpenSections] = useState<OpenSectionsState>({
     hobby: false,
-    music: false,
+    music: true,
     food: false,
-    transport: false,
+    transport: true,
   })
 
   const toggleSection = (section: Section) => {
