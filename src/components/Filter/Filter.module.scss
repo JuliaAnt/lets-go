@@ -5,17 +5,17 @@
   display: flex;
   flex-direction: column;
 
-  width: 191px;
+  width: 14.4%;
   min-height: 600px;
-  margin: 0 0 0 auto;
-  padding: 47px 46px 49px 48px;
+  margin: 0 0 0 6.37%;
+  padding: 47px 3.63% 49px;
 
   background-color: $color-pattens-blue;
   border-radius: 20px;
 
   @media (max-width: ($vp-1024 - 1px)) {
     order: -1;
-    width: 90.7%;
+    width: 86.75%;
     min-height: unset;
     margin: 4px auto 0;
     padding: 37px 32px;

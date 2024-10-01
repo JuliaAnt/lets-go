@@ -9,15 +9,16 @@ import iconRun from '../../assets/icons/intro/icon_run.svg'
 import arrowDown from '../../assets/triangle-2.svg'
 import iconCheck from '../../assets/icon_check.svg'
 
-type Section = 'hobby' | 'music' | 'food' | 'transport'
+type Section = 'hobby' | 'music' | 'food' | 'transport' | 'level'
 type OpenSectionsState = Record<Section, boolean>
 
 export const FilterCopy = () => {
   const [openSections, setOpenSections] = useState<OpenSectionsState>({
     hobby: false,
-    music: false,
+    music: true,
     food: false,
-    transport: false,
+    transport: true,
+    level: true,
   })
 
   const toggleSection = (section: Section) => {
@@ -27,7 +28,7 @@ export const FilterCopy = () => {
     }))
   }
 
-  const sections: Section[] = ['hobby', 'music', 'food', 'transport']
+  const sections: Section[] = ['hobby', 'music', 'food', 'transport', 'level']
 
   return (
     <article className={`${styles.wrapperFilter}`}>
@@ -49,7 +50,9 @@ export const FilterCopy = () => {
                       ? 'музыка'
                       : section === 'food'
                       ? 'еда'
-                      : 'транспорт'}
+                      : section === 'transport'
+                      ? 'транспорт'
+                      : 'левел'}
                   </span>
                   <img className={styles.arrow} src={arrowDown} width={10} height={6} alt='arrow' />
                 </button>
@@ -257,6 +260,24 @@ export const FilterCopy = () => {
                       </div>
                     </div>
                     {/* )} */}
+                    {/* {section === 'level' && ( */}
+                    <div
+                      className={`${
+                        section === 'level' ? styles.activeSection : styles.hideSection
+                      }`}
+                    >
+                      <div className={`${styles.sliderFilter}`}>
+                        <div className={`${styles.accordionWrapperFilter}`}>
+                          <div className={`${styles.sliderValueFilter}`}>
+                            <div id='lower-value'></div>
+                            <div className={`${styles.sliderDashFilter}`}></div>
+                            <div id='upper-value'></div>
+                          </div>
+                          <SliderNoUI />
+                        </div>
+                      </div>
+                    </div>
+                    {/* )} */}
                   </div>
                   // </div>
                 )}
@@ -264,15 +285,6 @@ export const FilterCopy = () => {
             </div>
           ))}
         </form>
-      </div>
-      <div className={`${styles.sliderFilter}`}>
-        <p>ЛЕВЕЛ</p>
-        <div className={`${styles.sliderValueFilter}`}>
-          <div id='lower-value'></div>
-          <div className={`${styles.sliderDashFilter}`}></div>
-          <div id='upper-value'></div>
-        </div>
-        <SliderNoUI />
       </div>
       <ButtonShow />
     </article>
