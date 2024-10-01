@@ -10,12 +10,14 @@ export interface CatalogState {
   regions: string[]
   countries: CountryData[]
   cards: Card[]
+  isReloaded: boolean
 }
 
 const initialState: CatalogState = {
   regions: [],
   countries: [],
   cards: [],
+  isReloaded: true,
 }
 
 export const catalogData = createSlice({
@@ -27,6 +29,9 @@ export const catalogData = createSlice({
     },
     changeCountries: (state, action: PayloadAction<CountryData>) => {
       state.countries = setCountry(state.countries, action.payload)
+    },
+    changeReloadStatus: (state, action: PayloadAction<boolean>) => {
+      state.isReloaded = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -40,5 +45,5 @@ export const catalogData = createSlice({
   },
 })
 
-export const { changeRegions, changeCountries } = catalogData.actions
+export const { changeRegions, changeCountries, changeReloadStatus } = catalogData.actions
 export default catalogData.reducer

@@ -8,6 +8,7 @@ import { Entertainment } from '../../types/entertainments'
 import avatar from '../../assets/avatars/2.png'
 import { Error } from '../../types/error'
 import { setError } from '../../helpers/setError'
+import { setEntertainment } from '../../helpers/setEntertainment'
 
 export interface FormState {
   uuid: string
@@ -60,14 +61,10 @@ export const formData = createSlice({
     changeTransportType: (state, action: PayloadAction<TransportType>) => {
       state.transportType = setTransportType(state.transportType, action.payload)
       state.errors = setError(state)
-
-      console.log(state.errors)
     },
     addCountry: (state, action: PayloadAction<CountryData>) => {
       state.selectedCountries = [...state.selectedCountries, action.payload]
       state.errors = setError(state)
-
-      console.log(state.selectedCountries.map((country) => country.name))
     },
     removeCountry: (state, action: PayloadAction<CountryData>) => {
       const updatedCountries = state.selectedCountries.filter(
@@ -79,8 +76,6 @@ export const formData = createSlice({
       state.selectedCountries = updatedCountries
       state.entertainments = updatedEntertainments
       state.errors = setError(state)
-
-      console.log(state.selectedCountries.map((country) => country.name))
     },
     changeCountry: (state, action: PayloadAction<ChangedCountryType>) => {
       const changedCountries = [...state.selectedCountries]
@@ -90,36 +85,35 @@ export const formData = createSlice({
       changedCountries.splice(selectedCountryIndex, 1, action.payload.newValue)
       state.selectedCountries = [...changedCountries]
       state.errors = setError(state)
-
-      console.log(state.selectedCountries.map((country) => country.name))
     },
     changeTags: (state, action: PayloadAction<string[]>) => {
       state.tags = action.payload
       state.errors = setError(state)
-
-      console.log(state.errors)
     },
     changeStartTravelDate: (state, action: PayloadAction<string>) => {
       state.travelDates.startDate = action.payload
       state.errors = setError(state)
-
-      console.log(state.errors)
     },
     changeEndTravelDate: (state, action: PayloadAction<string>) => {
       state.travelDates.endDate = action.payload
       state.errors = setError(state)
-
-      console.log(state.errors)
     },
     addEntertainment: (state, action: PayloadAction<Entertainment>) => {
-      state.entertainments = [...state.entertainments, action.payload]
+      state.entertainments = setEntertainment(
+        state.entertainments,
+        action.payload.country,
+        action.payload.description,
+      )
       state.errors = setError(state)
-
+      console.log(state.entertainments.map((enter) => `${enter.country}: ${enter.description}`))
       console.log(state.errors)
     },
     changeErrors: (state) => {
       state.errors = setError(state)
-      console.log(state.errors)
+    },
+    addUuid: (state) => {
+      state.uuid = crypto.randomUUID()
+      localStorage.setItem('cardUuid', state.uuid)
     },
   },
 })
@@ -137,5 +131,6 @@ export const {
   changeEndTravelDate,
   addEntertainment,
   changeErrors,
+  addUuid,
 } = formData.actions
 export default formData.reducer

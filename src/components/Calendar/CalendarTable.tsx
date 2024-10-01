@@ -57,7 +57,9 @@ export function CalendarTable() {
   useEffect(() => {
     if (range.from) {
       const endDate = addDays(range.from, travelDurationState - 1)
-      setRange({ from: range.from, to: endDate })
+      if (!range.to || !isSameDay(endDate, range.to)) {
+        setRange({ from: range.from, to: endDate })
+      }
     }
   }, [travelDurationState, range])
 

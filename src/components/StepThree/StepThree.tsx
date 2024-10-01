@@ -1,8 +1,6 @@
 import styles from './StepThree.module.scss'
 import { StepsList } from '../StepsList/StepsList'
 import iconArrowButton from '../../assets/icons/stepTwo/icon-arrow-triangular.svg'
-import lineCountry from '../../assets/line_country.svg'
-import lineCountryMobile from '../../assets/line_country_mobile.svg'
 import { AppRoute, StepsMap } from '../../utils/consts'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
 import { getFormDataState } from '../../store/formData/formDataSelector'
@@ -14,15 +12,9 @@ import { FormData } from '../../types/formData'
 import { AxiosError } from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { getCards } from '../../store/catalogData/catalogDataSelector'
+import { EmptyEntertainments } from './EmptyEntertainments/EmptyEntertainments'
+import { changeReloadStatus } from '../../store/catalogData/catalogDataSlice'
 
-// interface StepsTextareaListProps {
-//     length: number;
-//     text: string;
-// }
-
-// export const Textarea = ({length, text}: StepsTextareaListProps) => {
-//   return <textarea name="top" id="top" maxLength={`${length}`} placeholder='План действий'>`${text}`</textarea>;
-// };
 type StepThreeProps = {
   currentStep: StepsMap
   setCurrentStep: (currentStep: StepsMap) => void
@@ -68,6 +60,7 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
         formData,
         onSuccess: () => {
           console.log(cardsState)
+          dispatch(changeReloadStatus(false))
           navigate(AppRoute.CATALOG)
         },
         onError: (error: AxiosError) => {
@@ -88,30 +81,86 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
         <StepsList currentStep={currentStep} />
       </div>
       <div className={styles.textareaWrapper}>
-        {selectedCountriesState.map((country, index) => {
-          const entertainmentState = entertainmentsState.find(
-            (entertainment) => entertainment.country === country.name,
-          )
-          return (
-            <div key={country.name} className={styles.entertainmentItem}>
-              <EntertainmentComponent
-                entertainmentState={entertainmentState}
-                country={country}
-                className={styles.entertainmentComponent}
-                handleBlur={handleBlur}
-              />
-              <div className={styles.areaFlags}>
-                <img src={country.flags} width={70} height={47} alt={country.alt} />
-                <div className={styles.decorDesktop}>
-                  <img src={lineCountry} width={14} height={274} alt='decor' />
-                </div>
-                <div className={styles.decorMobile}>
-                  <img src={lineCountryMobile} width={17} height={287} alt='decor' />
+        {selectedCountriesState.length > 0 ? (
+          selectedCountriesState.map((country, index) => {
+            const entertainmentState = entertainmentsState.find(
+              (entertainment) => entertainment.country === country.name,
+            )
+            return (
+              <div key={country.name} className={styles.entertainmentItem}>
+                <EntertainmentComponent
+                  entertainmentState={entertainmentState}
+                  country={country}
+                  className={styles.entertainmentComponent}
+                  handleBlur={handleBlur}
+                />
+                <div className={styles.areaFlags}>
+                  <img src={country.flags} width={70} height={47} alt={country.alt} />
+                  <div className={styles.decorDesktop}>
+                    <svg
+                      width='14'
+                      height='14'
+                      viewBox='0 0 14 14'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <circle cx='7' cy='7' r='7' fill='#1D2E5B' />
+                    </svg>
+                    {index < selectedCountriesState.length - 1 ? (
+                      <svg
+                        width='2'
+                        height='248'
+                        viewBox='0 0 2 248'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <line x1='1' x2='1' y2='248' stroke='#1D2E5B' stroke-width='2' />
+                      </svg>
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                  <div className={styles.decorMobile}>
+                    {selectedCountriesState.length === 1 ||
+                    index === selectedCountriesState.length - 1 ? (
+                      <svg
+                        width='6'
+                        height='6'
+                        viewBox='0 0 6 6'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <circle cx='3' cy='3' r='3' fill='#1D2E5B' />
+                      </svg>
+                    ) : (
+                      <svg
+                        width='17'
+                        height='287'
+                        viewBox='0 0 17 287'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <circle cx='14' cy='3' r='3' fill='#1D2E5B' />
+                        <circle cx='14' cy='284' r='3' fill='#1D2E5B' />
+                        <rect x='2' y='2' width='11' height='2' fill='#1D2E5B' />
+                        <rect y='283' width='12' height='2' fill='#1D2E5B' />
+                        <rect
+                          y='285'
+                          width='283'
+                          height='2'
+                          transform='rotate(-90 0 285)'
+                          fill='#1D2E5B'
+                        />
+                      </svg>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })
+        ) : (
+          <EmptyEntertainments />
+        )}
       </div>
       <div className={styles.pageLinks}>
         <button
@@ -126,6 +175,11 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
           </span>
         </button>
         <PrevStepButton onClick={() => setCurrentStep(StepsMap.STEP_TWO)} />
+      </div>
+      <div className={styles.errorList}>
+        {errors.map((error) => (
+          <div key={error.errorName}>{error.errorText}</div>
+        ))}
       </div>
     </section>
   )
