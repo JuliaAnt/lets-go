@@ -47,6 +47,7 @@ h2 {
 
 .accordionFilter {
   margin: 4px 0 0 0;
+  // margin: 16px 0 0 0; стили для копии
 
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 37px 0 0 0;
@@ -64,6 +65,7 @@ h2 {
 
 .elementFilter {
   margin: 32px 0 0;
+  // margin: 18px 0 0 0; стили для копии
 
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 29px 0 0 0;
@@ -227,6 +229,8 @@ h2 {
     flex-direction: row;
     gap: 1px;
     padding: 16px 0 0;
+    margin: -4px 0 0;
+    // padding: 0; стили для копии
 
     @media (max-width: ($vp-1024 - 1px)) {
       gap: 2px;
@@ -282,6 +286,7 @@ h2 {
 .sliderFilter {
   width: 100%;
   margin: 35px 0 0;
+  // margin: -51px 0 0; для копии
 
   @media (max-width: ($vp-1024 - 1px)) {
     display: flex;
