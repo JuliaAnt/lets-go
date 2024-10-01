@@ -47,6 +47,7 @@ h2 {
 
 .accordionFilter {
   margin: 4px 0 0 0;
+  // margin: 16px 0 0 0; стили для копии
 
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 37px 0 0 0;
@@ -64,6 +65,7 @@ h2 {
 
 .elementFilter {
   margin: 32px 0 0;
+  // margin: 18px 0 0 0; стили для копии
 
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 29px 0 0 0;
@@ -170,7 +172,7 @@ h2 {
       display: none;
     }
 
-    input[type=checkbox]:checked~span img {
+    input[type='checkbox']:checked ~ span img {
       opacity: 1;
     }
 
@@ -227,6 +229,8 @@ h2 {
     flex-direction: row;
     gap: 1px;
     padding: 16px 0 0;
+    margin: -4px 0 0;
+    // padding: 0; стили для копии
 
     @media (max-width: ($vp-1024 - 1px)) {
       gap: 2px;
@@ -248,7 +252,7 @@ h2 {
       display: none;
     }
 
-    input[type=checkbox]:checked~span img {
+    input[type='checkbox']:checked ~ span img {
       opacity: 1;
     }
 
@@ -264,12 +268,12 @@ h2 {
       border: none;
       border-radius: 50%;
 
-        img {
-          width: 50%;
-          height: auto;
+      img {
+        width: 50%;
+        height: auto;
 
-          opacity: 0.15;
-        }
+        opacity: 0.15;
+      }
 
       @media (max-width: ($vp-768 - 1px)) {
         width: 31px;
@@ -282,6 +286,7 @@ h2 {
 .sliderFilter {
   width: 100%;
   margin: 35px 0 0;
+  // margin: -51px 0 0; для копии
 
   @media (max-width: ($vp-1024 - 1px)) {
     display: flex;
@@ -346,7 +351,7 @@ h2 {
       height: 13px;
       letter-spacing: 0.06em;
     }
-    
+
     &::after,
     &::before {
       position: absolute;
@@ -387,4 +392,13 @@ h2 {
       }
     }
   }
+}
+
+.activeSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.hideSection {
+  display: none;
 }
