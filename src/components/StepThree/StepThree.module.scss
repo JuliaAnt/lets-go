@@ -183,6 +183,16 @@
     border-radius: 0 0 4px 4px;
     padding-top: 20px;
     padding-left: 21px;
+
+    @media (max-width: ($vp-825 - 1)) {
+      width: calc(108% - 4px);
+    }
+
+    @media (max-width: ($vp-768 - 1)) {
+      width: calc(100% - 3px);
+      font-size: 16px;
+      padding-top: 10px;
+    }
   }
 
   .errorWrapper {
