@@ -43,9 +43,14 @@ export const HeaderMobileMenu = ({
             <img src={iconClose} alt='icon-close'></img>
           </button>
         </nav>
-        <ul className=''>
+        <ul className={styles.mobileMenuList}>
           {NAVIGATION_MAP.map((navItem) => (
-            <NavMenuItem data={navItem} key={navItem.id} onNavItemClick={onNavItemClick} />
+            <NavMenuItem
+              data={navItem}
+              key={navItem.id}
+              isOpen={isOpen}
+              onNavItemClick={onNavItemClick}
+            />
           ))}
         </ul>
         <ContactUsMobile />

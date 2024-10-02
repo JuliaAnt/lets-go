@@ -1,10 +1,11 @@
-import {Link} from 'react-router-dom';
-import iconPhoneMobile from '../../../../assets/icons/header/icon-phone-mobile.svg';
-import iconMailMobile from '../../../../assets/icons/header/icon-mail-mobile.svg';
+import styles from './contactUsMobile.module.scss'
+import { Link } from 'react-router-dom'
+import iconPhoneMobile from '../../../../assets/icons/header/icon-phone-mobile.svg'
+import iconMailMobile from '../../../../assets/icons/header/icon-mail-mobile.svg'
 
 export const ContactUsMobile = () => {
   return (
-    <ul>
+    <ul className={styles.contactList}>
       <li>
         <span>
           <img src={iconPhoneMobile} width={16} height={15} alt='phone' />
@@ -18,5 +19,5 @@ export const ContactUsMobile = () => {
         <Link to='mailto:mail@htmlacademy.ru'>mail@htmlacademy.ru</Link>
       </li>
     </ul>
-  );
-};
+  )
+}
