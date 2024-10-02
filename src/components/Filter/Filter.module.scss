@@ -148,6 +148,9 @@ h2 {
   font-size: 20px;
   line-height: 20px;
 
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+
   @media (max-width: ($vp-768 - 1px)) {
     font-size: 15px;
     line-height: 20px;
@@ -295,6 +298,7 @@ h2 {
 .sliderFilter {
   width: 100%;
   margin: 35px 0 0;
+  padding-bottom: 5px;
   // margin: -51px 0 0; для копии
 
   @media (max-width: ($vp-1024 - 1px)) {
@@ -401,13 +405,4 @@ h2 {
       }
     }
   }
-}
-
-.activeSection {
-  display: flex;
-  flex-direction: column;
-}
-
-.hideSection {
-  display: none;
 }
