@@ -54,7 +54,13 @@ export const FilterCopy = () => {
                       ? 'транспорт'
                       : 'левел'}
                   </span>
-                  <img className={styles.arrow} src={arrowDown} width={10} height={6} alt='arrow' />
+                  <img
+                    className={`${styles.arrow} ${openSections[section] ? styles.arrowOpen : ''}`}
+                    src={arrowDown}
+                    width={10}
+                    height={6}
+                    alt='arrow'
+                  />
                 </button>
                 {openSections[section] && (
                   <div className={`${styles.accordionContentFilter}`} data-accordion='content'>
