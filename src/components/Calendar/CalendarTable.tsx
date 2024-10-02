@@ -34,10 +34,9 @@ const getMonthTitle = (date: Date) => {
   return MONTHS_LIST[monthIndex]
 }
 
-const getDayWithMonthAbbreviation = (date: Date) => {
-  const day = format(date, 'd', { locale: ru })
+const getMonthAbbreviation = (date: Date) => {
   const monthAbbreviation = format(date, 'MMM', { locale: ru }).replace('.', '')
-  return `${day} ${monthAbbreviation}`
+  return ` ${monthAbbreviation}`
 }
 
 export function CalendarTable() {
@@ -191,7 +190,12 @@ export function CalendarTable() {
                       }
                     }}
                   >
-                    {day.getDate() === 1 ? getDayWithMonthAbbreviation(day) : format(day, 'd')}
+                    <div>
+                      {format(day, 'd')}
+                      <span className={styles.desktopText}>
+                        {day.getDate() === 1 && getMonthAbbreviation(day)}
+                      </span>
+                    </div>
                     <span className={styles.checkIn}>
                       {range.from && range.to && startEndTravelLabel(day, range.from, range.to)}
                     </span>
