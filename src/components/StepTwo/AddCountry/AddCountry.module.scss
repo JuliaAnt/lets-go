@@ -6,7 +6,7 @@
   grid-template-columns: 73.2% 18.8%;
 
   @media (max-width: ($vp-1024 - 1)) {
-    grid-template-columns: 71.2% 18.7%;
+    grid-template-columns: 69.2% 18.7%;
   }
 
   @media (max-width: ($vp-768 - 1)) {
@@ -32,6 +32,10 @@
       background-color: $color-basic-blue-light;
       border: 1px solid $color-link-water;
 
+      @media (max-width: ($vp-1024 - 1)) {
+        left: -39px;
+      }
+
       @media (max-width: ($vp-768 - 1)) {
         display: none;
       }
@@ -56,8 +60,12 @@
   cursor: pointer;
   text-transform: uppercase;
 
+  @media (max-width: ($vp-1024 - 1)) {
+    letter-spacing: 0.07em;
+  }
+
   @media (max-width: ($vp-768 - 1)) {
-    padding: 13px 10px 13px 27px;
+    padding: 15px 13px 13px 13px;
     font-size: 14px;
     line-height: 18px;
     height: 42px;

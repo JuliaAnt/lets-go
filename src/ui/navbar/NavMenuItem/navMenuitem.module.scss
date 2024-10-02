@@ -1,0 +1,51 @@
+@import '../../../styles/variables.scss';
+
+.menuItem {
+  a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 1em;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: $color-default-white;
+    font-weight: 600;
+  }
+
+  a:hover span,
+  a:focus span {
+    transform: translateY(-100%);
+    color: $color-jordy-blue;
+  }
+
+  a:active span {
+    opacity: 0.3;
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    transition: $trans-default;
+  }
+
+  span::before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 101%;
+    content: attr(data-hover);
+    font-weight: 700;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.menuItem.isOpen {
+  a {
+    font-size: 30px;
+    line-height: 43px;
+    height: 1.1em;
+    color: $color-midnight;
+  }
+}
