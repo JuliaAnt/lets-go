@@ -61,7 +61,11 @@ export const Header = () => {
           </button>
         </div>
 
-        <HeaderMobileMenu isOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
+        <HeaderMobileMenu
+          isOpen={isMobileMenuOpen}
+          setIsMobileMenuOpen={setIsMobileMenuOpen}
+          onNavItemClick={onNavItemClick}
+        />
       </div>
     </header>
   )
