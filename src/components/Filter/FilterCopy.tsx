@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styles from './Filter.module.scss'
 import { ButtonShow } from './ButtonShow/ButtonShow'
 import { SliderNoUI } from './SliderNoUI/SliderNoUI'
@@ -21,6 +21,9 @@ export const FilterCopy = () => {
     level: true,
   })
 
+  const sectionsRef = useRef<HTMLDivElement[]>([])
+  const [sectionsHeight, setSectionsHeight] = useState<number[]>([])
+
   const toggleSection = (section: Section) => {
     setOpenSections((prev) => ({
       ...prev,
@@ -29,6 +32,11 @@ export const FilterCopy = () => {
   }
 
   const sections: Section[] = ['hobby', 'music', 'food', 'transport', 'level']
+
+  useEffect(() => {
+    const heights = sectionsRef.current.map((ref) => (ref ? ref.scrollHeight : 0))
+    setSectionsHeight(heights)
+  }, [openSections])
 
   return (
     <article className={`${styles.wrapperFilter}`}>
@@ -62,15 +70,17 @@ export const FilterCopy = () => {
                     alt='arrow'
                   />
                 </button>
-                {openSections[section] && (
-                  <div className={`${styles.accordionContentFilter}`} data-accordion='content'>
-                    {/* <div className={`${styles.accordionWrapperFilter}`}> */}
-                    {/* {section === 'hobby' && ( */}
-                    <div
-                      className={`${
-                        section === 'hobby' ? styles.accordionWrapperFilter : styles.hideSection
-                      }`}
-                    >
+                <div
+                  ref={(el) => (sectionsRef.current[index] = el!)}
+                  className={`${styles.accordionContentFilter} ${
+                    openSections[section] ? styles.open : ''
+                  }`}
+                  style={{
+                    maxHeight: openSections[section] ? `${sectionsHeight[index]}px` : '0px',
+                  }}
+                >
+                  {section === 'hobby' && (
+                    <div className={`${styles.accordionWrapperFilter}`}>
                       <label htmlFor='sport'>
                         <input type='checkbox' id='sport' name='sport' />
                         <span>
@@ -111,13 +121,9 @@ export const FilterCopy = () => {
                         Диван
                       </label>
                     </div>
-                    {/* )} */}
-                    {/* {section === 'music' && ( */}
-                    <div
-                      className={`${
-                        section === 'music' ? styles.accordionWrapperFilter : styles.hideSection
-                      }`}
-                    >
+                  )}
+                  {section === 'music' && (
+                    <div className={`${styles.accordionWrapperFilter}`}>
                       <label htmlFor='rock'>
                         <input type='checkbox' id='rock' name='rock' />
                         <span>
@@ -158,13 +164,9 @@ export const FilterCopy = () => {
                         Евроденс
                       </label>
                     </div>
-                    {/* )} */}
-                    {/* {section === 'food' && ( */}
-                    <div
-                      className={`${
-                        section === 'food' ? styles.accordionWrapperFilter : styles.hideSection
-                      }`}
-                    >
+                  )}
+                  {section === 'food' && (
+                    <div className={`${styles.accordionWrapperFilter}`}>
                       <label htmlFor='meat'>
                         <input type='checkbox' id='meat' name='meat' />
                         <span>
@@ -205,73 +207,63 @@ export const FilterCopy = () => {
                         Веган-сыроед
                       </label>
                     </div>
-                    {/* )} */}
-                    {/* {section === 'transport' && ( */}
-                    <div
-                      className={`${
-                        section === 'transport' ? styles.activeSection : styles.hideSection
-                      }`}
-                    >
-                      <div className={`${styles.transportFilter}`}>
-                        <div className={`${styles.accordionWrapperFilter}`}>
-                          <label htmlFor='plane'>
-                            <input type='checkbox' id='plane' name='plane' />
-                            <span>
-                              <img
-                                className={styles.plane}
-                                src={iconPlane}
-                                width={20}
-                                height={20}
-                                alt='logo'
-                              />
-                            </span>
-                          </label>
-                          <label htmlFor='bus'>
-                            <input type='checkbox' id='bus' name='bus' />
-                            <span>
-                              <img
-                                className={styles.bus}
-                                src={iconBus}
-                                width={23}
-                                height={22}
-                                alt='logo'
-                              />
-                            </span>
-                          </label>
-                          <label htmlFor='bicycle'>
-                            <input type='checkbox' id='bicycle' name='bicycle' />
-                            <span>
-                              <img
-                                className={styles.bicycle}
-                                src={iconBicycle}
-                                width={23}
-                                height={22}
-                                alt='logo'
-                              />
-                            </span>
-                          </label>
-                          <label htmlFor='run'>
-                            <input type='checkbox' id='run' name='run' />
-                            <span>
-                              <img
-                                className={styles.run}
-                                src={iconRun}
-                                width={23}
-                                height={22}
-                                alt='logo'
-                              />
-                            </span>
-                          </label>
-                        </div>
+                  )}
+                  {section === 'transport' && (
+                    <div className={`${styles.transportFilter}`}>
+                      <div className={`${styles.accordionWrapperFilter}`}>
+                        <label htmlFor='plane'>
+                          <input type='checkbox' id='plane' name='plane' />
+                          <span>
+                            <img
+                              className={styles.plane}
+                              src={iconPlane}
+                              width={20}
+                              height={20}
+                              alt='logo'
+                            />
+                          </span>
+                        </label>
+                        <label htmlFor='bus'>
+                          <input type='checkbox' id='bus' name='bus' />
+                          <span>
+                            <img
+                              className={styles.bus}
+                              src={iconBus}
+                              width={23}
+                              height={22}
+                              alt='logo'
+                            />
+                          </span>
+                        </label>
+                        <label htmlFor='bicycle'>
+                          <input type='checkbox' id='bicycle' name='bicycle' />
+                          <span>
+                            <img
+                              className={styles.bicycle}
+                              src={iconBicycle}
+                              width={23}
+                              height={22}
+                              alt='logo'
+                            />
+                          </span>
+                        </label>
+                        <label htmlFor='run'>
+                          <input type='checkbox' id='run' name='run' />
+                          <span>
+                            <img
+                              className={styles.run}
+                              src={iconRun}
+                              width={23}
+                              height={22}
+                              alt='logo'
+                            />
+                          </span>
+                        </label>
                       </div>
                     </div>
-                    {/* )} */}
-                    {/* {section === 'level' && ( */}
-                    <div
-                      className={`${
-                        section === 'level' ? styles.activeSection : styles.hideSection
-                      }`}
-                    >
+                  )}
+                  {section === 'level' && (
+                    <div className={`${styles.accordionWrapperFilter}`}>
                       <div className={`${styles.sliderFilter}`}>
                         <div className={`${styles.accordionWrapperFilter}`}>
                           <div className={`${styles.sliderValueFilter}`}>
@@ -283,10 +275,8 @@ export const FilterCopy = () => {
                         </div>
                       </div>
                     </div>
-                    {/* )} */}
-                  </div>
-                  // </div>
-                )}
+                  )}
+                </div>
               </fieldset>
             </div>
           ))}
