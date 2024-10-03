@@ -264,15 +264,13 @@ export const FilterCopy = () => {
                   )}
                   {section === 'level' && (
                     <div className={`${styles.accordionWrapperFilter}`}>
-                      <div className={`${styles.sliderFilter}`}>
-                        <div className={`${styles.accordionWrapperFilter}`}>
-                          <div className={`${styles.sliderValueFilter}`}>
-                            <div id='lower-value'></div>
-                            <div className={`${styles.sliderDashFilter}`}></div>
-                            <div id='upper-value'></div>
-                          </div>
-                          <SliderNoUI />
+                      <div className={`${styles.sliderFilter}`}>                        
+                        <div className={`${styles.sliderValueFilter}`}>
+                          <div id='lower-value'></div>
+                          <div className={`${styles.sliderDashFilter}`}></div>
+                          <div id='upper-value'></div>
                         </div>
+                        <SliderNoUI />                        
                       </div>
                     </div>
                   )}

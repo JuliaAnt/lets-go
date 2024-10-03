@@ -7,7 +7,7 @@
   justify-content: center;
 
   width: 100%;
-  margin: 44px auto 0;
+  margin: 14px auto 0;
   padding: 17px 14px 11px;
 
   background-color: $color-default-white;
@@ -41,7 +41,7 @@
   }
 
   @media (max-width: ($vp-768 - 1px)) {
-    margin: 24px auto 0;
+    margin: 6px auto 0;
     padding: 15px 12px 9px;
   }
 
