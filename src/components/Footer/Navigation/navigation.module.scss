@@ -2,8 +2,12 @@
 
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
+
+  @media (max-width: ($vp-768 - 1px)) {
+    justify-content: center;
+  }
 }
 
 .navList {

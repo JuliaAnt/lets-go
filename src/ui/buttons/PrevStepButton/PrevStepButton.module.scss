@@ -9,17 +9,20 @@
   line-height: 22px;
   font-weight: 700;
   color: $color-catalina-blue;
-  // max-width: 187px;
+  max-width: 187px;
   box-sizing: border-box;
-  column-gap: 19px;
+  column-gap: 15px;
+  padding: 0;
 
   svg {
     transform: rotate(-180deg);
+    width: 16px;
+    height: 16px;
   }
 
   @media (max-width: ($vp-768 - 1)) {
     text-transform: uppercase;
-    max-width: 130px;
+    max-width: 140px;
     column-gap: 0;
     font-size: 17px;
     line-height: 30px;

@@ -1,15 +1,17 @@
 .inputRange {
+  // margin: 36px 0 0;
   margin: 36px 0 0;
   width: 89%;
 
   @media (max-width: (1023px)) {
     display: flex;
-    width: 38.5%;
+    width: 238px;
     margin: 5px 0 0 32px;
   }
 
   @media (max-width: (767px)) {
-    width: 96%;
+    width: 98%;
     margin: 24px 0 0;
+    padding: 0 0 10px;
   }
 } 

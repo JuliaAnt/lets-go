@@ -268,3 +268,9 @@ td.activeDate {
   background-color: $color-catalina-blue;
   color: $color-default-white;
 }
+
+.desktopText {
+  @media (max-width: ($vp-825 - 1px)) {
+    display: none;
+  }
+}

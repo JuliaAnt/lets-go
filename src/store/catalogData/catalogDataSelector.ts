@@ -7,3 +7,5 @@ export const getRegions = (state: RootState): string[] => state[NameSpace.CATALO
 export const getCountries = (state: RootState): CountryData[] =>
   state[NameSpace.CATALOG_DATA].countries
 export const getCards = (state: RootState): Card[] => state[NameSpace.CATALOG_DATA].cards
+export const getReloadStatus = (state: RootState): boolean =>
+  state[NameSpace.CATALOG_DATA].isReloaded

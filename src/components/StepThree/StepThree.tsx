@@ -13,6 +13,7 @@ import { AxiosError } from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { getCards } from '../../store/catalogData/catalogDataSelector'
 import { EmptyEntertainments } from './EmptyEntertainments/EmptyEntertainments'
+import { changeReloadStatus } from '../../store/catalogData/catalogDataSlice'
 
 type StepThreeProps = {
   currentStep: StepsMap
@@ -59,6 +60,7 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
         formData,
         onSuccess: () => {
           console.log(cardsState)
+          dispatch(changeReloadStatus(false))
           navigate(AppRoute.CATALOG)
         },
         onError: (error: AxiosError) => {
@@ -151,7 +153,6 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
                         />
                       </svg>
                     )}
-                    {/* <img src={lineCountryMobile} width={17} height={287} alt='decor' /> */}
                   </div>
                 </div>
               </div>

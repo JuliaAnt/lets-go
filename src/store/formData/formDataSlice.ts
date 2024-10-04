@@ -8,6 +8,7 @@ import { Entertainment } from '../../types/entertainments'
 import avatar from '../../assets/avatars/2.png'
 import { Error } from '../../types/error'
 import { setError } from '../../helpers/setError'
+import { setEntertainment } from '../../helpers/setEntertainment'
 
 export interface FormState {
   uuid: string
@@ -98,8 +99,14 @@ export const formData = createSlice({
       state.errors = setError(state)
     },
     addEntertainment: (state, action: PayloadAction<Entertainment>) => {
-      state.entertainments = [...state.entertainments, action.payload]
+      state.entertainments = setEntertainment(
+        state.entertainments,
+        action.payload.country,
+        action.payload.description,
+      )
       state.errors = setError(state)
+      console.log(state.entertainments.map((enter) => `${enter.country}: ${enter.description}`))
+      console.log(state.errors)
     },
     changeErrors: (state) => {
       state.errors = setError(state)
