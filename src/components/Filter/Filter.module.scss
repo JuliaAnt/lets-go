@@ -13,6 +13,10 @@
   background-color: $color-pattens-blue;
   border-radius: 20px;
 
+  @media (max-width: ($vp-1440 - 1px)) {
+    padding: 47px 20px 49px 20px;
+  }
+
   @media (max-width: ($vp-1024 - 1px)) {
     order: -1;
     width: 90.7%;

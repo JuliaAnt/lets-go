@@ -2,11 +2,16 @@
 
 .countries {
   max-width: 1440px;
-  margin: 58px auto 0;
+  margin: 58px 0;
   padding: 0 60px;
+  
+  @media (max-width: ($vp-1280 - 1px)) {
+    padding: 0 20px;
+  }
 
   @media (max-width: ($vp-1024 - 1px)) {
     padding: 62px 52px 54px;
+    margin: 58px auto 0;
     background-color: $color-lavendr;
     border-bottom-left-radius: 55px;
     border-bottom-right-radius: 55px;
@@ -48,6 +53,7 @@
 
 .filterText {
   color: $color-midnight;
+  text-transform: uppercase;
   font-size: 20px;
   line-height: 20px;
   font-weight: 700;
@@ -67,7 +73,6 @@
     line-height: 18px;
     display: flex;
     margin-right: 0;
-    text-transform: uppercase;
 
     svg {
       margin-right: 10px;
@@ -112,7 +117,7 @@
   }
 
   @media (max-width: ($vp-1280 - 1px)) {
-    margin-right: 10px;
+    margin-right: 6px;
   }
 
   @media (max-width: ($vp-1024 - 1px)) {
