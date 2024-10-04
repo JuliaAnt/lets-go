@@ -358,12 +358,7 @@ h2 {
     justify-content: space-between;
     width: 122px;
     margin: 42px auto 0;
-    padding: 14px 30px 10px 38px;
-
-    color: $color-catalina-blue;
-    font-size: 20px;
-    line-height: 20px;
-    letter-spacing: 0.04em;
+    padding: 14px 30px 8px 38px;    
 
     background-color: $color-default-white;
     border: 1px solid $color-very-light-grey-2;
@@ -380,12 +375,32 @@ h2 {
       order: unset;
 
       width: 62%;
+      max-width: 220px;
       margin: 12px auto 0;
-      padding: 9px 41px 11px 47px;
+      padding: 11px 41px 9px 47px;
+    }
 
-      font-size: 14px;
-      height: 13px;
-      letter-spacing: 0.06em;
+    input {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      max-width: 37px;
+      padding: 0;
+      border: none;
+      outline: none;
+
+      color: $color-catalina-blue;
+      font-size: 20px;
+      line-height: 20px;
+      letter-spacing: 0.04em;
+
+      @media (max-width: ($vp-768 - 1px)) {
+        max-width: 26px;
+
+        font-size: 14px;
+        height: 13px;
+        letter-spacing: 0.06em;
+      }
     }
 
     &::after,
