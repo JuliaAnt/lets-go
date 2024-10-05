@@ -266,9 +266,11 @@ export const FilterCopy = () => {
                     <div className={`${styles.accordionWrapperFilter}`}>
                       <div className={`${styles.sliderFilter}`}>                        
                         <div className={`${styles.sliderValueFilter}`}>
-                          <div id='lower-value'></div>
+                          {/* <div id='lower-value'></div> */}
+                          <input type='number' min='0' max='99' step='1' id='lower-value'></input>
                           <div className={`${styles.sliderDashFilter}`}></div>
-                          <div id='upper-value'></div>
+                          {/* <div id='upper-value'></div> */}
+                          <input type='number' min='1' max='100' step='1' id='upper-value'></input>
                         </div>
                         <SliderNoUI />                        
                       </div>
