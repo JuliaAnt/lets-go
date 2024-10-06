@@ -20,7 +20,7 @@ export const FormPage = () => {
         <IntroForm />
         <TravelForm />
       </main>
-      <Footer />
+      <Footer bgColor='#AED0EB' />
     </div>
   )
 }
