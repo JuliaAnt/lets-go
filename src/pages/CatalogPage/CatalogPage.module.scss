@@ -1,25 +1,25 @@
 .cardsFields {
   display: flex;
   max-width: 1320px;
-  margin: auto;
+  margin: 152px 0 0;
 
   @media (max-width: (1439px)) {
     max-width: 100%;
-    margin: auto 60px;
+    // margin: auto 60px;
     column-gap: 20px;
   }
 
-  @media (max-width: (1279px)) {
-    margin: auto 20px;
-  }
+  // @media (max-width: (1279px)) {
+  //   margin: auto 20px;
+  // }
 
   @media (max-width: (1023px)) {
     flex-direction: column;
-    margin: auto 40px;
+    margin: 40px 0 0;
     column-gap: 0;
   }
 
   @media (max-width: (768px)) {
-    margin: auto 25px;
+    margin: 0;
   }
 }
