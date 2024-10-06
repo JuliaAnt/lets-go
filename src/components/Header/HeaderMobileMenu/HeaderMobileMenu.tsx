@@ -35,7 +35,7 @@ export const HeaderMobileMenu = ({
     <div className={`${styles.headerMenu} ${isOpen ? styles.isOpen : ''}`}>
       <div className={styles.headerContainer}>
         <nav className={styles.nav}>
-          <Link to={AppRoute.FORM}>
+          <Link to={AppRoute.MAIN}>
             <img src={iconMobile} alt='logo' />
           </Link>
 

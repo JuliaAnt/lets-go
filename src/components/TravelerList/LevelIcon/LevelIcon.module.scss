@@ -1,11 +1,13 @@
+@import '../../../styles/variables.scss';
+
 .circularProgressBar {
   position: relative;
   display: inline-block;
 }
 
 .circleProgress {
-  stroke: #4a90e2; /* Цвет прогресса */
-  transition: stroke-dashoffset 0.35s; /* Анимация заполнения */
+  stroke: $color-special-blue;
+  transition: stroke-dashoffset 0.35s;
 }
 
 .progressText {
@@ -18,16 +20,18 @@
 
 .value {
   font-size: 18px;
-  color: #1a2948;
+  color: $color-catalina-blue;
   font-weight: bold;
 }
 
 .label {
   font-size: 12px;
-  color: #7f8c8d;
+  color: $color-default-black;
+  opacity: 0.4;
 }
 
 .rotatedSvg {
-  transform: rotate(90deg) scaleX(-1); /* Поворачиваем SVG для начала с 12:00 и по часовой */
-  transform-origin: center; /* Устанавливаем центр вращения */
+  transform: rotate(90deg) scaleX(-1);
+  transform-origin: center;
 }
+  

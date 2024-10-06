@@ -5,7 +5,6 @@ const breakpointMobile = window.matchMedia('(max-width:768px)');
 
 const initAccordions = () => {
   accordions = new Accordions();
-  // Используйте в разработке экспортируемую переменную accordions, window сделан для бэкэнда
   window.accordions = accordions;
 
   const breakpointChecker = () => {

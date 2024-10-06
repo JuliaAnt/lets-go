@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react';
 
 import footerLogo from '../../../assets/icons/footer/logo-footer.svg';
 import footerLogoMobile from '../../../assets/icons/footer/logo-mobile.svg';
+import { AppRoute } from '../../../utils/consts';
 
 export const Logo = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -19,7 +20,7 @@ export const Logo = () => {
   }, []);
 
   return (
-    <Link to="#">
+    <Link to={AppRoute.MAIN}>
       {isMobile ? (
         <img className={styles.logo} src={footerLogoMobile} width={96} height={15} alt="logo-mobile" />
       ) : (
