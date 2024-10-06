@@ -34,12 +34,14 @@ export const CatalogPage = () => {
       <Header />
       <main className='catalog-page'>
         <IntroCatalog />
-        <Countries />
-        <div className={styles.cardsFields}>
-          <TravelerList />
-          <Filter />
+        <div className='catalog-page-wrapper'>
+          <Countries />
+          <div className={styles.cardsFields}>
+            <TravelerList />
+            <Filter />
+          </div>
+          <Pagination />
         </div>
-        <Pagination />
       </main>
       <Footer />
     </div>

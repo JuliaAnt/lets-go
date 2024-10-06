@@ -2,7 +2,6 @@
  * These styles are required for noUiSlider to function.
  * You don't need to change these rules to apply your design.
  */
-
 .noUi-target,
 .noUi-target * {
   -webkit-touch-callout: none;
@@ -33,7 +32,6 @@
   z-index: 0;
   background-color: #cbced9;
 }
-
 .noUi-connect {
   opacity: 1;
   background-color: #1D2E5B;
@@ -60,15 +58,12 @@
   backface-visibility: hidden;
   position: absolute;
 }
-
 .noUi-horizontal .noUi-handle {
   width: 13px;
   height: 13px;
   right: -13px;
   top: -5px;
-
   background-color: #1D2E5B;
-
   @media (max-width: (767px)) {
     width: 11px;
     height: 11px;
@@ -76,10 +71,6 @@
     top: -4px;
   }
 }
-.noUi-draggable {
-  cursor: ew-resize;
-}
-
 .noUi-handle {
   border-radius: 50%;
   cursor: ew-resize;
