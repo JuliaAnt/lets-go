@@ -156,11 +156,14 @@
 
 .tags {
   position: relative;
+
+  align-self: flex-start;
   width: 58.3%;
   margin: 0 11.2% 0 0;
 
   @media (max-width: ($vp-1024 - 1px)) {
     order: 1;
+    align-self: center;
 
     width: 100%;
     margin: 51px 0 0;
@@ -212,11 +215,14 @@
 
 .transport {
   position: relative;
+
+  align-self: flex-start;
   width: 30.7%;
   margin: 0 0 auto 0;
 
   @media (max-width: ($vp-1024 - 1px)) {
     order: -1;
+    align-self: center;
 
     width: 50%;
   }
