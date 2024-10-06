@@ -56,6 +56,7 @@ export const CatalogPage = () => {
       <Header />
       <main className='catalog-page'>
         <IntroCatalog />
+
         <Countries />
         <div className={styles.cardsFields}>
           <TravelerList cards={currentCards} loading={loading} />

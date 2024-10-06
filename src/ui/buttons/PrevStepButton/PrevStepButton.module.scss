@@ -9,10 +9,11 @@
   line-height: 22px;
   font-weight: 700;
   color: $color-catalina-blue;
-  max-width: 187px;
+  max-width: 188px;
   box-sizing: border-box;
-  column-gap: 15px;
+  column-gap: 20px;
   padding: 0;
+  font-family: inherit;
 
   svg {
     transform: rotate(-180deg);

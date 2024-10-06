@@ -20,26 +20,36 @@ export default function createUiSlider(slider) {
       behaviour: 'tap',
       range: {
         min: 0,
-        // '30%': [30, 100],
         max: 100,
       },
     })
   }
 
-  var nodes = [
-    document.getElementById('lower-value'), // 0
-    document.getElementById('upper-value')  // 1
-  ];
+  var lowerNumber = document.getElementById('lower-value');
+  var upperNumber = document.getElementById('upper-value');
 
-  if (!nodes) {
+  if (!lowerNumber || !upperNumber) {
     console.error('Ошибка: значения не найдены')
     return
   }
-  // Display the slider value and how far the handle moved
-  // from the left edge of the slider.
-  if (slider&&nodes) {
-    slider.noUiSlider.on('update', function (values, handle, unencoded, isTap, positions) {
-        nodes[handle].innerHTML = positions[handle].toFixed(0);
+
+  if (slider && lowerNumber && upperNumber) {
+    slider.noUiSlider.on('update', function (values, handle) {
+        var value = values[handle];
+
+        if (handle) {
+            upperNumber.value = Math.round(value);
+        } else {
+            lowerNumber.value = Math.round(value);
+        }
+    });
+
+    lowerNumber.addEventListener('change', function () {    
+      slider.noUiSlider.set([this.value, null]);
+    });
+
+    upperNumber.addEventListener('change', function () {
+      slider.noUiSlider.set([null, this.value]);
     });
   }
 }

@@ -24,10 +24,10 @@
   @media (max-width: ($vp-1024 - 1px)) {
     order: 1;
     row-gap: 30px;
-    margin: 0 auto;
-    max-width: calc(100% - 80px);
+    margin: 0;
+    max-width: 100%;
     border-radius: 20px;
-    width: calc(100% - 80px);
+    width: 100%;
     grid-template-columns: min-content 275px auto;
     grid-template-rows: auto auto auto;
     column-gap: 33px;
@@ -41,9 +41,6 @@
     position: relative;
     row-gap: 0;
     column-gap: 0;
-    width: calc(100% - 50px);
-    min-width: calc(100% - 50px);
-    max-width: max-content;
   }
 }
 
@@ -64,6 +61,18 @@
   display: block;
   width: 285px;
   height: 285px;
+
+  @media (max-width: ($vp-1440 - 1px)) {
+    margin-right: 10px;
+    width: 250px;
+    height: auto;
+  }
+
+  @media (max-width: ($vp-1440 - 1px)) {
+    margin-right: 10px;
+    width: 200px;
+    height: auto;
+  }
 
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 35px 0 0 35px;
@@ -110,7 +119,7 @@
 
   @media (max-width: ($vp-1024 - 1px)) {
     margin-top: 32px;
-    max-width: 230px;
+    max-width: 228px;
   }
 
   @media (max-width: ($vp-768 - 1px)) {
@@ -141,6 +150,10 @@
   &::before {
     left: -27px;
 
+    @media (max-width: ($vp-1440 - 1px)) {
+      left: -15px;
+    }
+
     @media (max-width: ($vp-1024 - 1px)) {
       display: none;
     }
@@ -151,7 +164,7 @@
 
     @media (max-width: ($vp-1024 - 1px)) {
       display: block;
-      right: 2px;
+      right: -8px;
     }
 
     @media (max-width: ($vp-768 - 1px)) {
@@ -201,6 +214,10 @@
   margin: 0;
   margin-right: 66px;
   padding: 0;
+
+  @media (max-width: ($vp-1280 - 1px)) {
+    margin-right: 20px;
+  }
 
   @media (max-width: ($vp-1024 - 1px)) {
     margin: 0 8px 10px 0;
@@ -298,6 +315,10 @@
   margin-top: 49px;
   margin-left: 25px;
 
+  @media (max-width: ($vp-1280 - 1px)) {
+    margin-left: 0;
+  }
+
   @media (max-width: ($vp-1024 - 1px)) {
     margin-top: 31px;
     margin-left: 0;
@@ -377,6 +398,10 @@
   text-transform: uppercase;
   position: relative;
 
+  &:last-of-type {
+    margin-bottom: 30px;
+  }
+
   .toolTip {
     display: block;
     left: -53px;
@@ -392,6 +417,10 @@
   @media (max-width: ($vp-1024 - 1px)) {
     margin-bottom: 0;
     margin-right: 10px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -561,7 +590,7 @@
 
 .levelCircle {
   position: absolute;
-  left: -54%;
+  left: -65%;
   top: -28%;
   stroke: $color-special-blue;
 
