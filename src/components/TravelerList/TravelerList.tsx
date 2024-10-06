@@ -1,11 +1,11 @@
 import { useAppSelector } from '../../hooks/redux-hooks'
-import { getCards, getCountries, getRegions } from '../../store/catalogData/catalogDataSelector'
+import { getCountries, getRegions } from '../../store/catalogData/catalogDataSelector'
 import { getUuid } from '../../store/formData/formDataSelector'
+import { Card } from '../../types/card'
 import { TravelerCard } from './TravelerCard/TravelerCard'
 import styles from './TravelList.module.scss'
 
-export const TravelerList = () => {
-  const cards = useAppSelector(getCards)
+export const TravelerList = ({ cards, loading }: { cards: Card[]; loading: boolean }) => {
   const selectedRegionsState = useAppSelector(getRegions)
   const selectedCountriesState = useAppSelector(getCountries)
   const uuidState = useAppSelector(getUuid)
@@ -26,10 +26,14 @@ export const TravelerList = () => {
     return regionMatch && countryMatch
   })
 
+  if (loading) {
+    return <h2>Loading...</h2>
+  }
+
   return (
     <div className={styles.travelerList}>
       {filteredCards.map((card) => (
-        <TravelerCard key={card.uuid} card={card} uuidState={uuidState}/>
+        <TravelerCard key={card.uuid} card={card} uuidState={uuidState} />
       ))}
     </div>
   )
