@@ -1,7 +1,7 @@
 import { Header } from '../../components/Header/Header'
 import { Footer } from '../../components/Footer/Footer'
 import { Pagination } from '../../components/Pagination/Pagination'
-import { FilterCopy } from '../../components/Filter/FilterCopy'
+import { Filter } from '../../components/Filter/Filter'
 import { Countries } from '../../components/Countries/Countries'
 import { IntroCatalog } from '../../components/IntroForm/IntroCatalog'
 import { TravelerList } from '../../components/TravelerList/TravelerList'
@@ -59,7 +59,7 @@ export const CatalogPage = () => {
         <Countries />
         <div className={styles.cardsFields}>
           <TravelerList cards={currentCards} loading={loading} />
-          <FilterCopy />
+          <Filter />
         </div>
         <Pagination
           currentPage={currentPage}
