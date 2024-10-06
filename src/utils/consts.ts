@@ -4,6 +4,8 @@ import iconBicycle from '../assets/icons/intro/icon_bicycle.svg'
 import iconRun from '../assets/icons/intro/icon_run.svg'
 import { Error } from '../types/error'
 
+export const CARDS_PER_PAGE = 4
+
 export enum AppRoute {
   FORM = '/',
   CATALOG = '/catalog',
