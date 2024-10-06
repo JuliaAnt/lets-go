@@ -163,3 +163,5 @@ export const ERROR_MAP: Error[] = [
     errorText: 'Опишите, чем Вы планируете заниматься в каждой из стран',
   },
 ]
+
+export const CARDS_PER_PAGE = 4

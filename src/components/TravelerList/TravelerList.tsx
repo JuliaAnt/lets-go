@@ -1,35 +1,21 @@
 import { useAppSelector } from '../../hooks/redux-hooks'
-import { getCards, getCountries, getRegions } from '../../store/catalogData/catalogDataSelector'
+import { getCurrentPageNumber, getFilteredCards } from '../../store/catalogData/catalogDataSelector'
 import { getUuid } from '../../store/formData/formDataSelector'
+import { CARDS_PER_PAGE } from '../../utils/consts'
 import { TravelerCard } from './TravelerCard/TravelerCard'
 import styles from './TravelList.module.scss'
 
 export const TravelerList = () => {
-  const cards = useAppSelector(getCards)
-  const selectedRegionsState = useAppSelector(getRegions)
-  const selectedCountriesState = useAppSelector(getCountries)
+  const filteredCards = useAppSelector(getFilteredCards)
   const uuidState = useAppSelector(getUuid)
-
-  const filteredCards = cards.filter((card) => {
-    const regionMatch =
-      selectedRegionsState.length > 0
-        ? card.countries.some((country) => selectedRegionsState.includes(country.region))
-        : true
-
-    const countryMatch =
-      selectedCountriesState.length > 0
-        ? card.countries.some((country) =>
-            selectedCountriesState.some((selectedCountry) => selectedCountry.name === country.name),
-          )
-        : true
-
-    return regionMatch && countryMatch
-  })
+  const currentPage = useAppSelector(getCurrentPageNumber)
+  const startPageIndex = (currentPage - 1) * CARDS_PER_PAGE
+  const endPageIndex = currentPage * CARDS_PER_PAGE
 
   return (
     <div className={styles.travelerList}>
-      {filteredCards.map((card) => (
-        <TravelerCard key={card.uuid} card={card} uuidState={uuidState}/>
+      {filteredCards.slice(startPageIndex, endPageIndex).map((card) => (
+        <TravelerCard key={card.uuid} card={card} uuidState={uuidState} />
       ))}
     </div>
   )
