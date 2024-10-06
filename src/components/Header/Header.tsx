@@ -39,10 +39,10 @@ export const Header = () => {
     <header ref={headerRef} className={`${styles.header} ${isSticky ? styles.sticky : ''}`}>
       <div className={styles.headerContainer}>
         <div className={styles.headerWrapper}>
-          <Link className={styles.headerLogo} to={AppRoute.FORM}>
+          <Link className={styles.headerLogo} to={AppRoute.MAIN}>
             <img src={logo} alt='logo' />
           </Link>
-          <Link className={styles.headerLogoMobile} to={AppRoute.FORM}>
+          <Link className={styles.headerLogoMobile} to={AppRoute.MAIN}>
             <img src={iconMobile} alt='logo-mobile' />
           </Link>
 

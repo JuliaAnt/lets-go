@@ -6,7 +6,6 @@
   flex-direction: column;
 
   width: 14.4%;
-  // min-height: 600px;
   margin: 0 0 0 6.37%;
   padding: 47px 3.63% 49px;
 
@@ -52,7 +51,6 @@ h2 {
 }
 
 .accordionFilter {
-  // margin: 4px 0 0 0;
   margin: 16px 0 0 0;
 
   @media (max-width: ($vp-1024 - 1px)) {
@@ -74,7 +72,6 @@ h2 {
 
   @media (max-width: ($vp-1024 - 1px)) {    
     margin: 29px 0 0 0;
-    // padding: 10px 0 0;
   }
 
   @media (max-width: ($vp-768 - 1px)) {
@@ -97,7 +94,6 @@ h2 {
 
     @media (max-width: ($vp-768 - 1px)) {
       flex-direction: column;
-      // align-items: start;
     }
   }
 }
@@ -316,7 +312,6 @@ h2 {
 
 .sliderFilter {
   width: 100%;
-  // margin: 35px 0 0;
   padding: 0 0 14px;
   margin: -51px 0 0;
 
@@ -330,8 +325,6 @@ h2 {
     width: 95%;
     margin: -13px 0 0;
     padding: 0;
-
-    // border-top: 1px solid $color-energy-yellow-2;
   }
 
   p {

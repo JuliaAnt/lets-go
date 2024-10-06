@@ -30,18 +30,6 @@ export const EntertainmentComponent = ({
     }
   }, [entertainmentState])
 
-  // const getEntertainmentValue = () => {
-  //   let entertainmentValue = ''
-  //   if (inputValue) {
-  //     entertainmentValue = inputValue
-  //   } else if (entertainmentState) {
-  //     entertainmentValue = entertainmentState.description
-  //   } else {
-  //     entertainmentValue = ''
-  //   }
-  //   return entertainmentValue
-  // }
-
   const onElementBlur = (value: string, country: string) => {
     handleBlur(value, country)
 

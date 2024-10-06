@@ -68,7 +68,6 @@
   .activePage::after {
     content: "";
     position: absolute;
-    // z-index: 0;
     top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);

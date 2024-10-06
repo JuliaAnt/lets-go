@@ -5,6 +5,7 @@ import iconRun from '../assets/icons/intro/icon_run.svg'
 import { Error } from '../types/error'
 
 export enum AppRoute {
+  MAIN = '/',
   FORM = '/',
   CATALOG = '/catalog',
 }
@@ -40,7 +41,7 @@ export const TRANSPORT_TYPES_LIST = [
 ]
 
 export const NAVIGATION_MAP = [
-  { id: 1, text: 'о сервисе', hoverText: 'О СЕРВИСЕ', url: '#' },
+  { id: 1, text: 'о сервисе', hoverText: 'О СЕРВИСЕ', url: AppRoute.MAIN },
   { id: 2, text: 'направления', hoverText: 'НАПРАВЛЕНИЯ', url: AppRoute.FORM },
   { id: 3, text: 'попутчики', hoverText: 'ПОПУТЧИКИ', url: AppRoute.CATALOG },
 ]
