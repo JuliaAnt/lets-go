@@ -248,18 +248,42 @@
   &:nth-of-type(2) {
     .toolTip {
       left: calc(-50% - 53px);
+
+      @media (max-width: ($vp-1024 - 1px)) {
+        left: calc(-50% - 27px);
+      }
+
+      @media (max-width: ($vp-768 - 1px)) {
+        left: calc(-50% - 20px);
+      }
     }
   }
 
   &:nth-of-type(3) {
     .toolTip {
       left: calc(-50% - 34px);
+
+      @media (max-width: ($vp-1024 - 1px)) {
+        left: calc(-50% - 14px);
+      }
+
+      @media (max-width: ($vp-768 - 1px)) {
+        left: calc(-50% - 5px);
+      }
     }
   }
 
   &:nth-of-type(4) {
     .toolTip {
       left: calc(-50% - 20px);
+
+      @media (max-width: ($vp-1024 - 1px)) {
+        left: calc(-50% - 5px);
+      }
+
+      @media (max-width: ($vp-768 - 1px)) {
+        left: calc(-50% + 5px);
+      }
     }
   }
 
@@ -377,11 +401,6 @@
   @media (max-width: ($vp-1024 - 1px)) {
     width: 41px;
     margin-right: 10px;
-
-    &:hover ~ .toolTip {
-      opacity: 0;
-      visibility: hidden;
-    }
   }
 
   @media (max-width: ($vp-768 - 1px)) {
@@ -403,7 +422,6 @@
   }
 
   .toolTip {
-    display: block;
     left: -53px;
     top: 120%;
     height: min-content;
@@ -418,8 +436,20 @@
     margin-bottom: 0;
     margin-right: 10px;
 
+    .toolTip {
+      left: -45px;
+    }
+
     &:last-of-type {
       margin-bottom: 0;
+    }
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    .toolTip {
+      left: -38px;
+      top: 130%;
+      width: 100px;
     }
   }
 }
@@ -675,7 +705,16 @@
   }
 
   @media (max-width: ($vp-1024 - 1px)) {
-    display: none;
+    padding: 10px 10px;
+    font-size: 14px;
+    line-height: 14px;
+    left: calc(-50% - 20px);
+    bottom: -150%;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    left: calc(-50% - 10px);
+    bottom: -140%;
   }
 }
 

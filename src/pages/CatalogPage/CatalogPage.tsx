@@ -84,19 +84,20 @@ export const CatalogPage = () => {
       <Header />
       <main className='catalog-page'>
         <IntroCatalog />
-
-        <Countries />
-        <div className={styles.cardsFields}>
-          <TravelerList cards={currentCards} loading={loading} />
-          <Filter />
+        <div className='catalog-page-wrapper'>
+          <Countries />
+          <div className={styles.cardsFields}>
+            <TravelerList cards={currentCards} loading={loading} />
+            <Filter />
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            paginate={paginate}
+            nextPage={nextPage}
+            prevPage={prevPage}
+          />
         </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          paginate={paginate}
-          nextPage={nextPage}
-          prevPage={prevPage}
-        />
       </main>
       <Footer />
     </div>
