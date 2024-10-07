@@ -28,15 +28,14 @@ export const fetchCatalogData = createAsyncThunk<
   {
     page: string
     limit: string
-    regions: string[]
   }
->('catalog/fetchData', async ({ page, limit, regions }) => {
+>('catalog/fetchData', async ({ page, limit }) => {
   const { data } = await axios.get<Card[]>('https://mabori.ru/api/travels', {
-    //  const { data } = await axios.get<Card[]>('http://localhost:5050/api/travels/feed', {
+    // const { data } = await axios.get<Card[]>('http://localhost:5050/api/travels', {
     params: {
       page,
       limit,
-      regions: regions.length > 0 ? regions.join(',') : 'All',
+      // regions: regions.length > 0 ? regions.join(',') : ['All'],
     },
   })
   return data

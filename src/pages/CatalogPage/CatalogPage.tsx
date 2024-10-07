@@ -23,9 +23,7 @@ export const CatalogPage = () => {
   const cards = useAppSelector(getCards)
   const reloadStatus = useAppSelector(getReloadStatus)
   const navigate = useNavigate()
-  const regions = useAppSelector(getRegions)
 
-  // const [cards, setCards] = useState([])
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [cardsPerPage] = useState(CARDS_PER_PAGE)
@@ -33,16 +31,10 @@ export const CatalogPage = () => {
   useEffect(() => {
     if (cards.length <= 0) {
       setLoading(true)
-      dispatch(
-        fetchCatalogData({
-          page: currentPage.toString(),
-          limit: CARDS_PER_PAGE.toString(),
-          regions,
-        }),
-      )
+      dispatch(fetchCatalogData({ page: currentPage.toString(), limit: cardsPerPage.toString() }))
       setLoading(false)
     }
-  }, [dispatch, currentPage, cards, regions])
+  }, [dispatch, cardsPerPage, currentPage, cards])
 
   useEffect(() => {
     if (reloadStatus) {
