@@ -17,7 +17,7 @@ export const Pagination = ({
 }) => {
   const pageNumbers = []
 
-  for (let index = 0; index < totalPages; index++) {
+  for (let index = 1; index < totalPages; index++) {
     pageNumbers.push(index)
   }
 
@@ -25,9 +25,9 @@ export const Pagination = ({
     <section className={`${styles.wrapper}`}>
       <ul className={`${styles.pageList}`}>
         {pageNumbers.map((number) => (
-          <li className={number === currentPage ? `${styles.activePage}` : ``}>
+          <li key={number} className={number === currentPage ? `${styles.activePage}` : ``}>
             <Link to='#' onClick={() => paginate(number)}>
-              <span>{number + 1}</span>
+              <span>{number}</span>
             </Link>
           </li>
         ))}

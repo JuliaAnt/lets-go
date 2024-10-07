@@ -48,7 +48,7 @@ export const CatalogPage = () => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
   const nextPage = () =>
-    setCurrentPage(() => (totalPages > currentPage ? currentPage + 1 : currentPage))
+    setCurrentPage(() => (totalPages > currentPage + 1 ? currentPage + 1 : currentPage))
   const prevPage = () => setCurrentPage(() => (currentPage === 1 ? 1 : currentPage - 1))
 
   return (
