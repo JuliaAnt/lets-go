@@ -712,7 +712,7 @@
     bottom: -150%;
   }
 
-  @media (max-width: ($vp-1024 - 1px)) {
+  @media (max-width: ($vp-768 - 1px)) {
     left: calc(-50% - 10px);
     bottom: -140%;
   }
