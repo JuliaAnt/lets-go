@@ -34,11 +34,15 @@ export const CatalogPage = () => {
     if (cards.length <= 0) {
       setLoading(true)
       dispatch(
-        fetchCatalogData({ page: currentPage.toString(), limit: cardsPerPage.toString(), regions }),
+        fetchCatalogData({
+          page: currentPage.toString(),
+          limit: CARDS_PER_PAGE.toString(),
+          regions,
+        }),
       )
       setLoading(false)
     }
-  }, [dispatch, cardsPerPage, currentPage, cards, regions])
+  }, [dispatch, currentPage, cards, regions])
 
   useEffect(() => {
     if (reloadStatus) {
@@ -80,19 +84,20 @@ export const CatalogPage = () => {
       <Header />
       <main className='catalog-page'>
         <IntroCatalog />
-
-        <Countries />
-        <div className={styles.cardsFields}>
-          <TravelerList cards={currentCards} loading={loading} />
-          <Filter />
+        <div className='catalog-page-wrapper'>
+          <Countries />
+          <div className={styles.cardsFields}>
+            <TravelerList cards={currentCards} loading={loading} />
+            <Filter />
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            paginate={paginate}
+            nextPage={nextPage}
+            prevPage={prevPage}
+          />
         </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          paginate={paginate}
-          nextPage={nextPage}
-          prevPage={prevPage}
-        />
       </main>
       <Footer />
     </div>
