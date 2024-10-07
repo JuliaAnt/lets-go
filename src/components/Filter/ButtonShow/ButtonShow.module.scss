@@ -17,7 +17,7 @@
   transition: opacity $trans-default;
 
   @media (max-width: ($vp-1024 - 1px)) {
-    margin: 56px auto 0;
+    margin: 58px auto 0;
     padding: 19px 12px 11px;
 
     &::after {

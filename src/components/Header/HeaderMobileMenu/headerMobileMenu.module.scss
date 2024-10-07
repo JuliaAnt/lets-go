@@ -8,6 +8,7 @@
   left: 0;
   width: 100%;
   min-height: 568px;
+  border-radius: 0 0 22px 22px;
 
   background-color: $color-default-white;
 }
@@ -15,7 +16,15 @@
 .headerContainer {
   max-width: $vp-1024;
   margin: 0 auto;
-  padding: 22px 21px 29px 25px;
+  padding: 50px 40px 25px;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    padding: 50px 40px 25px;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    padding: 22px 21px 29px 25px;
+  }
 
   p {
     color: $color-midnight;

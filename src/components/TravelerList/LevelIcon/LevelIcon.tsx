@@ -33,7 +33,7 @@ const LevelIcon: React.FC<LevelIconProps> = ({ value }) => {
         cx='32'
         cy='32'
         r='30'
-        stroke='auto' // Цвет линии может меняться динамически
+        stroke='auto'
         strokeWidth='3'
         strokeLinecap='round'
         strokeDasharray={pathLength}

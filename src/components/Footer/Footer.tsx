@@ -1,11 +1,16 @@
 import styles from './footer.module.scss'
+import React from 'react'
 
 import { Logo } from './Logo/Logo'
 import { Navigation } from './Navigation/Navigation'
 
-export const Footer = () => {
+type footerProps = {
+  bgColor?: string
+}
+
+export const Footer: React.FC<footerProps> = ({ bgColor }) => {
   return (
-    <div className={styles.footerBg}>
+    <div style={{ backgroundColor: bgColor ? bgColor : '' }}>
       <footer className={styles.footer}>
         <div className={styles.footerWrapper}>
           <Logo />

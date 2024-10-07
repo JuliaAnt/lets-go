@@ -33,3 +33,24 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+.catalog-page-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+
+  @media (max-width: (1439px)) {
+    margin: 0 60px;
+  }
+
+  @media (max-width: (1279px)) {
+    margin: 0 20px;
+  }
+
+  @media (max-width: (1023px)) {
+    margin: 0 40px;
+  }
+
+  @media (max-width: (768px)) {
+    margin: 0 25px;
+  }
+}

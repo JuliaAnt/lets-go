@@ -114,7 +114,7 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
                         fill='none'
                         xmlns='http://www.w3.org/2000/svg'
                       >
-                        <line x1='1' x2='1' y2='248' stroke='#1D2E5B' stroke-width='2' />
+                        <line x1='1' x2='1' y2='248' stroke='#1D2E5B' strokeWidth='2' />
                       </svg>
                     ) : (
                       ''
@@ -176,11 +176,13 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
         </button>
         <PrevStepButton onClick={() => setCurrentStep(StepsMap.STEP_TWO)} />
       </div>
-      <div className={styles.errorList}>
-        {errors.map((error) => (
-          <div key={error.errorName}>{error.errorText}</div>
-        ))}
-      </div>
+      {errors.length > 0 && (
+        <div className={styles.errorList}>
+          {errors.map((error) => (
+            <div key={error.errorName}>{error.errorText}</div>
+          ))}
+        </div>
+      )}
     </section>
   )
 }

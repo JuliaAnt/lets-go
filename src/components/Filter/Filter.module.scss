@@ -6,7 +6,7 @@
   flex-direction: column;
 
   width: 14.4%;
-  // min-height: 600px;
+  min-width: 189px;
   margin: 0 0 0 6.37%;
   padding: 47px 3.63% 49px;
 
@@ -16,6 +16,7 @@
   @media (max-width: ($vp-1440 - 1px)) {
     padding: 47px 20px 49px 20px;
     width: 220px;
+    min-width: unset;
     margin-left: auto;
   }
 
@@ -36,10 +37,12 @@
 }
 
 h2 {
+  margin: 0 2px;
+
+  word-wrap: break-word;
   color: $color-catalina-blue;
   font-size: 30px;
   line-height: 30px;
-  margin: 0 2px;
 
   @media (max-width: ($vp-768 - 1px)) {
     width: 90%;
@@ -52,7 +55,6 @@ h2 {
 }
 
 .accordionFilter {
-  // margin: 4px 0 0 0;
   margin: 16px 0 0 0;
 
   @media (max-width: ($vp-1024 - 1px)) {
@@ -74,7 +76,6 @@ h2 {
 
   @media (max-width: ($vp-1024 - 1px)) {    
     margin: 29px 0 0 0;
-    // padding: 10px 0 0;
   }
 
   @media (max-width: ($vp-768 - 1px)) {
@@ -84,7 +85,7 @@ h2 {
     border-top: 1px solid $color-energy-yellow-2;
   }
 
-  fieldset {
+  fieldset {    
     margin: 0;
     padding: 0;
 
@@ -97,18 +98,19 @@ h2 {
 
     @media (max-width: ($vp-768 - 1px)) {
       flex-direction: column;
-      // align-items: start;
     }
   }
 }
 
-.accordionButtonFilter {
+.accordionButtonFilter {  
   display: flex;
   justify-content: space-between;
 
   width: 100%;
+  max-width: 190px;
   padding: 0;
 
+  word-wrap: break-word;
   color: $color-catalina-blue;
   font-weight: 500;
   font-size: 20px;
@@ -123,6 +125,7 @@ h2 {
 
   @media (max-width: ($vp-768 - 1px)) {
     width: 100%;
+    max-width: unset;
 
     font-size: 16px;
     line-height: 18px;
@@ -130,8 +133,20 @@ h2 {
     pointer-events: all;
   }
 
+  span {
+    overflow: hidden;
+    max-width: 160px;  
+    
+    text-align: left;
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      max-width: 97%;
+    }
+  }
+
   img {
     width: 10px;
+    flex-shrink: 0;
     height: 6px;
     margin: 5px 0 0 0;
 
@@ -213,6 +228,8 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+
     width: 24px;
     height: 24px;
     margin: 0 13px 0 0;
@@ -258,6 +275,7 @@ h2 {
   .accordionWrapperFilter {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 1px;
     margin: 19px 0 16px;
     padding: 0;
@@ -316,7 +334,6 @@ h2 {
 
 .sliderFilter {
   width: 100%;
-  // margin: 35px 0 0;
   padding: 0 0 14px;
   margin: -51px 0 0;
 
@@ -330,8 +347,6 @@ h2 {
     width: 95%;
     margin: -13px 0 0;
     padding: 0;
-
-    // border-top: 1px solid $color-energy-yellow-2;
   }
 
   p {
