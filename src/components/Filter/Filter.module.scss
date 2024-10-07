@@ -6,6 +6,7 @@
   flex-direction: column;
 
   width: 14.4%;
+  min-width: 189px;
   margin: 0 0 0 6.37%;
   padding: 47px 3.63% 49px;
 
@@ -15,6 +16,7 @@
   @media (max-width: ($vp-1440 - 1px)) {
     padding: 47px 20px 49px 20px;
     width: 220px;
+    min-width: unset;
     margin-left: auto;
   }
 
