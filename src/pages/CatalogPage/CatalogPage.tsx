@@ -34,11 +34,15 @@ export const CatalogPage = () => {
     if (cards.length <= 0) {
       setLoading(true)
       dispatch(
-        fetchCatalogData({ page: currentPage.toString(), limit: cardsPerPage.toString(), regions }),
+        fetchCatalogData({
+          page: currentPage.toString(),
+          limit: CARDS_PER_PAGE.toString(),
+          regions,
+        }),
       )
       setLoading(false)
     }
-  }, [dispatch, cardsPerPage, currentPage, cards, regions])
+  }, [dispatch, currentPage, cards, regions])
 
   useEffect(() => {
     if (reloadStatus) {
