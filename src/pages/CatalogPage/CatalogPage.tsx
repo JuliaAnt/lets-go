@@ -8,7 +8,12 @@ import { TravelerList } from '../../components/TravelerList/TravelerList'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
 import { useEffect, useState } from 'react'
 import { fetchCatalogData } from '../../store/api-actions'
-import { getCards, getRegions, getReloadStatus } from '../../store/catalogData/catalogDataSelector'
+import {
+  getCards,
+  getCountries,
+  getRegions,
+  getReloadStatus,
+} from '../../store/catalogData/catalogDataSelector'
 import styles from './CatalogPage.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { AppRoute, CARDS_PER_PAGE } from '../../utils/consts'
@@ -41,10 +46,29 @@ export const CatalogPage = () => {
     }
   }, [reloadStatus, navigate])
 
+  const selectedRegionsState = useAppSelector(getRegions)
+  const selectedCountriesState = useAppSelector(getCountries)
+
+  const filteredCards = cards.filter((card) => {
+    const regionMatch =
+      selectedRegionsState.length > 0
+        ? card.countries.some((country) => selectedRegionsState.includes(country.region))
+        : true
+
+    const countryMatch =
+      selectedCountriesState.length > 0
+        ? card.countries.some((country) =>
+            selectedCountriesState.some((selectedCountry) => selectedCountry.name === country.name),
+          )
+        : true
+
+    return regionMatch && countryMatch
+  })
+
   const lastCardIndex = currentPage * cardsPerPage
   const firstCardIndex = lastCardIndex - cardsPerPage
-  const currentCards = cards.slice(firstCardIndex, lastCardIndex)
-  const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE)
+  const currentCards = filteredCards.slice(firstCardIndex, lastCardIndex)
+  const totalPages = Math.ceil(filteredCards.length / CARDS_PER_PAGE)
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
   const nextPage = () =>
