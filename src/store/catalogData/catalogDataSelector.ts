@@ -9,7 +9,3 @@ export const getCountries = (state: RootState): CountryData[] =>
 export const getCards = (state: RootState): Card[] => state[NameSpace.CATALOG_DATA].cards
 export const getReloadStatus = (state: RootState): boolean =>
   state[NameSpace.CATALOG_DATA].isReloaded
-export const getCurrentPageNumber = (state: RootState): number =>
-  state[NameSpace.CATALOG_DATA].currentPage
-export const getFilteredCards = (state: RootState): Card[] =>
-  state[NameSpace.CATALOG_DATA].filteredCards
