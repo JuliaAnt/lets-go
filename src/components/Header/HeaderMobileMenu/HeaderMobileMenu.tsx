@@ -33,28 +33,30 @@ export const HeaderMobileMenu = ({
 
   return (
     <div className={`${styles.headerMenu} ${isOpen ? styles.isOpen : ''}`}>
-      <div className={styles.headerContainer}>
-        <nav className={styles.nav}>
-          <Link to={AppRoute.MAIN}>
-            <img src={iconMobile} alt='logo' />
-          </Link>
+      <div className={styles.overlay} onClick={() => setIsMobileMenuOpen(false)}>
+        <div className={styles.headerContainer} onClick={(e) => e.stopPropagation()}>
+          <nav className={styles.nav}>
+            <Link to={AppRoute.MAIN}>
+              <img src={iconMobile} alt='logo' />
+            </Link>
 
-          <button type='button' aria-label='закрыть' onClick={() => setIsMobileMenuOpen(false)}>
-            <img src={iconClose} alt='icon-close'></img>
-          </button>
-        </nav>
-        <ul className={styles.mobileMenuList}>
-          {NAVIGATION_MAP.map((navItem) => (
-            <NavMenuItem
-              data={navItem}
-              key={navItem.id}
-              isOpen={isOpen}
-              onNavItemClick={onNavItemClick}
-            />
-          ))}
-        </ul>
-        <ContactUsMobile />
-        <SocialMobile />
+            <button type='button' aria-label='закрыть' onClick={() => setIsMobileMenuOpen(false)}>
+              <img src={iconClose} alt='icon-close'></img>
+            </button>
+          </nav>
+          <ul className={styles.mobileMenuList}>
+            {NAVIGATION_MAP.map((navItem) => (
+              <NavMenuItem
+                data={navItem}
+                key={navItem.id}
+                isOpen={isOpen}
+                onNavItemClick={onNavItemClick}
+              />
+            ))}
+          </ul>
+          <ContactUsMobile />
+          <SocialMobile />
+        </div>
       </div>
     </div>
   )
