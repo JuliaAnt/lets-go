@@ -45,6 +45,5 @@ export const catalogData = createSlice({
   },
 })
 
-export const { changeRegions, changeCountries, changeReloadStatus } =
-  catalogData.actions
+export const { changeRegions, changeCountries, changeReloadStatus } = catalogData.actions
 export default catalogData.reducer
