@@ -13,7 +13,7 @@ export const sendFormData = createAsyncThunk<Card[], SendFormDataProps>(
   'form/sendData',
   async ({ formData, onError, onSuccess }, thunkAPI) => {
     try {
-      const { data } = await axios.post<Card[]>('https://mabori.ru/api/travels/', formData)
+      const { data } = await axios.post<Card[]>('https://mabori.ru/api/travels', formData)
       onSuccess()
       return data
     } catch (error: any) {
@@ -23,10 +23,20 @@ export const sendFormData = createAsyncThunk<Card[], SendFormDataProps>(
   },
 )
 
-export const fetchCatalogData = createAsyncThunk<Card[], undefined>(
-  'catalog/fetchData',
-  async (_arg) => {
-    const { data } = await axios.get<Card[]>('https://mabori.ru/api/travels/')
-    return data
-  },
-)
+export const fetchCatalogData = createAsyncThunk<
+  Card[],
+  {
+    page: string
+    limit: string
+  }
+>('catalog/fetchData', async ({ page, limit }) => {
+  const { data } = await axios.get<Card[]>('https://mabori.ru/api/travels', {
+    // const { data } = await axios.get<Card[]>('http://localhost:5050/api/travels', {
+    params: {
+      page,
+      limit,
+      // regions: regions.length > 0 ? regions.join(',') : ['All'],
+    },
+  })
+  return data
+})

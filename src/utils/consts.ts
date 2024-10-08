@@ -4,6 +4,8 @@ import iconBicycle from '../assets/icons/intro/icon_bicycle.svg'
 import iconRun from '../assets/icons/intro/icon_run.svg'
 import { Error } from '../types/error'
 
+export const CARDS_PER_PAGE = 4
+
 export enum AppRoute {
   MAIN = '/',
   FORM = '/',
@@ -163,5 +165,3 @@ export const ERROR_MAP: Error[] = [
     errorText: 'Опишите, чем Вы планируете заниматься в каждой из стран',
   },
 ]
-
-export const CARDS_PER_PAGE = 4
