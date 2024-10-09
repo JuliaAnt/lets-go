@@ -57,11 +57,25 @@
     text-decoration-line: none;
     color: $color-catalina-blue;
 
-    transition: background-color $trans-default;
+    transition: background-color $trans-default, opacity $trans-default;
+
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+    }
 
     @media (max-width: ($vp-768 - 1px)) {
       width: 32px;
       height: 32px;
+    }
+  }
+
+  .activePage a {
+    cursor: default;
+
+    &:hover,
+    &:focus {
+     opacity: 1;
     }
   }
 
