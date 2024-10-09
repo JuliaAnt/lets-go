@@ -19,14 +19,14 @@
 
   
   @media (max-width: ($vp-1024 - 1px)) {
-    padding: 235px 75px 68px;
+    padding: 231px 75px 68px 77px;
     
     border-bottom-right-radius: 60px;
     border-bottom-left-radius: 60px;
   }
 
   @media (max-width: ($vp-768 - 1px)) {
-    padding: 100px 25px 13px;
+    padding: 100px 25px 11px;
 
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -63,11 +63,12 @@
     text-transform: uppercase;
     font-weight: 700;
     font-size: 52.5px;
-    line-height: 52.5px;
+    line-height: 52.5px;   
 
     @media (max-width: ($vp-1280 - 1px)) {
       font-size: 40px;
       line-height: 40px;
+      letter-spacing: 0.067em;
     }
 
     @media (max-width: ($vp-1024 - 1px)) {
@@ -75,13 +76,12 @@
 
       font-size: 48px;
       line-height: 48px;
-      // letter-spacing: 0.07em;
+      letter-spacing: 0.04em;
     }
 
     @media (max-width: ($vp-768 - 1px)) {
       font-size: 30px;
       line-height: 30px;
-      // letter-spacing: 0.038em;
     }
   }
 }
@@ -177,7 +177,7 @@
   h3 {
     position: absolute;
     left: 3%;
-    bottom: -13px;
+    bottom: -9px;
 
     margin: 0;
     padding: 0 11px 0 17px;
@@ -186,19 +186,18 @@
     font-size: 20px;
     line-height: 20px;
     font-weight: 500;
-    // letter-spacing: 2px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: $color-midnight-express;
     background-color: $color-basic-blue-light;
 
     @media (max-width: ($vp-1024 - 1px)) {
-      left: 49.7%;
+      left: 50%;
       transform: translateX(-50%);
       bottom: -11px;
       padding: 0 10px;
 
       color: $color-catalina-blue;
-      // letter-spacing: 0.1em;
     }
 
     @media (max-width: ($vp-768 - 1px)) {
@@ -210,7 +209,7 @@
       color: $color-catalina-blue;      
       font-size: 16px;
       line-height: 16px;
-      // letter-spacing: -0.01em;
+      letter-spacing: -0.01em;
     }
   }
 }
@@ -233,7 +232,7 @@
     order: 2;
 
     width: 100%;
-    margin: 20px 0 0;
+    margin: 22px 0 0;
   }
 
   h3 {
@@ -248,7 +247,7 @@
     font-family: inherit;
     font-size: 20px;
     font-weight: 500;
-    // letter-spacing: 2px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: $color-midnight-express;
     background-color: $color-basic-blue-light;
@@ -260,7 +259,6 @@
       padding: 0 10px;
 
       color: $color-catalina-blue;
-      // letter-spacing: 0.08em;
     }
 
     @media (max-width: ($vp-768 - 1px)) {
@@ -272,7 +270,7 @@
       color: $color-catalina-blue;
       font-size: 16px;
       line-height: 16px;
-      // letter-spacing: 0.01em;
+      letter-spacing: 0.01em;
     }
   }
 }
@@ -284,14 +282,12 @@
       font-size: 60px;
       line-height: 60px;
       text-transform: none;
-      // letter-spacing: 0;
     }
 
     @media (max-width: ($vp-768 - 1px)) {
       font-size: 36px;
       line-height: 36px;
       text-transform: none;
-      // letter-spacing: 0;
     }
   }
 

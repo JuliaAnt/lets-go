@@ -31,7 +31,7 @@
 
   @media (max-width: ($vp-768 - 1px)) {
     width: 85%;
-    margin: -1px auto 0;
+    margin: 1px auto 0;
     padding: 27px 20px 22px;
   }
 }
@@ -50,7 +50,7 @@ h2 {
 
     font-size: 22px;
     line-height: 22px;
-    // letter-spacing: 0.02em;
+    letter-spacing: 0.02em;
   }
 }
 
@@ -197,7 +197,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 24px 0 16px;
+  padding: 24px 0 8px;
 
   @media (max-width: ($vp-1024 - 1px)) {
     flex-direction: row;
@@ -421,14 +421,13 @@ h2 {
       font-family: inherit;
       font-size: 20px;
       line-height: 20px;
-      // letter-spacing: 0.04em;
 
       @media (max-width: ($vp-768 - 1px)) {
         max-width: 26px;
 
         font-size: 14px;
         height: 13px;
-        // letter-spacing: 0.06em;
+        letter-spacing: 0.06em;
       }
     }
 

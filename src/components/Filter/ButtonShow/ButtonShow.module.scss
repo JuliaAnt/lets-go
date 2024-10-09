@@ -7,7 +7,7 @@
   justify-content: center;
 
   width: 100%;
-  margin: 14px auto 0;
+  margin: 22px auto 0;
   padding: 17px 14px 11px;
 
   background-color: $color-default-white;
@@ -17,8 +17,8 @@
   transition: opacity $trans-default;
 
   @media (max-width: ($vp-1024 - 1px)) {
-    margin: 58px auto 0;
-    padding: 19px 12px 11px;
+    margin: 56px auto 0;
+    padding: 18px 12px 12px;
 
     &::after {
       position: absolute;
@@ -37,7 +37,7 @@
   }
 
   @media (max-width: ($vp-768 - 1px)) {
-    margin: 6px auto 0;
+    margin: 10px auto 0;
     padding: 15px 12px 9px;
 
     &::after {
@@ -68,7 +68,7 @@
   line-height: 20px;
   font-weight: 700;
   text-transform: uppercase;
-  // letter-spacing: -0.02em;
+  letter-spacing: -0.02em;
 
   @media (max-width: ($vp-768 - 1px)) {
     margin: 0;
