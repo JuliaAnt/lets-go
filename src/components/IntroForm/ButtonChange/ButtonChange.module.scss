@@ -50,7 +50,15 @@
   line-height: 18px;
   text-transform: uppercase;
 
+  @media (max-width: ($vp-1024 - 1px)) {
+    margin: 1px 0 0;
+
+    letter-spacing: 0.067em;
+  }
+
   @media (max-width: ($vp-768 - 1px)) {
     margin: 1px 0 0;
+
+    letter-spacing: -0.027em;
   }
 }
