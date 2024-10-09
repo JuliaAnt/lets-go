@@ -38,10 +38,10 @@
   }
 
   img {
-    object-fit: cover;
+    object-fit: contain;
 
     @media (max-width: ($vp-768 - 1px)) {
-      width: 50%;
+      width: 75%;
       height: auto;
     }
   }

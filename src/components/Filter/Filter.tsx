@@ -81,8 +81,8 @@ export const Filter = () => {
                 >
                   {section === 'hobby' && (
                     <div className={`${styles.accordionWrapperFilter}`}>
-                      <label htmlFor='sport'>
-                        <input type='checkbox' id='sport' name='sport' />
+                      <label htmlFor='sport' tabIndex={0}>
+                        <input type='checkbox' id='sport' name='sport'/>
                         <span>
                           <img
                             className={styles.arrow}
@@ -94,7 +94,7 @@ export const Filter = () => {
                         </span>
                         Спортзал
                       </label>
-                      <label htmlFor='shisha'>
+                      <label htmlFor='shisha' tabIndex={0}>
                         <input type='checkbox' id='shisha' name='shisha' />
                         <span>
                           <img
@@ -107,7 +107,7 @@ export const Filter = () => {
                         </span>
                         Кальян
                       </label>
-                      <label htmlFor='couch'>
+                      <label htmlFor='couch' tabIndex={0}>
                         <input type='checkbox' id='couch' name='couch' />
                         <span>
                           <img
@@ -124,7 +124,7 @@ export const Filter = () => {
                   )}
                   {section === 'music' && (
                     <div className={`${styles.accordionWrapperFilter}`}>
-                      <label htmlFor='rock'>
+                      <label htmlFor='rock' tabIndex={0}>
                         <input type='checkbox' id='rock' name='rock' />
                         <span>
                           <img
@@ -137,7 +137,7 @@ export const Filter = () => {
                         </span>
                         Тяжелый рок
                       </label>
-                      <label htmlFor='rap'>
+                      <label htmlFor='rap' tabIndex={0}>
                         <input type='checkbox' id='rap' name='rap' />
                         <span>
                           <img
@@ -150,7 +150,7 @@ export const Filter = () => {
                         </span>
                         Русский рэп
                       </label>
-                      <label htmlFor='eurodance'>
+                      <label htmlFor='eurodance' tabIndex={0}>
                         <input type='checkbox' id='eurodance' name='eurodance' />
                         <span>
                           <img
@@ -167,7 +167,7 @@ export const Filter = () => {
                   )}
                   {section === 'food' && (
                     <div className={`${styles.accordionWrapperFilter}`}>
-                      <label htmlFor='meat'>
+                      <label htmlFor='meat' tabIndex={0}>
                         <input type='checkbox' id='meat' name='meat' />
                         <span>
                           <img
@@ -180,7 +180,7 @@ export const Filter = () => {
                         </span>
                         Мясоед
                       </label>
-                      <label htmlFor='proper'>
+                      <label htmlFor='proper' tabIndex={0}>
                         <input type='checkbox' id='proper' name='proper' />
                         <span>
                           <img
@@ -193,7 +193,7 @@ export const Filter = () => {
                         </span>
                         Сидит на ПП
                       </label>
-                      <label htmlFor='raw'>
+                      <label htmlFor='raw' tabIndex={0}>
                         <input type='checkbox' id='raw' name='raw' />
                         <span>
                           <img
@@ -211,7 +211,7 @@ export const Filter = () => {
                   {section === 'transport' && (
                     <div className={`${styles.transportFilter}`}>
                       <div className={`${styles.accordionWrapperFilter}`}>
-                        <label htmlFor='plane'>
+                        <label htmlFor='plane' tabIndex={0}>
                           <input type='checkbox' id='plane' name='plane' />
                           <span>
                             <img
@@ -223,7 +223,7 @@ export const Filter = () => {
                             />
                           </span>
                         </label>
-                        <label htmlFor='bus'>
+                        <label htmlFor='bus' tabIndex={0}>
                           <input type='checkbox' id='bus' name='bus' />
                           <span>
                             <img
@@ -235,7 +235,7 @@ export const Filter = () => {
                             />
                           </span>
                         </label>
-                        <label htmlFor='bicycle'>
+                        <label htmlFor='bicycle' tabIndex={0}>
                           <input type='checkbox' id='bicycle' name='bicycle' />
                           <span>
                             <img
@@ -247,7 +247,7 @@ export const Filter = () => {
                             />
                           </span>
                         </label>
-                        <label htmlFor='run'>
+                        <label htmlFor='run' tabIndex={0}>
                           <input type='checkbox' id='run' name='run' />
                           <span>
                             <img
