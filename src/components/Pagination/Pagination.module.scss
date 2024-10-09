@@ -6,19 +6,19 @@
   justify-content: space-between;
 
   width: 67%;
-  margin: 160px 0 78px;
+  margin: 51px 0 78px;
   padding: 29px 31px 27px 32px;
   background-color: $color-default-white;
   border-radius: 20px;
 
   @media (max-width: ($vp-1024 - 1)) {
     width: calc(100% - 93px);
-    margin: 52px auto 62px;
+    margin: 30px auto 62px;
   }
 
   @media (max-width: ($vp-768 - 1px)) {
     width: calc(100% - 62px);
-    margin: 26px auto 47px;
+    margin: 14px auto 47px;
     padding: 16px 31px 14px 31px;
   }
 }

@@ -8,33 +8,28 @@ import { TravelerList } from '../../components/TravelerList/TravelerList'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
 import { useEffect, useState } from 'react'
 import { fetchCatalogData } from '../../store/api-actions'
-import {
-  getCards,
-  getCountries,
-  getRegions,
-  getReloadStatus,
-} from '../../store/catalogData/catalogDataSelector'
+import { getFilteredCards, getReloadStatus } from '../../store/catalogData/catalogDataSelector'
 import styles from './CatalogPage.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { AppRoute, CARDS_PER_PAGE } from '../../utils/consts'
 
 export const CatalogPage = () => {
   const dispatch = useAppDispatch()
-  const cards = useAppSelector(getCards)
+  const filteredCards = useAppSelector(getFilteredCards)
   const reloadStatus = useAppSelector(getReloadStatus)
   const navigate = useNavigate()
 
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
-  const [cardsPerPage] = useState(CARDS_PER_PAGE)
+  const [cardsPerPage, setCardsPerPage] = useState(CARDS_PER_PAGE)
 
   useEffect(() => {
-    if (cards.length <= 0) {
+    if (filteredCards.length <= 0) {
       setLoading(true)
       dispatch(fetchCatalogData({ page: currentPage.toString(), limit: cardsPerPage.toString() }))
       setLoading(false)
     }
-  }, [dispatch, cardsPerPage, currentPage, cards])
+  }, [dispatch, cardsPerPage, currentPage, filteredCards])
 
   useEffect(() => {
     if (reloadStatus) {
@@ -42,34 +37,29 @@ export const CatalogPage = () => {
     }
   }, [reloadStatus, navigate])
 
-  const selectedRegionsState = useAppSelector(getRegions)
-  const selectedCountriesState = useAppSelector(getCountries)
-
-  const filteredCards = cards.filter((card) => {
-    const regionMatch =
-      selectedRegionsState.length > 0
-        ? card.countries.some((country) => selectedRegionsState.includes(country.region))
-        : true
-
-    const countryMatch =
-      selectedCountriesState.length > 0
-        ? card.countries.some((country) =>
-            selectedCountriesState.some((selectedCountry) => selectedCountry.name === country.name),
-          )
-        : true
-
-    return regionMatch && countryMatch
-  })
-
-  const lastCardIndex = currentPage * cardsPerPage
-  const firstCardIndex = lastCardIndex - cardsPerPage
+  const firstCardIndex = (currentPage - 1) * CARDS_PER_PAGE
+  const lastCardIndex = firstCardIndex + cardsPerPage
   const currentCards = filteredCards.slice(firstCardIndex, lastCardIndex)
   const totalPages = Math.ceil(filteredCards.length / CARDS_PER_PAGE)
 
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
-  const nextPage = () =>
-    setCurrentPage(() => (totalPages > currentPage + 1 ? currentPage + 1 : currentPage))
-  const prevPage = () => setCurrentPage(() => (currentPage === 1 ? 1 : currentPage - 1))
+  const paginate = (pageNumber: number) => {
+    setCardsPerPage(CARDS_PER_PAGE)
+    setCurrentPage(pageNumber)
+  }
+  const nextPage = () => {
+    setCardsPerPage(CARDS_PER_PAGE)
+    setCurrentPage(() => (totalPages >= currentPage + 1 ? currentPage + 1 : currentPage))
+  }
+  const prevPage = () => {
+    setCardsPerPage(CARDS_PER_PAGE)
+    setCurrentPage(() => (currentPage === 1 ? 1 : currentPage - 1))
+  }
+
+  const showMoreCards = () => {
+    if (lastCardIndex <= filteredCards.length) {
+      setCardsPerPage(cardsPerPage + CARDS_PER_PAGE)
+    }
+  }
 
   return (
     <div className='wrapper'>
@@ -79,7 +69,7 @@ export const CatalogPage = () => {
         <div className='catalog-page-wrapper'>
           <Countries />
           <div className={styles.cardsFields}>
-            <TravelerList cards={currentCards} loading={loading} />
+            <TravelerList cards={currentCards} loading={loading} showMoreCards={showMoreCards} />
             <Filter />
           </div>
           <Pagination

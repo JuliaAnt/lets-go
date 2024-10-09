@@ -17,7 +17,7 @@ export const Pagination = ({
 }) => {
   const pageNumbers = []
 
-  for (let index = 1; index < totalPages; index++) {
+  for (let index = 1; index <= totalPages; index++) {
     pageNumbers.push(index)
   }
 
