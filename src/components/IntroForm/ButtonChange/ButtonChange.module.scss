@@ -43,14 +43,22 @@
   display: flex;
   margin: 3px 0 0;
 
-  color: $color-catalina-blue;
+  color: $color-midnight-express;
+  font-family: inherit;
+  font-weight: 500;
   font-size: 20px;
   line-height: 18px;
-  letter-spacing: 0.06em;
   text-transform: uppercase;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    margin: 1px 0 0;
+
+    letter-spacing: 0.067em;
+  }
 
   @media (max-width: ($vp-768 - 1px)) {
     margin: 1px 0 0;
-    letter-spacing: -0.03em;
+
+    letter-spacing: -0.027em;
   }
 }
