@@ -31,7 +31,7 @@ export const TravelForm = () => {
     <form className={styles.travelForm}>
       <div className={styles.header}>
         <h2>Добавить план:</h2>
-        <DotsList />
+        <DotsList currentStep={currentStep} />
       </div>
       {getCurrentStep()}
     </form>

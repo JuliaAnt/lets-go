@@ -8,10 +8,16 @@ import styles from './TravelList.module.scss'
 type TravelerListProps = {
   cards: Card[]
   loading: boolean
+  isShowMoreDisabled: boolean
   showMoreCards: () => void
 }
 
-export const TravelerList = ({ cards, loading, showMoreCards }: TravelerListProps) => {
+export const TravelerList = ({
+  cards,
+  loading,
+  isShowMoreDisabled,
+  showMoreCards,
+}: TravelerListProps) => {
   const uuidState = useAppSelector(getUuid)
 
   if (loading) {
@@ -25,7 +31,7 @@ export const TravelerList = ({ cards, loading, showMoreCards }: TravelerListProp
           <TravelerCard key={card.uuid} card={card} uuidState={uuidState} />
         ))}
       </div>
-      <ShowMoreButton showMoreCards={showMoreCards} />
+      <ShowMoreButton isDisabled={isShowMoreDisabled} showMoreCards={showMoreCards} />
     </div>
   )
 }
