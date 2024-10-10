@@ -69,7 +69,12 @@ export const CatalogPage = () => {
         <div className='catalog-page-wrapper'>
           <Countries />
           <div className={styles.cardsFields}>
-            <TravelerList cards={currentCards} loading={loading} showMoreCards={showMoreCards} />
+            <TravelerList
+              cards={currentCards}
+              loading={loading}
+              isShowMoreDisabled={Boolean(lastCardIndex >= filteredCards.length)}
+              showMoreCards={showMoreCards}
+            />
             <Filter />
           </div>
           <Pagination

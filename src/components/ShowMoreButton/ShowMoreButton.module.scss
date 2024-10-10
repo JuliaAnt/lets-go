@@ -35,15 +35,19 @@
     }
   }
 
-  &:hover {
+  &:hover:enabled {
     svg {
       opacity: 0.6;
     }
   }
 
-  &:active {
+  &:active:enabled {
     svg {
       opacity: 0.3;
     }
+  }
+
+  &:disabled {
+    opacity: 0.3;
   }
 }
