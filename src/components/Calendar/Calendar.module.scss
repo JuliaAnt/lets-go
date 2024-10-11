@@ -5,8 +5,12 @@
   flex-direction: column;
   margin-bottom: 57px;
 
+  @media (max-width: ($vp-1024 - 1px)) {
+    margin-bottom: 47px;
+  }
+
   @media (max-width: ($vp-768 - 1px)) {
-    margin-bottom: 10px;
+    margin-bottom: 22px;
   }
 }
 
@@ -159,7 +163,7 @@ p.currentMonth {
     }
 
     @media (max-width: ($vp-768 - 1px)) {
-      height: 32px;
+      height: 31px;
     }
   }
 

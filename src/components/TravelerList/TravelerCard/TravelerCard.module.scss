@@ -485,8 +485,9 @@
   align-items: center;
   grid-column: 2/3;
   grid-row: 2/-1;
-  margin-top: -70px;
-  margin-left: -6px;
+  margin-left: -8px;
+  height: min-content;
+  margin-top: -36px;
 
   a {
     padding: 15px;
@@ -520,7 +521,7 @@
 
   @media (max-width: ($vp-1024 - 1px)) {
     grid-row: 2/3;
-    margin-left: 0;
+    margin-left: -3px;
     margin-top: -50px;
 
     a {
@@ -630,14 +631,18 @@
 
   @media (max-width: ($vp-768 - 1px)) {
     width: 45px;
-    left: -35%;
-    top: -80%;
+    left: 0;
+    top: 0;
   }
 }
 
 .rotatedSvg {
   transform: rotate(90deg) scaleX(-1);
   transform-origin: center;
+
+  @media (max-width: 767px) {
+    transform: rotate(90deg) scaleX(-1) translateX(43%) translateY(12%);
+  }
 }
 
 .levelCounter {

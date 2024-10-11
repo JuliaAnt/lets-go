@@ -4,6 +4,8 @@
   background-color: $color-default-white;
   padding: 101px 160px 106px;
   border-radius: 60px;
+  max-width: 1440px;
+  margin: 0 auto;
 
   h3 {
     margin: 0 0 24px 0;
@@ -52,6 +54,10 @@
         left: -53px;
       }
     }
+  }
+
+  @media (max-width: ($vp-1440 - 1)) {
+    margin: 0;
   }
 
   @media (max-width: ($vp-1280 - 1)) {
@@ -111,7 +117,7 @@
   }
 
   @media (max-width: ($vp-768 - 1px)) {
-    padding-bottom: 28px;
+    padding-bottom: 25px;
     margin-bottom: 12px;
   }
 }
@@ -199,6 +205,7 @@
   @media (max-width: ($vp-768 - 1px)) {
     padding-bottom: 0;
     margin-bottom: 0;
+    margin-top: 30px;
     border: none;
 
     input[type='checkbox'] ~ label {
@@ -215,6 +222,7 @@
         height: 24px;
         background-size: 60%;
         left: -39px;
+        top: -8px;
       }
     }
   }
@@ -268,6 +276,14 @@
     }
   }
 
+  &:last-of-type {
+    padding-right: 8px;
+
+    .inputInner {
+      margin-left: 23px;
+    }
+  }
+
   @media (max-width: ($vp-1024 - 1px)) {
     display: grid;
     grid-template-columns: auto auto;
@@ -279,6 +295,11 @@
 
     &:last-of-type {
       margin-bottom: 26px;
+      padding-right: 0;
+
+      .inputInner {
+        margin-left: 0;
+      }
     }
 
     input {
@@ -347,6 +368,7 @@
 
   @media (max-width: ($vp-768 - 1px)) {
     height: 14px;
+    top: calc(50% - 7px);
 
     svg {
       width: 14px;
@@ -357,11 +379,19 @@
 
 .minusButton {
   transform: translateX(12px);
+
+  @media (max-width: ($vp-768 - 1px)) {
+    transform: translateX(8px);
+  }
 }
 
 .plusButton {
   right: 0;
   transform: translateX(-18px);
+
+  @media (max-width: ($vp-768 - 1px)) {
+    transform: translateX(-8px);
+  }
 }
 
 .inputInner {
@@ -389,4 +419,17 @@ input[type='number'] {
   @media (max-width: ($vp-1024 - 1px)) {
     opacity: 0.3;
   }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    width: max-content;
+    display: inline-block;
+    margin-left: auto;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 10px;
 }

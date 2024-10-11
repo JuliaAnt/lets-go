@@ -62,7 +62,9 @@ export const StepOne = ({ currentStep, setCurrentStep }: StepOneProps) => {
 
       <CalendarTable />
 
-      <NextStepButton onClick={() => setCurrentStep(StepsMap.STEP_TWO)} />
+      <div className={styles.buttonWrapper}>
+        <NextStepButton onClick={() => setCurrentStep(StepsMap.STEP_TWO)} />
+      </div>
     </div>
   )
 }
