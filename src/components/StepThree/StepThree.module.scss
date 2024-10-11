@@ -4,10 +4,13 @@
   background-color: $color-default-white;
   padding: 100px 158px;
   border-radius: 60px;
+  max-width: 1440px;
+  margin: 0 auto;
 
   @media (max-width: ($vp-1024 - 1)) {
     padding: 48px 42px 52px;
     border-radius: 30px;
+    margin: 0;
   }
 
   @media (max-width: ($vp-768 - 1)) {

@@ -324,3 +324,15 @@
     margin-bottom: 75px;
   }
 }
+
+.catalogTop {
+  padding-bottom: 65px;
+
+  @media (max-width: ($vp-1024 - 1px)) {
+    padding-bottom: 68px;
+  }
+
+  @media (max-width: ($vp-768 - 1px)) {
+    padding-bottom: 13px;
+  }
+}
