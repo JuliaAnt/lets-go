@@ -1,12 +1,13 @@
 import styles from './ShowMoreButton.module.scss'
 
 type ShowMoreButtonProps = {
+  isDisabled: boolean
   showMoreCards: () => void
 }
 
-export const ShowMoreButton = ({showMoreCards}: ShowMoreButtonProps) => {
+export const ShowMoreButton = ({ isDisabled, showMoreCards }: ShowMoreButtonProps) => {
   return (
-    <button className={styles.showMore} onClick={showMoreCards}>
+    <button className={styles.showMore} disabled={isDisabled} onClick={showMoreCards}>
       <svg
         width='26'
         height='26'

@@ -11,6 +11,14 @@
     font-size: 36px;
     line-height: 36px;
     margin: 0 0 54px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  @media (max-width: $vp-1440) {
+    h2 {
+      text-align: left;
+    }
   }
 
   @media (max-width: ($vp-1024 - 1px)) {
@@ -29,6 +37,7 @@
     h2 {
       margin: 0;
       font-size: 24px;
+      letter-spacing: 0;
       line-height: 24px;
     }
   }
@@ -37,7 +46,10 @@
 .header {
   display: flex;
   margin-bottom: 0;
-  margin-left: 70px;
+
+  @media (max-width: $vp-1440) {
+    margin-left: 70px;
+  }
 
   @media (max-width: ($vp-1024 - 1px)) {
     justify-content: space-between;
