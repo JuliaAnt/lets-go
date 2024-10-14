@@ -6,6 +6,10 @@
   justify-content: space-between;
   align-items: center;
 
+  img {
+    border-radius: 6px;
+  }
+
   @media (max-width: ($vp-768 - 1)) {
     border: 1px solid $color-link-water;
     border-radius: 4px;

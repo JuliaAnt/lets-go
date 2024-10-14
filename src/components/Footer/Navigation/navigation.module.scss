@@ -36,9 +36,10 @@
 
     img {
       transition: $trans-default;
+      width: 23px;
 
       @media (max-width: ($vp-768 - 1px)) {
-        width: 23px;
+        width: 30px;
         height: 23px;
       }
     }
