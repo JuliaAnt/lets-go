@@ -1,6 +1,8 @@
 @import '../../../styles/variables.scss';
 
 .logo {
+  transition: opacity $trans-default;
+
   @media (max-width: ($vp-1024 - 1px)) {
     width: 166px;
     height: 42px;
@@ -9,5 +11,13 @@
   @media (max-width: ($vp-768 - 1px)) {
     width: 96px;
     height: 15px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.3;
   }
 }

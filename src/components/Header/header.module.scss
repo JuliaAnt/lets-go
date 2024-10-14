@@ -43,6 +43,8 @@
 }
 
 .headerLogo {
+  transition: opacity $trans-default;
+
   @media (max-width: ($vp-768 - 1px)) {
     display: none;
   }
@@ -53,12 +55,30 @@
       height: 42px;
     }
   }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }
 
 .headerLogoMobile {
+  transition: opacity $trans-default;
+
   display: none;
   @media (max-width: ($vp-768 - 1px)) {
     display: block;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.3;
   }
 }
 
