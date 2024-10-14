@@ -20,7 +20,7 @@ export const Select = ({ selectedCountry }: SelectProps) => {
   }, [selectedCountry])
 
   return (
-    <div className={`${styles.selectWrapper} ${selectedOption ? 'isSelect' : ''}`}>
+    <div className={`${styles.selectWrapper} ${selectedOption ? '' : styles.noSelect}`}>
       <div className={`${styles.select} ${isOpen ? styles.isOpen : ''}`}>
         <div
           className={`${styles.selectInner} ${isOpen ? styles.isOpen : ''}`}
