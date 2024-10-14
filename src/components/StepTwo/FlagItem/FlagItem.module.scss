@@ -7,7 +7,6 @@
   align-items: center;
 
   @media (max-width: ($vp-768 - 1)) {
-    display: none;
     border: 1px solid $color-link-water;
     border-radius: 4px;
     height: 42px;

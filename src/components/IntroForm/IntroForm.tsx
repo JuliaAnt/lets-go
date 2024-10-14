@@ -9,11 +9,13 @@ import introPhoto from '../../assets/images/photo_demin.jpg';
 export const IntroForm = () => {
   return (
     <section className={`${styles.introForm}`}>
-      <div className={`${styles.top}`}>
-        <h1>Направления</h1>
-        <Level/>
-        <div className={`${styles.photo}`}>
-          <img src={introPhoto} width={220} height={237} alt="man" />
+      <div className={`${styles.topWrapper}`}>
+        <div className={`${styles.top}`}>
+          <h1>Направления</h1>
+          <Level/>
+          <div className={`${styles.photo}`}>
+            <img src={introPhoto} width={220} height={237} alt="man" />
+          </div>
         </div>
       </div>
 
