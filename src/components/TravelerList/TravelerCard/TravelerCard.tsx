@@ -7,6 +7,7 @@ import styles from './TravelerCard.module.scss'
 import { Card } from '../../../types/card'
 import { TransportType } from '../../../utils/consts'
 import LevelIcon from '../LevelIcon/LevelIcon'
+import { useState } from 'react'
 
 type TravelerCardProps = {
   card: Card
@@ -15,10 +16,22 @@ type TravelerCardProps = {
 
 export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
   const { uuid, firstName, lastName, photoUrl, tags, countries, transport, likes, level } = card
+  const [isFollowed, setIsFollowed] = useState<boolean>(false)
+  const [likesAmount, setLikesAmount] = useState<number>(likes)
 
   const offlineStatus: boolean = Boolean(uuid !== uuidState)
   const follow: boolean = Boolean(uuid !== uuidState)
   const tagsString = tags.slice(0, 3).join(' ')
+
+  const onFollowButtonClick = () => {
+    setIsFollowed(!isFollowed)
+
+    if (!isFollowed) {
+      setLikesAmount(likes + 1)
+    } else {
+      setLikesAmount(likes)
+    }
+  }
 
   return (
     <div className={styles.travelerCard}>
@@ -42,10 +55,15 @@ export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
         <div className={styles.followBlock}>
           <a href='/call'>Позвать!</a>
           <div className={styles.followWrapper}>
-            <button className={styles.followButton} type='button' aria-label='Кнопка лайка'>
+            <button
+              className={`${styles.followButton} ${isFollowed ? styles.isActive : ''}`}
+              type='button'
+              aria-label='Кнопка лайка'
+              onClick={onFollowButtonClick}
+            >
               <IconHearth />
             </button>
-            <span className={styles.followCounter}>{likes}</span>
+            <span className={styles.followCounter}>{likesAmount}</span>
           </div>
         </div>
       )}

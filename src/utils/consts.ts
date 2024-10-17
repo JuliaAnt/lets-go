@@ -130,16 +130,12 @@ export const REGIONS_MAP = [
     regionName: 'asia',
   },
   {
-    regionTitle: 'Острова',
-    regionName: 'islands',
-  },
-  {
     regionTitle: 'Америка',
     regionName: 'america',
   },
   {
-    regionTitle: 'Африка',
-    regionName: 'africa',
+    regionTitle: 'Острова',
+    regionName: 'islands',
   },
 ]
 

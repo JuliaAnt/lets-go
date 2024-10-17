@@ -313,6 +313,9 @@
   align-items: center;
   justify-content: space-between;
   margin: 5px 0 0;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 10px;
 
   @media (max-width: ($vp-1024 - 1)) {
     margin-top: -6px;
