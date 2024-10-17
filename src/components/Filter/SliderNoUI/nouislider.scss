@@ -64,11 +64,16 @@
   right: -13px;
   top: -5px;
   background-color: #1D2E5B;
+  transition: transform 0.3s;
   @media (max-width: (767px)) {
     width: 11px;
     height: 11px;
     right: -11px;
     top: -4px;
+  }
+  &:hover,
+  &:focus {
+    transform: scale(1.46);
   }
 }
 .noUi-handle {
