@@ -24,7 +24,7 @@
       position: absolute;
       transform: translate(-50%, -50%);
       z-index: 2;
-      left: -33px;
+      left: -38px;
       top: 50%;
       width: 14px;
       height: 14px;
@@ -33,7 +33,7 @@
       border: 1px solid $color-link-water;
 
       @media (max-width: ($vp-1024 - 1)) {
-        left: -39px;
+        left: -40px;
       }
 
       @media (max-width: ($vp-768 - 1)) {

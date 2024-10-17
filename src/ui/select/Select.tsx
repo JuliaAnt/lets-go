@@ -20,9 +20,12 @@ export const Select = ({ selectedCountry }: SelectProps) => {
   }, [selectedCountry])
 
   return (
-    <div className={`${styles.selectWrapper} ${selectedOption ? 'isSelect' : ''}`}>
+    <div className={`${styles.selectWrapper} ${selectedOption ? '' : styles.noSelect}`}>
       <div className={`${styles.select} ${isOpen ? styles.isOpen : ''}`}>
-        <div className={styles.selectInner} onClick={() => setOpen(!isOpen)}>
+        <div
+          className={`${styles.selectInner} ${isOpen ? styles.isOpen : ''}`}
+          onClick={() => setOpen(!isOpen)}
+        >
           <p>{selectedOption ? selectedOption.name : 'Выберите страну'}</p>
           <button className={styles.selectButton} type='button'>
             {isOpen ? (
