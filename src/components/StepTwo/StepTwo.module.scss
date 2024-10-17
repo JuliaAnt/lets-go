@@ -1,7 +1,6 @@
 @import '../../styles/variables.scss';
 
 .stepTwo {
-  min-height: 901px;
   background-color: $color-default-white;
   padding: 98px 159px 104px;
   border-radius: 60px;
@@ -10,7 +9,6 @@
 
   @media (max-width: ($vp-1024 - 1)) {
     padding: 48px 42px 48px;
-    min-height: 785px;
     border-radius: 25px;
     margin: 0;
   }
@@ -18,7 +16,6 @@
   @media (max-width: ($vp-768 - 1)) {
     padding: 23px 26px 23px 24px;
     border-radius: 10px;
-    min-height: 516px;
   }
 }
 
