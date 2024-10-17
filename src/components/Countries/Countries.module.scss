@@ -42,9 +42,10 @@
   display: flex;
   margin-bottom: 71px;
   padding-left: 20px;
+  align-items: flex-end;
 
   @media (max-width: ($vp-1440 - 1px)) {
-    padding-left: 0;
+    // padding-left: 0;
   }
 
   @media (max-width: ($vp-1024 - 1px)) {
@@ -54,6 +55,8 @@
   @media (max-width: ($vp-768 - 1px)) {
     position: relative;
     flex-direction: column;
+    padding-left: 0;
+    align-items: normal;
   }
 }
 
@@ -133,7 +136,7 @@
   }
 
   @media (max-width: ($vp-1024 - 1px)) {
-    margin-right: 10px;
+    margin-right: 20px;
   }
 
   @media (max-width: ($vp-768 - 1px)) {
