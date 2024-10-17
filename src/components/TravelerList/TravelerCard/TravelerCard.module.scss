@@ -553,7 +553,13 @@
   border-radius: 50%;
   background-color: $color-lavendr;
   margin-right: 3px;
-  transition: opacity $trans-default;
+  transition: opacity $trans-default, background-color $trans-default;
+
+  svg {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: rgba($color-midnight, 0.5);
+  }
 
   &:hover,
   &:focus {
@@ -575,6 +581,21 @@
 
     svg {
       width: 12px;
+    }
+  }
+
+  &.isActive {
+    background-color: $color-tutu;
+
+    &:hover,
+    &:focus {
+      background-color: $color-remy;
+    }
+
+    svg {
+      fill: $color-red-orange;
+      fill-rule: unset;
+      clip-rule: unset;
     }
   }
 }
