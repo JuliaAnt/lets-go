@@ -1,11 +1,10 @@
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {AppRoute} from '../../utils/consts';
-import {CatalogPage} from '../../pages/CatalogPage/CatalogPage';
-import {FormPage} from '../../pages/FormPage/FormPage';
-import {NotFoundPage} from '../../pages/NotFoundPage/NotFoundPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { AppRoute } from '../../utils/consts'
+import { CatalogPage } from '../../pages/CatalogPage/CatalogPage'
+import { FormPage } from '../../pages/FormPage/FormPage'
+import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage'
 
-const basename =
-  process.env.NODE_ENV === 'production' ? '/intern-pognali-3-1' : '/';
+const basename = process.env.NODE_ENV === 'production' ? '/lets-go' : '/'
 
 export const RoutesContent = () => {
   return (
@@ -16,5 +15,5 @@ export const RoutesContent = () => {
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
-  );
-};
+  )
+}

@@ -1,8 +1,8 @@
 {
-  "name": "intern-pognali-3-1",
+  "name": "lets-go",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://htmlonelove.github.io/intern-pognali-3-1",
+  "homepage": "https://JuliaAnt.github.io/lets-go",
   "type": "module",
   "proxy": "https://mabori.ru",
   "dependencies": {

@@ -1,4 +1,4 @@
-# intern-pognali-3-1
+# Let's Go!
 
 # Getting Started with Create React App
 
