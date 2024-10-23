@@ -8,16 +8,15 @@ import { TravelerList } from '../../components/TravelerList/TravelerList'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
 import { useEffect, useState } from 'react'
 import { fetchCatalogData } from '../../store/api-actions'
-import { getFilteredCards, getReloadStatus } from '../../store/catalogData/catalogDataSelector'
+import { getFilteredCards } from '../../store/catalogData/catalogDataSelector'
 import styles from './CatalogPage.module.scss'
-import { useNavigate } from 'react-router-dom'
-import { AppRoute, CARDS_PER_PAGE } from '../../utils/consts'
+import { CARDS_PER_PAGE } from '../../utils/consts'
 
 export const CatalogPage = () => {
   const dispatch = useAppDispatch()
   const filteredCards = useAppSelector(getFilteredCards)
-  const reloadStatus = useAppSelector(getReloadStatus)
-  const navigate = useNavigate()
+  // const reloadStatus = useAppSelector(getReloadStatus)
+  // const navigate = useNavigate()
 
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
@@ -31,11 +30,11 @@ export const CatalogPage = () => {
     }
   }, [dispatch, cardsPerPage, currentPage, filteredCards])
 
-  useEffect(() => {
-    if (reloadStatus) {
-      navigate(AppRoute.FORM)
-    }
-  }, [reloadStatus, navigate])
+  // useEffect(() => {
+  //   if (reloadStatus) {
+  //     navigate(AppRoute.FORM)
+  //   }
+  // }, [reloadStatus, navigate])
 
   const firstCardIndex = (currentPage - 1) * CARDS_PER_PAGE
   const lastCardIndex = firstCardIndex + cardsPerPage
