@@ -7,8 +7,10 @@ import { useEffect, useState } from 'react'
 import { StepsMap } from '../../utils/consts'
 import { useAppDispatch } from '../../hooks/redux-hooks'
 import { changeErrors } from '../../store/formData/formDataSlice'
+import { useTranslation } from 'react-i18next'
 
 export const TravelForm = () => {
+  const { t } = useTranslation('translation')
   const dispatch = useAppDispatch()
   const [currentStep, setCurrentStep] = useState<StepsMap>(StepsMap.STEP_ONE)
 
@@ -30,7 +32,7 @@ export const TravelForm = () => {
   return (
     <form className={styles.travelForm}>
       <div className={styles.header}>
-        <h2>Добавить план:</h2>
+        <h2>{t('addPlan')}</h2>
         <DotsList currentStep={currentStep} />
       </div>
       {getCurrentStep()}

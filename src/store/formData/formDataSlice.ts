@@ -68,10 +68,10 @@ export const formData = createSlice({
     },
     removeCountry: (state, action: PayloadAction<CountryData>) => {
       const updatedCountries = state.selectedCountries.filter(
-        (country) => country.name !== action.payload.name,
+        (country) => country.countryCode !== action.payload.countryCode,
       )
       const updatedEntertainments = state.entertainments.filter(
-        (entertainment) => entertainment.country !== action.payload.name,
+        (entertainment) => entertainment.country !== action.payload.countryCode,
       )
       state.selectedCountries = updatedCountries
       state.entertainments = updatedEntertainments
@@ -80,7 +80,7 @@ export const formData = createSlice({
     changeCountry: (state, action: PayloadAction<ChangedCountryType>) => {
       const changedCountries = [...state.selectedCountries]
       const selectedCountryIndex = state.selectedCountries.findIndex(
-        (country) => country.name === action.payload.selectedValue.name,
+        (country) => country.countryCode === action.payload.selectedValue.countryCode,
       )
       changedCountries.splice(selectedCountryIndex, 1, action.payload.newValue)
       state.selectedCountries = [...changedCountries]

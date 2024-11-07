@@ -10,8 +10,10 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
 import { getCountries, getRegions } from '../../store/catalogData/catalogDataSelector'
 import { changeCountries, changeRegions } from '../../store/catalogData/catalogDataSlice'
 import { CountryData } from '../../types/countriesData'
+import { useTranslation } from 'react-i18next'
 
 export const Countries = () => {
+  const { t } = useTranslation('translation')
   const [isContentVisible, setContentVisible] = useState(false)
   const dispatch = useAppDispatch()
   const selectedRegionsState = useAppSelector(getRegions)
@@ -32,30 +34,30 @@ export const Countries = () => {
       >
         <p className={styles.filterText}>
           <IconFilter />
-          <span>Фильтрация по странам:</span>
+          <span>{t('countriesFilter')}</span>
         </p>
         <ul className={`${styles.filterList} ${isContentVisible ? styles.mobileVisible : ''}`}>
           {REGIONS_MAP.map((region) => (
             <li
               key={region.regionName}
               className={`${styles.filterItem} ${
-                selectedRegionsState.includes(region.regionTitle) ? styles.activeFilter : ''
+                selectedRegionsState.includes(region.regionName) ? styles.activeFilter : ''
               }`}
-              onClick={() => dispatch(changeRegions(region.regionTitle))}
+              onClick={() => dispatch(changeRegions(region.regionName))}
             >
-              <Link to=''>{region.regionTitle}</Link>
+              <Link to=''>{t(region.regionName)}</Link>
             </li>
           ))}
         </ul>
         <button className={styles.toggleButton} type='button' onClick={toggleContent}>
           {isContentVisible ? (
             <span className={`${styles.toggleSpan}`}>
-              <span className={styles.hideSpan}>Свернуть</span>
+              <span className={styles.hideSpan}>{t('collapse')}</span>
               <IconClose />
             </span>
           ) : (
             <span className={styles.toggleSpan}>
-              <span className={styles.showSpan}>Показать все</span>
+              <span className={styles.showSpan}>{t('showAll')}</span>
               <IconShow />
             </span>
           )}
@@ -71,7 +73,7 @@ export const Countries = () => {
         />
         <button className={styles.hideButton} type='button' onClick={toggleContent}>
           <IconClose />
-          Свернуть
+          {t('collapse')}
         </button>
       </div>
     </section>

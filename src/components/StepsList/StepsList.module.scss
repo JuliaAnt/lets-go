@@ -21,9 +21,10 @@
   opacity: 60%;
   position: relative;
   text-transform: uppercase;
+  min-width: 163px;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 7px;
     height: 6px;

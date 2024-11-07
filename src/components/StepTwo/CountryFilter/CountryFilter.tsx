@@ -1,10 +1,11 @@
 import styles from './CountryFilter.module.scss'
 import React, { useEffect, useState } from 'react'
-import { ALPHABET_LETTERS } from '../../../utils/consts'
+import { Languages } from '../../../utils/consts'
 import { CountryItem } from './CountryItem'
 import { CountriesList } from '../CountriesList/CountriesList'
-import { countriesData } from '../../../data'
 import { CountryData } from '../../../types/countriesData'
+import i18n from '../../../localization/i18n'
+import { getCountriesByLetter } from '../../../helpers/getCountriesByLetter'
 
 interface CountryFilterProps {
   open: boolean
@@ -19,22 +20,59 @@ export const CountryFilter: React.FC<CountryFilterProps> = ({
   setOpen,
   setSelectedOption,
 }) => {
-  const [selectedLetter, setSelectedLetter] = useState<string>(ALPHABET_LETTERS[0])
-  const [filtredCountries, setFiltredCountries] = useState<CountryData[]>([])
+  const [alphabetLetters, setAlphabetLetters] = useState<string[]>([])
+  const [selectedLetter, setSelectedLetter] = useState<string>(alphabetLetters[0])
+  const [filteredCountries, setFilteredCountries] = useState<CountryData[]>([])
 
   useEffect(() => {
-    const filteredCountriesData =
-      countriesData.find((countriesList) => countriesList.letter === selectedLetter)?.countries ||
-      []
+    const updateCountries = () => {
+      const lang = i18n.language
+      const countriesData = getCountriesByLetter(lang as Languages)
 
-    setFiltredCountries(filteredCountriesData)
+      setAlphabetLetters(countriesData.alphabet)
+
+      const initialLetter = countriesData.alphabet[0]
+      setSelectedLetter(initialLetter)
+
+      const initialFilteredCountries =
+        countriesData.sortedCountriesByLetter.find(
+          (countriesList) => countriesList.letter === initialLetter,
+        )?.countries || []
+
+      setFilteredCountries(initialFilteredCountries)
+    }
+
+    updateCountries()
+    i18n.on('languageChanged', updateCountries)
+
+    return () => {
+      i18n.off('languageChanged', updateCountries)
+    }
+  }, [])
+
+  useEffect(() => {
+    const updateCountries = () => {
+      const lang = i18n.language
+      return getCountriesByLetter(lang as Languages)
+    }
+
+    const countriesData = updateCountries()
+    i18n.on('languageChanged', updateCountries)
+
+    const filteredCountriesData =
+      countriesData.sortedCountriesByLetter.find(
+        (countriesList) => countriesList.letter === selectedLetter,
+      )?.countries || []
+
+    setFilteredCountries(filteredCountriesData)
+    setAlphabetLetters(countriesData.alphabet)
   }, [selectedLetter])
 
   return (
     <div className={`${styles.countryFilter} ${open ? styles.isOpen : ''}`}>
       <div className={styles.countryFilterWrapper}>
         <ul className={styles.countryFilterList}>
-          {ALPHABET_LETTERS.map((letter, index) => (
+          {alphabetLetters.map((letter, index) => (
             <CountryItem
               letter={letter}
               selectedLetter={selectedLetter}
@@ -45,7 +83,7 @@ export const CountryFilter: React.FC<CountryFilterProps> = ({
         </ul>
 
         <CountriesList
-          countries={filtredCountries}
+          countries={filteredCountries}
           selectedOption={selectedOption}
           setOpen={setOpen}
           setSelectedOption={setSelectedOption}

@@ -1,14 +1,14 @@
 import styles from './header.module.scss'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/logo_full.svg'
-import iconMobile from '../../assets/icons/header/icon-mobile.svg'
-
+import logoEn from '../../assets/logo_full_en.svg'
+import iconMobile from '../../assets/icons/header/icon-mobile_en.svg'
 import Navigation from './Navigation/Navigation'
 import { HeaderMobileMenu } from './HeaderMobileMenu/HeaderMobileMenu'
 import { useEffect, useState, useRef } from 'react'
 import { AppRoute } from '../../utils/consts'
 import { useAppDispatch } from '../../hooks/redux-hooks'
 import { changeReloadStatus } from '../../store/catalogData/catalogDataSlice'
+import { LangSelect } from '../LangSelect/LangSelect'
 
 export const Header = () => {
   const dispatch = useAppDispatch()
@@ -40,7 +40,7 @@ export const Header = () => {
       <div className={styles.headerContainer}>
         <div className={styles.headerWrapper}>
           <Link className={styles.headerLogo} to={AppRoute.MAIN}>
-            <img src={logo} alt='logo' />
+            <img src={logoEn} alt='logo' />
           </Link>
           <Link className={styles.headerLogoMobile} to={AppRoute.MAIN}>
             <img src={iconMobile} alt='logo-mobile' />
@@ -50,10 +50,24 @@ export const Header = () => {
 
           <Navigation onNavItemClick={onNavItemClick} />
 
+          {/* <div className={styles.langSwitcher}>
+            {Object.keys(Languages).map((lng) => (
+              <button
+                key={lng}
+                style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }}
+                type='submit'
+                onClick={() => i18n.changeLanguage(lng)}
+              >
+                {Languages[lng as keyof typeof Languages]}
+              </button>
+            ))}
+          </div> */}
+          <LangSelect />
+
           <button
             className={styles.button}
             type='button'
-            aria-label='открыть'
+            aria-label='open'
             onClick={() => setIsMobileMenuOpen(true)}
           >
             <span className={styles.buttonLineFirst}></span>

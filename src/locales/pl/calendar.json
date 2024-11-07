@@ -1,0 +1,23 @@
+{
+  "january": "Styczeń",
+  "february": "Luty",
+  "march": "Marzec",
+  "april": "Kwiecień",
+  "may": "Maj",
+  "june": "Czerwiec",
+  "july": "Lipiec",
+  "august": "Sierpień",
+  "september": "Wrzesień",
+  "october": "Październik",
+  "november": "Listopad",
+  "december": "Grudzień",
+  "mon": "Pon",
+  "tue": "Wt",
+  "wed": "Śr",
+  "thu": "Czw",
+  "fri": "Pt",
+  "sat": "Sob",
+  "sun": "Nd",
+  "checkIn": "Zameldowanie",
+  "checkOut": "Wymeldowanie"
+}

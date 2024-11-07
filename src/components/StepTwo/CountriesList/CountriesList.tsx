@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks'
 import { getSelectedCountries } from '../../../store/formData/formDataSelector'
 import {
@@ -20,11 +21,12 @@ export const CountriesList: React.FC<CountriesListProps> = ({
   selectedOption,
   setOpen,
 }) => {
+  const { t } = useTranslation('countries')
   const dispatch = useAppDispatch()
   const selectedCountriesState = useAppSelector(getSelectedCountries)
 
   const changeCountry = (selectedCountry: CountryData | null, newCountry: CountryData) => {
-    if (selectedCountry && selectedCountry.name === newCountry.name) {
+    if (selectedCountry && selectedCountry.countryCode === newCountry.countryCode) {
       return
     }
 
@@ -34,7 +36,7 @@ export const CountriesList: React.FC<CountriesListProps> = ({
 
     if (
       !selectedCountry &&
-      !selectedCountriesState.find((country) => country.name === newCountry.name)
+      !selectedCountriesState.find((country) => country.countryCode === newCountry.countryCode)
     ) {
       dispatch(addCountry(newCountry))
     }
@@ -48,11 +50,13 @@ export const CountriesList: React.FC<CountriesListProps> = ({
           key={index + 1}
           type='button'
           disabled={Boolean(
-            selectedCountriesState.find((selectedCountry) => country.name === selectedCountry.name),
+            selectedCountriesState.find(
+              (selectedCountry) => country.countryCode === selectedCountry.countryCode,
+            ),
           )}
           onClick={() => changeCountry(selectedOption, country)}
         >
-          {country.name}
+          {t(country.countryCode)}
         </button>
       ))}
     </ul>

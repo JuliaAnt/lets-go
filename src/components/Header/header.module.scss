@@ -40,6 +40,10 @@
   position: relative;
   align-items: center;
   column-gap: 36px;
+
+  @media (max-width: ($vp-1280 - 1px)) {
+    column-gap: 20px;
+  }
 }
 
 .headerLogo {
@@ -138,8 +142,6 @@
     }
   }
 }
-
-//sticky
 
 .sticky {
   background-color: $color-basic-blue;

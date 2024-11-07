@@ -3,8 +3,10 @@ import styles from './Tags.module.scss'
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux-hooks'
 import { changeTags } from '../../../store/formData/formDataSlice'
 import { getTags } from '../../../store/formData/formDataSelector'
+import { useTranslation } from 'react-i18next'
 
 export const Tags = () => {
+  const { t } = useTranslation('translation')
   const dispatch = useAppDispatch()
   const tagsState = useAppSelector(getTags)
   const [inputValue, setInputValue] = useState('')
@@ -39,7 +41,7 @@ export const Tags = () => {
         value={inputValue}
         onChange={handleInputChange}
         onBlur={handleBlur}
-        placeholder='Коротко о себе в виде 5-8 хештэгов'
+        placeholder={t('tagsPlaceholder')}
         className={styles.inputField}
       />
     </div>

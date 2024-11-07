@@ -8,6 +8,7 @@ import { Card } from '../../../types/card'
 import { TransportType } from '../../../utils/consts'
 import LevelIcon from '../LevelIcon/LevelIcon'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 type TravelerCardProps = {
   card: Card
@@ -15,6 +16,7 @@ type TravelerCardProps = {
 }
 
 export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
+  const { t } = useTranslation(['translation', 'countries'])
   const { uuid, firstName, lastName, photoUrl, tags, countries, transport, likes, level } = card
   const [isFollowed, setIsFollowed] = useState<boolean>(false)
   const [likesAmount, setLikesAmount] = useState<number>(likes)
@@ -53,12 +55,12 @@ export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
       </div>
       {follow && (
         <div className={styles.followBlock}>
-          <a href='/call'>Позвать!</a>
+          <a href='/call'>{t('invite')}</a>
           <div className={styles.followWrapper}>
             <button
               className={`${styles.followButton} ${isFollowed ? styles.isActive : ''}`}
               type='button'
-              aria-label='Кнопка лайка'
+              aria-label='Follow'
               onClick={onFollowButtonClick}
             >
               <IconHearth />
@@ -76,7 +78,7 @@ export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
             }`}
           >
             <IconPlane />
-            <span className={styles.toolTip}>Авиаперелет</span>
+            <span className={styles.toolTip}>{t('plane')}</span>
           </li>
           <li
             key='bus'
@@ -85,7 +87,7 @@ export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
             }`}
           >
             <IconBus />
-            <span className={styles.toolTip}>Автотранспорт</span>
+            <span className={styles.toolTip}>{t('bus')}</span>
           </li>
           <li
             key='bicycle'
@@ -94,7 +96,7 @@ export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
             }`}
           >
             <IconBicycle />
-            <span className={styles.toolTip}>Велосипед</span>
+            <span className={styles.toolTip}>{t('bicycle')}</span>
           </li>
           <li
             key='run'
@@ -103,7 +105,7 @@ export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
             }`}
           >
             <IconRun />
-            <span className={styles.toolTip}>Пешком</span>
+            <span className={styles.toolTip}>{t('run')}</span>
           </li>
         </ul>
         <div className={styles.level}>
@@ -114,7 +116,7 @@ export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
       </div>
       <ul className={styles.countriesList}>
         {countries.map((country, index) => (
-          <li key={country.name || index} className={styles.countryItem}>
+          <li key={country.countryCode || index} className={styles.countryItem}>
             <img
               className={styles.flag}
               src={country.flags}
@@ -123,8 +125,8 @@ export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
               height={24}
               alt={country.alt}
             />
-            <span className={styles.toolTip}>{country.name}</span>
-            <span className={styles.countryName}>{country.name}</span>
+            <span className={styles.toolTip}>{t(country.countryCode)}</span>
+            <span className={styles.countryName}>{t(country.countryCode)}</span>
           </li>
         ))}
       </ul>

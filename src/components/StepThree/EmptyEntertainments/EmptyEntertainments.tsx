@@ -1,9 +1,7 @@
+import { useTranslation } from 'react-i18next'
 import styles from '../StepThree.module.scss'
 
 export const EmptyEntertainments = () => {
-  return (
-    <div className={styles.empty}>
-      Выберите хотя бы одну страну, чтобы заполнить Ваш план поездки
-    </div>
-  )
+  const { t } = useTranslation('translation')
+  return <div className={styles.empty}>{t('selectedCountriesError')}</div>
 }

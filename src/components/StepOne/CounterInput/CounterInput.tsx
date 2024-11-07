@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from 'react'
 import { ReactComponent as IconMinus } from '../../../assets/minus.svg'
 import { ReactComponent as IconPlus } from '../../../assets/plus.svg'
 import styles from '../StepOne.module.scss'
+import { useTranslation } from 'react-i18next'
 
 interface CounterInputProps {
   data: {
@@ -17,6 +18,7 @@ interface CounterInputProps {
 }
 
 export const CounterInput = ({ data, amount, className, setAmount }: CounterInputProps) => {
+  const { t } = useTranslation('translation')
   const [inputValue, setInputValue] = useState<string>(amount.toString())
 
   const onIncrementCount = () => {
@@ -63,8 +65,11 @@ export const CounterInput = ({ data, amount, className, setAmount }: CounterInpu
   }
 
   return (
-    <label className={`${styles.numberInput} ${className ? className : ''}`} htmlFor={data.id}>
-      <span>{data.label}:</span>
+    <label
+      className={`${styles.numberInput} ${className ? styles[className] : ''}`}
+      htmlFor={data.id}
+    >
+      <span>{t(data.id)}:</span>
       <span className={styles.inputInner}>
         <button
           className={styles.minusButton}
@@ -91,7 +96,7 @@ export const CounterInput = ({ data, amount, className, setAmount }: CounterInpu
           <IconPlus />
         </button>
       </span>
-      <span className={styles.labelData}>{data.unit}</span>
+      <span className={styles.labelData}>{t(data.unit)}</span>
     </label>
   )
 }

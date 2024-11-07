@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import styles from './PrevStepButton.module.scss'
 
 type PrevStepButtonProps = {
@@ -5,6 +6,8 @@ type PrevStepButtonProps = {
 }
 
 export const PrevStepButton = ({ onClick }: PrevStepButtonProps) => {
+  const { t } = useTranslation('translation')
+
   return (
     <button className={styles.backStep} onClick={() => onClick()}>
       <svg
@@ -16,7 +19,7 @@ export const PrevStepButton = ({ onClick }: PrevStepButtonProps) => {
       >
         <path d='M11 6.5001L0.5 12.6381V0.362143L11 6.5001Z' fill='#1D2E5B' />
       </svg>
-      На шаг назад
+      {t('prevStep')}
     </button>
   )
 }

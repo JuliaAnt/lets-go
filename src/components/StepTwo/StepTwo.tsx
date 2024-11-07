@@ -8,6 +8,7 @@ import { useAppSelector } from '../../hooks/redux-hooks'
 import { getSelectedCountries } from '../../store/formData/formDataSelector'
 import { NextStepButton } from '../../ui/buttons/NextStepButton/NextStepButton'
 import { PrevStepButton } from '../../ui/buttons/PrevStepButton/PrevStepButton'
+import { useTranslation } from 'react-i18next'
 
 type StepTwoProps = {
   currentStep: StepsMap
@@ -15,17 +16,15 @@ type StepTwoProps = {
 }
 
 export const StepTwo = ({ currentStep, setCurrentStep }: StepTwoProps) => {
+  const { t } = useTranslation('translation')
   const [newSelect, setNewSelect] = useState<boolean>(false)
   const selectedCountriesState = useAppSelector(getSelectedCountries)
 
   return (
     <section className={styles.stepTwo}>
       <div className={styles.header}>
-        <h3>Шаг 2. Маршрут</h3>
-        <p>
-          Укажите страны, которые вы&nbsp;хотели&nbsp;бы посетить. Это может быть одна или сразу
-          несколько.
-        </p>
+        <h3>{t('stepTwo')}</h3>
+        <p>{t('stepTwoText')}</p>
         <StepsList currentStep={currentStep} />
       </div>
       <div className={styles.selectWrapper}>

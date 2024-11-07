@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import styles from './NextStepButton.module.scss'
 
 type NextStepButtonProps = {
@@ -5,9 +6,11 @@ type NextStepButtonProps = {
 }
 
 export const NextStepButton = ({ onClick }: NextStepButtonProps) => {
+  const { t } = useTranslation('translation')
+  
   return (
     <button className={styles.nextStepButton} onClick={() => onClick()}>
-      Следующий шаг
+      {t('nextStep')}
       <svg
         width='11'
         height='14'

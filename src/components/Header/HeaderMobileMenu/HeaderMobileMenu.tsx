@@ -1,7 +1,7 @@
 import styles from './headerMobileMenu.module.scss'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
-import iconMobile from '../../../assets/icons/header/icon-mobile-open.svg'
+import iconMobile from '../../../assets/icons/footer/logo-mobile_en.svg'
 import iconClose from '../../../assets/icons/header/icon-close.svg'
 import { ContactUsMobile } from './ContactUsMobile/ContactUsMobile'
 import { SocialMobile } from './SocialMobile/SocialMobile'

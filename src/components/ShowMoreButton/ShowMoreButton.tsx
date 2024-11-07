@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import styles from './ShowMoreButton.module.scss'
 
 type ShowMoreButtonProps = {
@@ -6,6 +7,7 @@ type ShowMoreButtonProps = {
 }
 
 export const ShowMoreButton = ({ isDisabled, showMoreCards }: ShowMoreButtonProps) => {
+  const { t } = useTranslation('translation')
   return (
     <button className={styles.showMore} disabled={isDisabled} onClick={showMoreCards}>
       <svg
@@ -26,7 +28,7 @@ export const ShowMoreButton = ({ isDisabled, showMoreCards }: ShowMoreButtonProp
           fill='#1D2E5B'
         />
       </svg>
-      Показать еще
+      {t('showMore')}
     </button>
   )
 }
