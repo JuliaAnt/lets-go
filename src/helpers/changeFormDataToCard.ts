@@ -11,7 +11,7 @@ export const changeFormDataToCard = (formData: FormData) => {
     countries: formData.selectedCountries,
     transport: formData.transportType,
     likes: Math.ceil(Math.random() * 2000),
-    level: Math.ceil(Math.random() * 100),
+    level: 80,
   }
 
   return newCard

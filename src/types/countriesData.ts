@@ -1,7 +1,7 @@
 export type CountryData = {
   flags: string
   alt: string
-  name: string
+  countryCode: string
   region: string
 }
 

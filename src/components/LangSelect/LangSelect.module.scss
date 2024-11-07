@@ -1,0 +1,53 @@
+@import '../../styles/variables.scss';
+
+.langSelectContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 7px;
+
+  .dropdownInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .arrowClose {
+      transition: transform 0.3s ease;
+      transform: rotateX(0);
+    }
+
+    .arrowOpen {
+      transition: transform 0.3s ease;
+      transform: rotateX(3.142rad);
+    }
+
+    .langFlag {
+      border-radius: 3px;
+    }
+  }
+}
+
+.dropdownMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  padding: 5px;
+  background-color: $color-default-white;
+  color: $color-basic-blue;
+  gap: 5px;
+  border-radius: 4px;
+  border: 1px solid $color-very-light-grey-2;
+
+  .dropdownItem {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+
+    .langFlag {
+      border: 1px solid $color-very-light-grey-2;
+      border-radius: 3px;
+    }
+  }
+}

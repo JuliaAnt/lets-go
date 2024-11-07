@@ -43,9 +43,9 @@ export const TRANSPORT_TYPES_LIST = [
 ]
 
 export const NAVIGATION_MAP = [
-  { id: 1, text: 'о сервисе', hoverText: 'О СЕРВИСЕ', url: AppRoute.MAIN },
-  { id: 2, text: 'направления', hoverText: 'НАПРАВЛЕНИЯ', url: AppRoute.FORM },
-  { id: 3, text: 'попутчики', hoverText: 'ПОПУТЧИКИ', url: AppRoute.CATALOG },
+  { id: 1, text: 'about', url: AppRoute.MAIN },
+  { id: 2, text: 'directions', url: AppRoute.FORM },
+  { id: 3, text: 'companions', url: AppRoute.CATALOG },
 ]
 
 export const COUNTER_INPUT_MAP = {
@@ -54,35 +54,35 @@ export const COUNTER_INPUT_MAP = {
     label: 'ищу попутчиков',
     min: 1,
     max: 10,
-    unit: 'чел.',
+    unit: 'travelerCounterUnit',
   },
   travelLength: {
     id: 'travelLength',
     label: 'длительность',
     min: 2,
     max: 31,
-    unit: 'дн.',
+    unit: 'travelLengthUnit',
   },
 }
 
-export const DAYS_OF_WEEK = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+export const DAYS_OF_WEEK = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 
 export const MONTHS_LIST = [
-  'Январь',
-  'Февраль',
-  'Март',
-  'Апрель',
-  'Май',
-  'Июнь',
-  'Июль',
-  'Август',
-  'Сентябрь',
-  'Октябрь',
-  'Ноябрь',
-  'Декабрь',
+  'january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december',
 ]
 
-export const ALPHABET_LETTERS = [
+export const ALPHABET_LETTERS_RU = [
   'А',
   'Б',
   'В',
@@ -109,6 +109,35 @@ export const ALPHABET_LETTERS = [
   'Ю',
   'Я',
 ]
+
+export const ALPHABET_LETTERS_EN = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'Y',
+  'Z',
+]
+
 export enum NameSpace {
   FORM_DATA = 'FORM_DATA',
   CATALOG_DATA = 'CATALOG_DATA',
@@ -123,19 +152,19 @@ export enum StepsMap {
 export const REGIONS_MAP = [
   {
     regionTitle: 'Европа',
-    regionName: 'europe',
+    regionName: 'Europe',
   },
   {
     regionTitle: 'Азия',
-    regionName: 'asia',
+    regionName: 'Asia',
   },
   {
     regionTitle: 'Америка',
-    regionName: 'america',
+    regionName: 'America',
   },
   {
-    regionTitle: 'Острова',
-    regionName: 'islands',
+    regionTitle: 'Океания',
+    regionName: 'Oceania',
   },
 ]
 
@@ -161,3 +190,9 @@ export const ERROR_MAP: Error[] = [
     errorText: 'Опишите, чем Вы планируете заниматься в каждой из стран',
   },
 ]
+
+export enum Languages {
+  EN = 'EN',
+  RU = 'RU',
+  PL = 'PL',
+}

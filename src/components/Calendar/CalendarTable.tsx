@@ -11,20 +11,20 @@ import {
   addMonths,
   parse,
 } from 'date-fns'
-import { ru } from 'date-fns/locale'
 import styles from './Calendar.module.scss'
 import { ReactComponent as ArrowBack } from '../../assets/arrow-back.svg'
 import { DAYS_OF_WEEK, MONTHS_LIST } from '../../utils/consts'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks'
 import { getTravelDates, getTravelDuration } from '../../store/formData/formDataSelector'
 import { changeEndTravelDate, changeStartTravelDate } from '../../store/formData/formDataSlice'
+import { useTranslation } from 'react-i18next'
 
 const startEndTravelLabel = (date: Date, dateFrom: Date | null, dateTo: Date | null) => {
   let label = ''
   if (dateFrom && isSameDay(date, dateFrom)) {
-    label = 'Заезд'
+    label = 'checkIn'
   } else if (dateTo && isSameDay(date, dateTo)) {
-    label = 'Выезд'
+    label = 'checkOut'
   }
   return label
 }
@@ -34,12 +34,8 @@ const getMonthTitle = (date: Date) => {
   return MONTHS_LIST[monthIndex]
 }
 
-const getMonthAbbreviation = (date: Date) => {
-  const monthAbbreviation = format(date, 'MMM', { locale: ru }).replace('.', '')
-  return ` ${monthAbbreviation}`
-}
-
 export function CalendarTable() {
+  const { t } = useTranslation('calendar')
   const dispatch = useAppDispatch()
   const travelDatesState = useAppSelector(getTravelDates)
 
@@ -132,7 +128,7 @@ export function CalendarTable() {
           <ArrowBack />
         </button>
         <p className={styles.currentMonth}>
-          {getMonthTitle(currentMonth)} {format(currentMonth, 'yyyy')}
+          {t(getMonthTitle(currentMonth))} {format(currentMonth, 'yyyy')}
         </p>
         <button
           className={styles.nextMonth}
@@ -147,12 +143,12 @@ export function CalendarTable() {
         <thead>
           <tr>
             {DAYS_OF_WEEK.map((day) => {
-              return day === 'Сб' || day === 'Вс' ? (
+              return day === 'sat' || day === 'sun' ? (
                 <th key={day} className={styles.dayOff}>
-                  {day}
+                  {t(day)}
                 </th>
               ) : (
-                <th key={day}>{day}</th>
+                <th key={day}>{t(day)}</th>
               )
             })}
           </tr>
@@ -193,11 +189,11 @@ export function CalendarTable() {
                     <div>
                       {format(day, 'd')}
                       <span className={styles.desktopText}>
-                        {day.getDate() === 1 && getMonthAbbreviation(day)}
+                        {day.getDate() === 1 && ` ${t(getMonthTitle(day)).slice(0, 3)}`}
                       </span>
                     </div>
                     <span className={styles.checkIn}>
-                      {range.from && range.to && startEndTravelLabel(day, range.from, range.to)}
+                      {range.from && range.to && t(startEndTravelLabel(day, range.from, range.to))}
                     </span>
                   </label>
                 </td>

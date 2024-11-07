@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
-import { countriesData } from '../../../data'
-import { ALPHABET_LETTERS } from '../../../utils/consts'
+import { Languages } from '../../../utils/consts'
 import styles from './CountriesData.module.scss'
 import React, { useEffect, useState } from 'react'
 import { CountriesDataType, CountryData } from '../../../types/countriesData'
+import i18n from '../../../localization/i18n'
+import { getCountriesByLetter } from '../../../helpers/getCountriesByLetter'
+import { useTranslation } from 'react-i18next'
 
 type CountriesDataProps = {
   selectedRegions: string[]
@@ -16,12 +18,22 @@ export const CountriesData: React.FC<CountriesDataProps> = ({
   selectedCountries,
   handleCountrySelect,
 }) => {
+  const { t } = useTranslation('countries')
   const [selectedLetter, setSelectedLetter] = useState<string>('letter-1')
   const [selectedIndex, setSelectedIndex] = useState<number | null>(0)
-  const [filteredCountries, setFilteredCountries] = useState<CountriesDataType[]>(countriesData)
+  const [filteredCountries, setFilteredCountries] = useState<CountriesDataType[]>([])
+  const [alphabetLetters, setAlphabetLetters] = useState<string[]>([])
 
   useEffect(() => {
-    const filteredCountriesData = countriesData
+    const updateCountries = () => {
+      const lang = i18n.language
+      return getCountriesByLetter(lang as Languages)
+    }
+
+    const countriesDataByLetter = updateCountries()
+    i18n.on('languageChanged', updateCountries)
+
+    const filteredCountriesData = countriesDataByLetter.sortedCountriesByLetter
       .map((countriesList) => ({
         ...countriesList,
         countries: countriesList.countries.filter((country) =>
@@ -33,8 +45,10 @@ export const CountriesData: React.FC<CountriesDataProps> = ({
     if (selectedRegions.length > 0) {
       setFilteredCountries(filteredCountriesData)
     } else {
-      setFilteredCountries(countriesData)
+      setFilteredCountries(countriesDataByLetter.sortedCountriesByLetter)
     }
+
+    setAlphabetLetters(countriesDataByLetter.alphabet)
   }, [selectedRegions])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +63,7 @@ export const CountriesData: React.FC<CountriesDataProps> = ({
     <div className={styles.countriesWrapper}>
       <div className={styles.lettersList}>
         <div className={styles.inputWrapper}>
-          {ALPHABET_LETTERS.map((letter, index) => (
+          {alphabetLetters.map((letter, index) => (
             <input
               key={letter}
               className={`lettersInput lettersInput--${index + 1}`}
@@ -63,7 +77,7 @@ export const CountriesData: React.FC<CountriesDataProps> = ({
         </div>
 
         <ul className={styles.lettersWrapper}>
-          {ALPHABET_LETTERS.map((letter, index) => (
+          {alphabetLetters.map((letter, index) => (
             <li key={letter} className={styles.lettersItem}>
               <label
                 className={`${styles.lettersButton} ${
@@ -90,14 +104,14 @@ export const CountriesData: React.FC<CountriesDataProps> = ({
             >
               {countries.map((country) => (
                 <li
-                  key={country.name}
+                  key={country.countryCode}
                   className={`${styles.countriesItem} ${
                     selectedCountries.includes(country) ? styles.countriesItemDown : ''
                   }`}
                   onClick={() => handleCountrySelect(country)}
                 >
                   <Link to='#' className={styles.countriesLink} data-region-type={country.region}>
-                    {country.name}
+                    {t(country.countryCode)}
                   </Link>
                 </li>
               ))}

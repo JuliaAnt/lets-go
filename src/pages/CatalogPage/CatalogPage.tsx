@@ -23,12 +23,16 @@ export const CatalogPage = () => {
   const [cardsPerPage, setCardsPerPage] = useState(CARDS_PER_PAGE)
 
   useEffect(() => {
-    if (filteredCards.length <= 0) {
+    if (!filteredCards.length && !loading) {
       setLoading(true)
-      dispatch(fetchCatalogData({ page: currentPage.toString(), limit: cardsPerPage.toString() }))
+      dispatch(
+        fetchCatalogData({ page: currentPage.toString(), limit: cardsPerPage.toString() }),
+      ).finally(() => setLoading(false))
+
       setLoading(false)
     }
-  }, [dispatch, cardsPerPage, currentPage, filteredCards])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, cardsPerPage, currentPage])
 
   // useEffect(() => {
   //   if (reloadStatus) {

@@ -6,12 +6,14 @@ import { useEffect, useState } from 'react'
 import { CountryFilter } from '../../components/StepTwo/CountryFilter/CountryFilter'
 import { FlagItem } from '../../components/StepTwo/FlagItem/FlagItem'
 import { CountryData } from '../../types/countriesData'
+import { useTranslation } from 'react-i18next'
 
 type SelectProps = {
   selectedCountry: CountryData | null
 }
 
 export const Select = ({ selectedCountry }: SelectProps) => {
+  const { t } = useTranslation(['translation', 'countries'])
   const [selectedOption, setSelectedOption] = useState<CountryData | null>(selectedCountry)
   const [isOpen, setOpen] = useState<boolean>(false)
 
@@ -26,12 +28,12 @@ export const Select = ({ selectedCountry }: SelectProps) => {
           className={`${styles.selectInner} ${isOpen ? styles.isOpen : ''}`}
           onClick={() => setOpen(!isOpen)}
         >
-          <p>{selectedOption ? selectedOption.name : 'Выберите страну'}</p>
+          <p>{selectedOption ? t(selectedOption.countryCode, { ns: 'countries' }) : t('selectCountry')}</p>
           <button className={styles.selectButton} type='button'>
             {isOpen ? (
-              <img src={iconClose} width={22} height={24} alt='Закрыть'></img>
+              <img src={iconClose} width={22} height={24} alt='Close'></img>
             ) : (
-              <img src={arrowBack} width={22} height={24} alt='Открыть'></img>
+              <img src={arrowBack} width={22} height={24} alt='Open'></img>
             )}
           </button>
         </div>
@@ -49,7 +51,7 @@ export const Select = ({ selectedCountry }: SelectProps) => {
         src={iconSmallArrow}
         width={10}
         height={10}
-        alt='Стрелка вниз'
+        alt='Arrow down'
       />
     </div>
   )

@@ -15,6 +15,7 @@ import {
   toggleChildrenAllowed,
 } from '../../store/formData/formDataSlice'
 import { NextStepButton } from '../../ui/buttons/NextStepButton/NextStepButton'
+import { useTranslation } from 'react-i18next'
 
 type StepOneProps = {
   currentStep: StepsMap
@@ -22,6 +23,7 @@ type StepOneProps = {
 }
 
 export const StepOne = ({ currentStep, setCurrentStep }: StepOneProps) => {
+  const { t } = useTranslation('translation')
   const dispatch = useAppDispatch()
   const companionsAmount = useAppSelector(getCompanionsAmount)
   const travelDuration = useAppSelector(getTravelDuration)
@@ -30,11 +32,8 @@ export const StepOne = ({ currentStep, setCurrentStep }: StepOneProps) => {
   return (
     <div className={styles.stepOne}>
       <div className={styles.wrapper}>
-        <h3>Шаг 1. Даты&nbsp;пребывания</h3>
-        <p>
-          Укажите предпочтительное количество попутчиков, которых вы&nbsp;хотели бы позвать в
-          поездку, и ее предполагаемую длительность.
-        </p>
+        <h3>{t('stepOne')}</h3>
+        <p>{t('stepOneText')}</p>
         <StepsList currentStep={currentStep} />
       </div>
       <div className={styles.inputWrapper}>
@@ -44,9 +43,9 @@ export const StepOne = ({ currentStep, setCurrentStep }: StepOneProps) => {
           setAmount={(amount: number) => dispatch(changeCompanionsAmount(amount))}
         />
         <CounterInput
+          className='secondInput'
           data={COUNTER_INPUT_MAP.travelLength}
           amount={travelDuration}
-          className={styles.secondInput}
           setAmount={(duration: number) => dispatch(changeTravelDuration(duration))}
         />
         <div className={styles.checkboxWrapper}>
@@ -56,7 +55,7 @@ export const StepOne = ({ currentStep, setCurrentStep }: StepOneProps) => {
             defaultChecked={isChildrenAllowed}
             onClick={() => dispatch(toggleChildrenAllowed(!isChildrenAllowed))}
           />
-          <label htmlFor='acceptChildren'> Можно с детьми </label>
+          <label htmlFor='acceptChildren'>{t('acceptChildren')}</label>
         </div>
       </div>
 

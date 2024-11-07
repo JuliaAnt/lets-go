@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom'
 import { getCards } from '../../store/catalogData/catalogDataSelector'
 import { EmptyEntertainments } from './EmptyEntertainments/EmptyEntertainments'
 import { changeReloadStatus } from '../../store/catalogData/catalogDataSlice'
+import { useTranslation } from 'react-i18next'
 
 type StepThreeProps = {
   currentStep: StepsMap
@@ -21,6 +22,7 @@ type StepThreeProps = {
 }
 
 export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
+  const { t } = useTranslation('translation')
   const dispatch = useAppDispatch()
   const formDataState = useAppSelector(getFormDataState)
   const selectedCountriesState = formDataState.selectedCountries
@@ -73,21 +75,18 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
   return (
     <section className={styles.StepThree}>
       <div className={styles.header}>
-        <h3>Шаг 3. Развлечения</h3>
-        <p>
-          Наконец, расскажите о&nbsp;своих планах времяпровождения. <br />
-          Можно писать в&nbsp;свободной форме и&nbsp;ставить тэги.
-        </p>
+        <h3>{t('stepThree')}</h3>
+        <p>{t('stepThreeText')}</p>
         <StepsList currentStep={currentStep} />
       </div>
       <div className={styles.textareaWrapper}>
         {selectedCountriesState.length > 0 ? (
           selectedCountriesState.map((country, index) => {
             const entertainmentState = entertainmentsState.find(
-              (entertainment) => entertainment.country === country.name,
+              (entertainment) => entertainment.country === country.countryCode,
             )
             return (
-              <div key={country.name} className={styles.entertainmentItem}>
+              <div key={country.countryCode} className={styles.entertainmentItem}>
                 <EntertainmentComponent
                   entertainmentState={entertainmentState}
                   country={country}
@@ -95,7 +94,7 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
                   handleBlur={handleBlur}
                 />
                 <div className={styles.areaFlags}>
-                  <img src={country.flags} width={70} height={47} alt={country.alt} />
+                  <img src={country.flags} alt={country.alt} />
                   <div className={styles.decorDesktop}>
                     <svg
                       width='14'
@@ -169,9 +168,9 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
           onClick={handleSubmit}
           disabled={Boolean(errors.length !== 0)}
         >
-          Отправить
+          {t('sendForm')}
           <span>
-            <img src={iconArrowButton} width={14} height={14} alt='Отправить' />
+            <img src={iconArrowButton} width={14} height={14} alt='Send' />
           </span>
         </button>
         <PrevStepButton onClick={() => setCurrentStep(StepsMap.STEP_TWO)} />
@@ -179,7 +178,7 @@ export const StepThree = ({ currentStep, setCurrentStep }: StepThreeProps) => {
       {errors.length > 0 && (
         <div className={styles.errorList}>
           {errors.map((error) => (
-            <div key={error.errorName}>{error.errorText}</div>
+            <div key={error.errorName}>{t(error.errorName)}</div>
           ))}
         </div>
       )}

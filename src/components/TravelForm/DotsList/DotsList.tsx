@@ -10,15 +10,15 @@ export const DotsList = ({ currentStep }: DotsListProps) => {
     <ul className={styles.dotsList}>
       <li
         className={`${currentStep === StepsMap.STEP_ONE ? styles.current : ''}`}
-        aria-label='Первый шаг'
+        aria-label='Step one'
       ></li>
       <li
         className={`${currentStep === StepsMap.STEP_TWO ? styles.current : ''}`}
-        aria-label='Второй шаг'
+        aria-label='Step two'
       ></li>
       <li
         className={`${currentStep === StepsMap.STEP_THREE ? styles.current : ''}`}
-        aria-label='Третий шаг'
+        aria-label='Step three'
       ></li>
     </ul>
   )

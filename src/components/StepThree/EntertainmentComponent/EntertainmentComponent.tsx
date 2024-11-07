@@ -2,6 +2,7 @@ import styles from '../StepThree.module.scss'
 import { CountryData } from '../../../types/countriesData'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { Entertainment } from '../../../types/entertainments'
+import { useTranslation } from 'react-i18next'
 
 type EntertainmentComponentProps = {
   country: CountryData
@@ -16,6 +17,7 @@ export const EntertainmentComponent = ({
   entertainmentState,
   handleBlur,
 }: EntertainmentComponentProps) => {
+  const { t } = useTranslation(['translation', 'countries'])
   const [inputValue, setInputValue] = useState<string>('')
   const [isEmpty, setIsEmpty] = useState<boolean>(false)
 
@@ -41,20 +43,20 @@ export const EntertainmentComponent = ({
   }
 
   return (
-    <div key={country.name} className={styles.entertainmentComponent}>
-      <p>{country.name}</p>
+    <div key={country.countryCode} className={styles.entertainmentComponent}>
+      <p>{t(country.countryCode, { ns: 'countries' })}</p>
       <div className={styles.errorWrapper}>
         <textarea
           name='top'
           id='top'
           value={inputValue}
           maxLength={200}
-          placeholder='План действий'
+          placeholder={t('activityPlaceholder')}
           onChange={(e) => handleInputChange(e)}
-          onBlur={() => onElementBlur(inputValue, country.name)}
+          onBlur={() => onElementBlur(inputValue, country.countryCode)}
           className={isEmpty ? styles.errorBorder : ''}
         ></textarea>
-        {isEmpty && <div className={styles.errorMessage}>Это поле должно быть заполнено</div>}
+        {isEmpty && <div className={styles.errorMessage}>{t('activityError')}</div>}
       </div>
     </div>
   )

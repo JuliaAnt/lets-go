@@ -99,7 +99,7 @@
 
 .inputWrapper {
   display: grid;
-  grid-template-columns: 48% auto;
+  grid-template-columns: 50% auto;
   grid-template-rows: auto auto;
   padding-bottom: 33px;
   border-bottom: 1px solid $color-hawkes-blue;
@@ -128,7 +128,7 @@
   display: block;
   left: auto;
   margin-top: 25px;
-  transform: translateX(27px);
+  // transform: translateX(27px);
 
   input[type='checkbox'] {
     display: none;
@@ -232,9 +232,11 @@
   color: $color-catalina-blue;
   font-weight: 500;
   font-size: 20px;
-  line-height: 18px;
+  line-height: 25px;
   text-transform: uppercase;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 180px 70px;
+  column-gap: 18px;
   justify-content: space-between;
   align-items: center;
 
@@ -273,14 +275,6 @@
       svg {
         stroke: $color-midnight-express;
       }
-    }
-  }
-
-  &:last-of-type {
-    padding-right: 8px;
-
-    .inputInner {
-      margin-left: 23px;
     }
   }
 
@@ -327,10 +321,6 @@
 }
 
 .secondInput {
-  .inputInner {
-    margin-left: 20px;
-  }
-
   @media (max-width: ($vp-1024 - 1px)) {
     order: 3;
 
@@ -411,9 +401,9 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
-input[type='number'] {
-  -moz-appearance: textfield;
-}
+// input[type='number'] {
+//   -moz-appearance: textfield;
+// }
 
 .labelData {
   @media (max-width: ($vp-1024 - 1px)) {

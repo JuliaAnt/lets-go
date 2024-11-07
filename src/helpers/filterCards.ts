@@ -15,7 +15,7 @@ export const filterCards = (
     const countryMatch =
       selectedCountries.length > 0
         ? card.countries.some((country) =>
-            selectedCountries.some((selectedCountry) => selectedCountry.name === country.name),
+            selectedCountries.some((selectedCountry) => selectedCountry.countryCode === country.countryCode),
           )
         : true
 

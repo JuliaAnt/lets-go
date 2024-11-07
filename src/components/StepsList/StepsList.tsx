@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { StepsMap } from '../../utils/consts'
 import styles from './StepsList.module.scss'
 
@@ -6,6 +7,8 @@ interface StepsListProps {
 }
 
 export const StepsList = ({ currentStep }: StepsListProps) => {
+  const { t } = useTranslation('translation')
+
   return (
     <ul className={styles.stepsList}>
       <li
@@ -13,21 +16,21 @@ export const StepsList = ({ currentStep }: StepsListProps) => {
           styles.stepsItem
         }`}
       >
-        Даты
+        {t('dates')}
       </li>
       <li
         className={`${currentStep === StepsMap.STEP_TWO ? styles.currentStep : ''} ${
           styles.stepsItem
         }`}
       >
-        маршрут
+        {t('route')}
       </li>
       <li
         className={`${currentStep === StepsMap.STEP_THREE ? styles.currentStep : ''} ${
           styles.stepsItem
         }`}
       >
-        развлечения
+        {t('activities')}
       </li>
     </ul>
   )
