@@ -125,8 +125,10 @@ export const TravelerCard = ({ card, uuidState }: TravelerCardProps) => {
               height={24}
               alt={country.alt}
             />
-            <span className={styles.toolTip}>{t(country.countryCode)}</span>
-            <span className={styles.countryName}>{t(country.countryCode)}</span>
+            <span className={styles.toolTip}>{t(country.countryCode, { ns: 'countries' })}</span>
+            <span className={styles.countryName}>
+              {t(country.countryCode, { ns: 'countries' })}
+            </span>
           </li>
         ))}
       </ul>

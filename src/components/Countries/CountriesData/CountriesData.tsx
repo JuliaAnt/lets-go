@@ -27,6 +27,22 @@ export const CountriesData: React.FC<CountriesDataProps> = ({
   useEffect(() => {
     const updateCountries = () => {
       const lang = i18n.language
+      const countriesData = getCountriesByLetter(lang as Languages)
+      setAlphabetLetters(countriesData.alphabet)
+      setFilteredCountries(countriesData.sortedCountriesByLetter)
+    }
+
+    updateCountries()
+    i18n.on('languageChanged', updateCountries)
+
+    return () => {
+      i18n.off('languageChanged', updateCountries)
+    }
+  }, [])
+
+  useEffect(() => {
+    const updateCountries = () => {
+      const lang = i18n.language
       return getCountriesByLetter(lang as Languages)
     }
 

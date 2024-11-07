@@ -160,7 +160,7 @@ export const REGIONS_MAP = [
   },
   {
     regionTitle: 'Америка',
-    regionName: 'America',
+    regionName: 'Americas',
   },
   {
     regionTitle: 'Океания',
