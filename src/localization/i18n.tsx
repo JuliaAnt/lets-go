@@ -10,6 +10,9 @@ import countriesRu from '../locales/ru/countries.json'
 import calendarEn from '../locales/en/calendar.json'
 import calendarPl from '../locales/pl/calendar.json'
 import calendarRu from '../locales/ru/calendar.json'
+import filtersEn from '../locales/en/filters.json'
+import filtersPl from '../locales/pl/filters.json'
+import filtersRu from '../locales/ru/filters.json'
 import { Languages } from '../utils/consts'
 
 const resources = {
@@ -17,16 +20,19 @@ const resources = {
     translation: translationEn,
     countries: countriesEn,
     calendar: calendarEn,
+    filters: filtersEn,
   },
   PL: {
     translation: translationPl,
     countries: countriesPl,
     calendar: calendarPl,
+    filters: filtersPl,
   },
   RU: {
     translation: translationRu,
     countries: countriesRu,
     calendar: calendarRu,
+    filters: filtersRu,
   },
 }
 

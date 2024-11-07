@@ -8,11 +8,13 @@ import iconBicycle from '../../assets/icons/intro/icon_bicycle.svg'
 import iconRun from '../../assets/icons/intro/icon_run.svg'
 import arrowDown from '../../assets/triangle-2.svg'
 import iconCheck from '../../assets/icon_check.svg'
+import { useTranslation } from 'react-i18next'
 
 type Section = 'hobby' | 'music' | 'food' | 'transport' | 'level'
 type OpenSectionsState = Record<Section, boolean>
 
 export const Filter = () => {
+  const { t } = useTranslation('filters')
   const [openSections, setOpenSections] = useState<OpenSectionsState>({
     hobby: false,
     music: true,
@@ -40,7 +42,7 @@ export const Filter = () => {
 
   return (
     <article className={`${styles.wrapperFilter}`}>
-      <h2>Подберите идеального попутчика</h2>
+      <h2>{t('filtersTitle')}</h2>
       <div className={`${styles.accordionFilter}`} data-accordion='parent' data-single>
         <form action='get'>
           {sections.map((section, index) => (
@@ -53,14 +55,14 @@ export const Filter = () => {
                 >
                   <span>
                     {section === 'hobby'
-                      ? 'хобби'
+                      ? t('hobby')
                       : section === 'music'
-                      ? 'музыка'
+                      ? t('music')
                       : section === 'food'
-                      ? 'еда'
+                      ? t('food')
                       : section === 'transport'
-                      ? 'транспорт'
-                      : 'левел'}
+                      ? t('transport')
+                      : t('level')}
                   </span>
                   <img
                     className={`${styles.arrow} ${openSections[section] ? styles.arrowOpen : ''}`}
@@ -82,7 +84,7 @@ export const Filter = () => {
                   {section === 'hobby' && (
                     <div className={`${styles.accordionWrapperFilter}`}>
                       <label htmlFor='sport' tabIndex={0}>
-                        <input type='checkbox' id='sport' name='sport'/>
+                        <input type='checkbox' id='sport' name='sport' />
                         <span>
                           <img
                             className={styles.arrow}
@@ -92,7 +94,7 @@ export const Filter = () => {
                             alt='check'
                           />
                         </span>
-                        Спортзал
+                        {t('sport')}
                       </label>
                       <label htmlFor='shisha' tabIndex={0}>
                         <input type='checkbox' id='shisha' name='shisha' />
@@ -105,7 +107,7 @@ export const Filter = () => {
                             alt='check'
                           />
                         </span>
-                        Кальян
+                        {t('hookah')}
                       </label>
                       <label htmlFor='couch' tabIndex={0}>
                         <input type='checkbox' id='couch' name='couch' />
@@ -118,7 +120,7 @@ export const Filter = () => {
                             alt='check'
                           />
                         </span>
-                        Диван
+                        {t('sofa')}
                       </label>
                     </div>
                   )}
@@ -135,7 +137,7 @@ export const Filter = () => {
                             alt='check'
                           />
                         </span>
-                        Тяжелый рок
+                        {t('rock')}
                       </label>
                       <label htmlFor='rap' tabIndex={0}>
                         <input type='checkbox' id='rap' name='rap' />
@@ -148,7 +150,7 @@ export const Filter = () => {
                             alt='check'
                           />
                         </span>
-                        Русский рэп
+                        {t('rap')}
                       </label>
                       <label htmlFor='eurodance' tabIndex={0}>
                         <input type='checkbox' id='eurodance' name='eurodance' />
@@ -161,7 +163,7 @@ export const Filter = () => {
                             alt='check'
                           />
                         </span>
-                        Евроденс
+                        {t('eurodance')}
                       </label>
                     </div>
                   )}
@@ -178,7 +180,7 @@ export const Filter = () => {
                             alt='check'
                           />
                         </span>
-                        Мясоед
+                        {t('meat')}
                       </label>
                       <label htmlFor='proper' tabIndex={0}>
                         <input type='checkbox' id='proper' name='proper' />
@@ -191,7 +193,7 @@ export const Filter = () => {
                             alt='check'
                           />
                         </span>
-                        Сидит на ПП
+                        {t('proper')}
                       </label>
                       <label htmlFor='raw' tabIndex={0}>
                         <input type='checkbox' id='raw' name='raw' />
@@ -204,7 +206,7 @@ export const Filter = () => {
                             alt='check'
                           />
                         </span>
-                        Веган-сыроед
+                        {t('raw')}
                       </label>
                     </div>
                   )}
