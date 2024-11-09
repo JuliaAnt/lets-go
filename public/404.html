@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="3;url=/lets-go/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <h1>Page not found. Redirecting...</h1>
+    <p>If you are not redirected automatically, <a href="/lets-go/">click here</a>.</p>
+
+    <script type="text/javascript">
+      // Редирект на index.html с сохранением пути
+      var redirectTo = window.location.pathname.replace('/lets-go', '')
+      window.location.replace('/lets-go/' + redirectTo)
+    </script>
+  </body>
+</html>
