@@ -47,7 +47,7 @@ i18n
   .init({
     resources,
     supportedLngs: [Languages.EN, Languages.PL, Languages.RU],
-    fallbackLng: Languages.RU,
+    fallbackLng: Languages.EN,
     debug: false,
     // interpolation: {
     //   escapeValue: false, // not needed for react as it escapes by default
