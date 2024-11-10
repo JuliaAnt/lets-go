@@ -11,12 +11,13 @@
     <p>If you are not redirected automatically, <a href="/lets-go/">click here</a>.</p>
 
     <script type="text/javascript">
+      // Проверка, чтобы не выполнять редирект, если URL уже правильный
       if (
-        !window.location.pathname.includes('/lets-go/index.html') &&
-        !window.location.pathname.endsWith('/lets-go/')
+        window.location.pathname.startsWith('/lets-go/') &&
+        window.location.pathname !== '/lets-go/'
       ) {
-        var redirectTo = window.location.pathname.replace('/lets-go', '')
-        window.location.replace('/lets-go/' + redirectTo)
+        var pathWithoutBase = window.location.pathname.replace(/^\/lets-go\/+/, '') // Убираем лишние слэши и базовый путь
+        window.location.replace('/lets-go/' + pathWithoutBase)
       }
     </script>
   </body>
