@@ -2,23 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="3;url=/lets-go/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting...</title>
+    <title>404 - Page Not Found</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      h1 {
+        font-size: 5rem;
+        color: #333;
+      }
+      p {
+        font-size: 1.5rem;
+        color: #666;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #0073e6;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      a:hover {
+        background-color: #005bb5;
+      }
+    </style>
   </head>
   <body>
-    <h1>Page not found. Redirecting...</h1>
-    <p>If you are not redirected automatically, <a href="/lets-go/">click here</a>.</p>
-
-    <script type="text/javascript">
-      // Проверка, чтобы не выполнять редирект, если URL уже правильный
-      if (
-        window.location.pathname.startsWith('/lets-go/') &&
-        window.location.pathname !== '/lets-go/'
-      ) {
-        var pathWithoutBase = window.location.pathname.replace(/^\/lets-go\/+/, '') // Убираем лишние слэши и базовый путь
-        window.location.replace('/lets-go/' + pathWithoutBase)
-      }
-    </script>
+    <h1>404</h1>
+    <p>Page not found</p>
+    <a href="/lets-go/">Go to Home Page</a>
   </body>
 </html>
