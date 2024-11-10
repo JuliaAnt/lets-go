@@ -4,11 +4,11 @@ import { CatalogPage } from '../../pages/CatalogPage/CatalogPage'
 import { FormPage } from '../../pages/FormPage/FormPage'
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage'
 
-const basename = process.env.NODE_ENV === 'production' ? '/lets-go' : '/'
+// const basename = process.env.NODE_ENV === 'production' ? '/lets-go' : '/'
 
 export const RoutesContent = () => {
   return (
-    <HashRouter basename={basename}>
+    <HashRouter>
       <Routes>
         <Route path={AppRoute.CATALOG} element={<CatalogPage />} />
         <Route path={AppRoute.FORM} element={<FormPage />} />
