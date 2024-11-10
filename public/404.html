@@ -11,9 +11,13 @@
     <p>If you are not redirected automatically, <a href="/lets-go/">click here</a>.</p>
 
     <script type="text/javascript">
-      // Редирект на index.html с сохранением пути
-      var redirectTo = window.location.pathname.replace('/lets-go', '')
-      window.location.replace('/lets-go/' + redirectTo)
+      if (
+        !window.location.pathname.includes('/lets-go/index.html') &&
+        !window.location.pathname.endsWith('/lets-go/')
+      ) {
+        var redirectTo = window.location.pathname.replace('/lets-go', '')
+        window.location.replace('/lets-go/' + redirectTo)
+      }
     </script>
   </body>
 </html>
