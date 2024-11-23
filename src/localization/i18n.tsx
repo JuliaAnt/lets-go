@@ -13,6 +13,9 @@ import calendarRu from '../locales/ru/calendar.json'
 import filtersEn from '../locales/en/filters.json'
 import filtersPl from '../locales/pl/filters.json'
 import filtersRu from '../locales/ru/filters.json'
+import landingEn from '../locales/en/landing.json'
+import landingPl from '../locales/pl/landing.json'
+import landingRu from '../locales/ru/landing.json'
 import { Languages } from '../utils/consts'
 
 const resources = {
@@ -21,18 +24,21 @@ const resources = {
     countries: countriesEn,
     calendar: calendarEn,
     filters: filtersEn,
+    landing: landingEn,
   },
   PL: {
     translation: translationPl,
     countries: countriesPl,
     calendar: calendarPl,
     filters: filtersPl,
+    landing: landingPl,
   },
   RU: {
     translation: translationRu,
     countries: countriesRu,
     calendar: calendarRu,
     filters: filtersRu,
+    landing: landingRu,
   },
 }
 

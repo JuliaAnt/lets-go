@@ -8,7 +8,7 @@ export const CARDS_PER_PAGE = 4
 
 export enum AppRoute {
   MAIN = '/',
-  FORM = '/',
+  FORM = '/form',
   CATALOG = '/catalog',
 }
 
@@ -196,3 +196,22 @@ export enum Languages {
   RU = 'RU',
   PL = 'PL',
 }
+
+export const TRAVEL_STEPS = [
+  {
+    stepName: 'step1',
+    stepNumber: 1,
+  },
+  {
+    stepName: 'step2',
+    stepNumber: 2,
+  },
+  {
+    stepName: 'step3',
+    stepNumber: 3,
+  },
+  {
+    stepName: 'step4',
+    stepNumber: 4,
+  },
+]
