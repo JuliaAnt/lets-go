@@ -2,8 +2,13 @@
 
 .introWrapper {
   background: no-repeat url('../../../assets/images/globe-back-desktop.svg');
+  background-position: center;
   background-size: cover;
   width: 100%;
+
+  @media (max-width: ($vp-768 - 1)) {
+    background-position: calc(50%);
+  }
 
   .travellerImg {
     display: flex;
@@ -13,6 +18,24 @@
     background-position: calc(72%) bottom;
     padding: 197px 60px 115px;
 
+    @media (max-width: ($vp-1280 - 1px)) {
+      background: no-repeat url('../../../assets/images/traveller-illustration-tablet.svg');
+      background-position: calc(85%) bottom;
+    }
+
+    @media (max-width: ($vp-1024 - 1px)) {
+      gap: 450px;
+      padding: 158px 54px 0;
+      background-position: calc(85%) calc(100% - 79px);
+    }
+
+    @media (max-width: ($vp-768 - 1)) {
+      background: no-repeat url('../../../assets/images/traveller-illustration-mobile.svg');
+      background-position: calc(85%) calc(100% - 113px);
+      padding: 100px 25px 0;
+      gap: 291px;
+    }
+
     .introTitle {
       margin: 0;
       color: $color-default-white;
@@ -21,37 +44,72 @@
       line-height: 70px;
       font-variant: all-small-caps;
       max-width: 519px;
+
+      @media (max-width: ($vp-1024 - 1)) {
+        font-variant: normal;
+        font-size: 60px;
+      }
+
+      @media (max-width: ($vp-768 - 1)) {
+        font-size: 36px;
+        line-height: 40px;
+      }
     }
 
     .travelSteps {
-      display: flex;
       width: 100%;
-      //   justify-content: space-around;
-      position: relative;
-      border-radius: 0.5rem;
-      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      @media (max-width: ($vp-1280 - 1px)) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: ($vp-1024 - 1)) {
+        margin-bottom: -201px;
+      }
+
+      @media (max-width: ($vp-768 - 1)) {
+        grid-template-columns: repeat(1, 1fr);
+      }
 
       .travelStep {
         display: flex;
         justify-content: space-between;
-        position: relative;
+        gap: 10px;
         text-align: center;
-        padding: 1rem;
         color: $color-midnight-express;
         font-weight: 700;
         font-size: 22px;
         line-height: 24px;
-        z-index: 1;
         border-radius: 20px;
         padding: 30px 0 30px 30px;
+
+        @media (max-width: ($vp-1024 - 1px)) {
+          flex-direction: column;
+        }
+
+        @media (max-width: ($vp-768 - 1)) {
+          flex-direction: row;
+          min-height: 36px;
+          font-size: 18px;
+          line-height: 18px;
+        }
       }
 
       .step1 {
         background-color: $color-special-blue;
         z-index: 10;
-        display: flex;
-        flex: calc((100% / 4) + 30px);
         padding-right: 62px;
+
+        @media (max-width: ($vp-1280 - 1px)) {
+          border-radius: 20px 20px 0 0;
+        }
+
+        @media (max-width: ($vp-768 - 1)) {
+          border-radius: 20px;
+          padding: 22px 24px 44px;
+        }
       }
 
       .step2 {
@@ -59,9 +117,19 @@
         z-index: 20;
         margin-left: -30px;
         filter: drop-shadow(-4px 0px 10px rgba(0, 0, 0, 0.25));
-        display: flex;
-        flex: calc((100% / 4) + 30px);
         padding-right: 62px;
+
+        @media (max-width: ($vp-1280 - 1px)) {
+          padding-right: 33px;
+          border-radius: 20px 20px 0 0;
+        }
+
+        @media (max-width: ($vp-768 - 1)) {
+          border-radius: 20px;
+          padding: 22px 24px 44px;
+          margin-left: 0;
+          margin-top: -22px;
+        }
       }
 
       .step3 {
@@ -69,9 +137,20 @@
         z-index: 30;
         margin-left: -30px;
         filter: drop-shadow(-4px 0px 10px rgba(0, 0, 0, 0.25));
-        display: flex;
-        flex: calc((100% / 4) + 30px);
         padding-right: 62px;
+
+        @media (max-width: ($vp-1280 - 1px)) {
+          margin-left: 0;
+          filter: none;
+          border-radius: 0 0 20px 20px;
+        }
+
+        @media (max-width: ($vp-768 - 1)) {
+          border-radius: 20px;
+          padding: 22px 24px 44px;
+          margin-left: 0;
+          margin-top: -22px;
+        }
       }
 
       .step4 {
@@ -79,19 +158,41 @@
         z-index: 40;
         margin-left: -30px;
         filter: drop-shadow(-4px 0px 10px rgba(0, 0, 0, 0.25));
-        display: flex;
-        flex: calc(100% / 4);
         padding-right: 33px;
+
+        @media (max-width: ($vp-1280 - 1px)) {
+          border-radius: 0 0 20px 20px;
+        }
+
+        @media (max-width: ($vp-768 - 1)) {
+          border-radius: 20px;
+          padding: 22px 24px;
+          margin-left: 0;
+          margin-top: -22px;
+        }
       }
 
       .stepName {
         max-width: 200px;
         text-align: start;
+
+        @media (max-width: ($vp-768 - 1)) {
+          max-width: 162px;
+        }
       }
 
       .stepNumber {
         color: $color-default-white;
         font-size: 24px;
+
+        @media (max-width: ($vp-1280 - 1px)) {
+          text-align: start;
+        }
+
+        @media (max-width: ($vp-768 - 1)) {
+          font-size: 18px;
+          line-height: 18px;
+        }
       }
     }
   }
