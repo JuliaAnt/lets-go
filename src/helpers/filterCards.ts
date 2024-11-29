@@ -15,12 +15,13 @@ export const filterCards = (
     const countryMatch =
       selectedCountries.length > 0
         ? card.countries.some((country) =>
-            selectedCountries.some((selectedCountry) => selectedCountry.countryCode === country.countryCode),
+            selectedCountries.some(
+              (selectedCountry) => selectedCountry.countryCode === country.countryCode,
+            ),
           )
         : true
 
     return regionMatch && countryMatch
   })
-  console.log(filteredCards)
   return filteredCards
 }

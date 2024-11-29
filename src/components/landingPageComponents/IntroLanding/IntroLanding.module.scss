@@ -5,6 +5,19 @@
   background-position: center;
   background-size: cover;
   width: 100%;
+  position: relative;
+  z-index: 2;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; // Сколько накладывается вниз
+    left: 0;
+    width: 100%;
+    height: 50px; // Высота накладываемой части
+    background-color: inherit; // Подставьте нужный цвет
+    z-index: -1; // Отправляем ниже основной части
+  }
 
   @media (max-width: ($vp-768 - 1)) {
     background-position: calc(50%);

@@ -1,0 +1,107 @@
+@import '../../../styles/variables.scss';
+
+.aboutWrapper {
+  background-color: $color-midnight-express-3;
+  background-image: url('../../../assets/images/about-back-desktop.png');
+  background-repeat: no-repeat;
+  background-position: 90% bottom;
+  margin-top: -50px;
+  border-radius: 0px 0px 60px 60px;
+  z-index: 90;
+  padding: 130px 72px 163px;
+  color: $color-default-white;
+
+  @media (max-width: ($vp-1280)) {
+    background-image: url('../../../assets/images/about-back-tablet.png');
+    background-position: 100% calc(100% - 163px);
+    margin-top: 0;
+  }
+
+  @media (max-width: ($vp-1024 - 1)) {
+    background-position: 100% calc(100% - 88px);
+    margin-top: 0;
+    padding: 319px 47px 88px;
+  }
+
+  @media (max-width: ($vp-768 - 1)) {
+    background-image: url('../../../assets/images/about-back-mobile.png');
+    background-size: 292px auto;
+    background-position: 100% calc(100% + 95px);
+    padding: 247px 25px 26px;
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  .textBlock {
+    max-width: 643px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      margin: 0;
+      font-size: 95px;
+      font-weight: 700;
+      line-height: 66px;
+      font-variant: all-small-caps;
+      color: inherit;
+      margin-bottom: 19px;
+
+      @media (max-width: ($vp-1024 - 1)) {
+        margin-bottom: 37px;
+      }
+
+      @media (max-width: ($vp-768 - 1)) {
+        margin-bottom: 19px;
+        font-size: 50px;
+        line-height: 24px;
+      }
+    }
+
+    .text {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 34px;
+      color: inherit;
+      margin-bottom: 58px;
+
+      @media (max-width: ($vp-1024 - 1)) {
+        max-width: 438px;
+        line-height: 33px;
+        font-weight: 500;
+        min-height: 184px;
+        margin-bottom: 85px;
+      }
+
+      @media (max-width: ($vp-768 - 1)) {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 400;
+        min-height: 110px;
+        margin-bottom: 38px;
+      }
+    }
+
+    .subText {
+      font-weight: 100;
+      font-size: 22px;
+      line-height: 24px;
+      color: inherit;
+      font-style: normal;
+      margin-bottom: 137px;
+      max-width: 503px;
+
+      @media (max-width: ($vp-1024 - 1)) {
+        font-size: 21px;
+        line-height: 25px;
+        max-width: 419px;
+        font-weight: 300;
+        margin-bottom: 142px;
+      }
+
+      @media (max-width: ($vp-768 - 1)) {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
