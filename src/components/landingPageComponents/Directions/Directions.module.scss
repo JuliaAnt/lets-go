@@ -1,0 +1,78 @@
+@import '../../../styles/variables.scss';
+
+.directionsWrapper {
+  display: flex;
+  gap: 113px;
+  padding: 95px 72px 163px;
+  background-color: $color-default-white;
+  box-sizing: border-box;
+  z-index: 100;
+
+  .countriesBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: $color-basic-blue-light;
+    padding: 183px 72px 163px;
+    box-sizing: border-box;
+    border-radius: 0 0 40px 40px;
+    margin-top: -183px;
+    margin-left: -72px;
+
+    .country {
+      filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.3));
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: left;
+      background-color: $color-default-white;
+      border-radius: 20px;
+      min-width: 607px;
+      //   max-height: 140px;
+
+      .countryInfo {
+        padding: 24px 30px 21px;
+      }
+
+      .name {
+        margin: 0;
+        margin-bottom: 4px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 24px;
+        //   color: #000000;
+      }
+
+      .text {
+        margin: 0;
+        margin-bottom: 23px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 20px;
+        color: #444444;
+        opacity: 0.3;
+      }
+
+      .travelers {
+        display: flex;
+        gap: 12px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 20px;
+
+        span {
+          color: #161c35;
+          opacity: 0.3;
+        }
+      }
+
+      .flag {
+        width: 70px;
+        height: 47px;
+        object-fit: cover;
+        position: absolute;
+        right: 165px;
+        top: 23px;
+      }
+    }
+  }
+}

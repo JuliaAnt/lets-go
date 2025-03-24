@@ -7,9 +7,10 @@
   background-position: 90% bottom;
   margin-top: -50px;
   border-radius: 0px 0px 60px 60px;
-  z-index: 90;
+  z-index: 1;
   padding: 130px 72px 163px;
   color: $color-default-white;
+  position: relative;
 
   @media (max-width: ($vp-1280)) {
     background-image: url('../../../assets/images/about-back-tablet.png');
